@@ -1,0 +1,46 @@
+.cabecera {
+	background: #FFCC00;
+	color: white;
+    height: 14%;
+    position: absolute;
+    left:0px; 
+    right:0px; 
+    top:0px;
+    z-index:0;  
+}
+
+#id_logo{
+    height: 130.5px;
+    width: 300px;
+    margin-left: 2%;
+}
+#id_home{
+    margin-left:77%;
+    height: 60px;
+    width: 60px;
+    margin-top: -8%;
+}
+#id_publicacion{
+    margin-left:80.5%;
+    height: 60px;
+    width: 60px;
+    margin-top: -10.5%;
+}
+#id_perfil{
+    margin-left:83.8%;
+    height: 60px;
+    width: 60px;
+    margin-top: -13%;
+}
+#id_chat{
+    margin-left:87.5%;
+    height: 60px;
+    width: 60px;
+    margin-top: -15.5%;
+}
+#id_reloj2{
+    margin-left:95%;
+    height: 60px;
+    width: 50px;
+    margin-top: -18%;
+}
