@@ -1,0 +1,159 @@
+.huella{
+
+    width: 250px;
+    height: 250px;
+    transform: rotate(35deg);
+}
+
+
+
+.container{
+
+    margin: 25px;
+}
+
+#div2{
+
+    float: left;
+}
+
+.card-img-top{
+
+    width: 250px;
+    height: 250px;
+    margin-left: 25%;
+}
+
+.zona{
+
+    /* font-size: 15px; */
+    color: rgb(255, 204, 0);
+    font-weight: bold;
+    float: left;
+}
+
+.card{
+
+    width: 500px;
+    margin: 30px;
+    height: 650px;
+    box-shadow: 3px 3px #e9e8e8;
+    margin-left: 10%;
+    
+}
+
+.card-text{
+
+    text-align: justify;
+}
+
+.card-title{
+
+    text-align: center;
+}
+
+.fecha{
+
+    float: right;
+    margin-left: 20px;
+    color: rgb(124, 124, 124);
+    /* font-size: 13px; */
+}
+
+.monedas{
+    float: right;
+    font-family: reckless;
+    font-size: 50px;
+    margin-top: -2.5%;
+}
+
+.reloj{
+
+    width: 35px;
+    height: 35px;
+    float: right;
+    margin-top: 2%;
+}
+
+.solicitar{
+    margin-top: 1%;
+    width: 150px;
+    height: 45px;
+    font-size: 20px;
+}
+
+#boton1{
+
+    color: white;
+    font-weight: bold;
+
+
+}
+
+#boton2{
+
+    color: white;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-left: 8%;
+
+
+}
+
+#avatar{
+
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    
+
+}
+
+#div1{
+
+    padding-top: 30px;
+    padding-right: 100px;
+}
+
+#div3{
+
+    padding-top: 30px;
+    padding-left: 150px;
+}
+
+.estrella{
+
+    width: 35px;
+    height: 35px;
+    
+
+}
+
+#estrellas{
+
+    margin-left: 0.6%;
+
+
+
+}
+
+#publicadas{
+
+    margin-left: -2%;
+
+}
+
+#bio{
+
+    text-align: justify;
+    width: 350px;
+    height: 200px;
+    margin-left: -15%;
+}
+
+@font-face{
+
+    font-family: 'Reckless';
+    src: local('Reckless'),
+    url('../../../assets/Reckless.otf')
+}

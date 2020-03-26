@@ -1,46 +1,26 @@
-.cabecera {
-	background: #FFCC00;
-	color: white;
-    height: 80px;
-    position: absolute;
-    left:0px; 
-    right:0px; 
-    top:0px;
-    z-index:0;  
-}	
-.pie {
 
-	background: #FFCC00;
-	color: white;
-    height: 80px;
-    position: absolute;
-    left:0px; 
-    right:0px; 
-    bottom:0px;
-    z-index:0;
-}
 
 .perfil {
 
-    background:white;
+  background:white;
 	color: white;
-    height: 100%;
-    width: 20%;
-    position: absolute;
-    left:0px; 
-    right:0px; 
-    bottom:0px;
-    z-index:-1;
+  height: 100%;
+  width: 20%;
+  position: absolute;
+  left:0px; 
+  right:0px; 
+  bottom:0px;
+  z-index:-1;
 
 }
 
 .container{
 
-    margin: 0 auto;
-    align-content: center;
-    margin-left: 25%;
-    width: 600px;
-    margin-top:8%;
+  margin: 0 auto;
+  align-content: center;
+  margin-left: 30%;
+  width: 600px;
+  margin-top:5%;
 
 }
 

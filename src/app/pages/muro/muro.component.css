@@ -1,0 +1,227 @@
+#barraBuscar{
+
+    border-radius: 40px;
+}
+
+#barraBuscar:focus{
+
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+    border-color:#FFCC00;
+}
+
+#ul1{
+
+    margin-top: -3.7%;
+    
+}
+
+.botonArriba{
+
+    margin: 10px;
+    border-radius: 40px;
+    width: 180px;
+    font-size: 18px;
+
+}
+
+#button1{
+
+    background-color: rgb(255, 204, 0);
+    color: white;
+    font-weight: bold;
+
+    
+}
+
+#button1:hover{
+
+    background-color: white;
+    color: rgb(255, 204, 0);
+    border-color: rgb(255, 204, 0);
+}
+
+#button2{
+
+    font-weight: bold;
+
+
+}
+
+#button2:hover{
+
+    color: white;
+}
+
+#hr1{
+
+    margin-top: -0.7%;
+    background-color: rgb(255, 204, 0);
+    height: 1px;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.card-img-top{
+
+    width: 310px;
+    height: 220px;
+}
+
+.zona{
+
+    /* font-size: 15px; */
+    color: rgb(255, 204, 0);
+    font-weight: bold;
+    float: left;
+}
+
+.card{
+
+    width: 310px;
+    float: left;
+    margin: 22px;
+    height: 500px;
+    box-shadow: 3px 3px #e9e8e8;
+    
+}
+
+.card-text{
+
+    text-align: justify;
+}
+
+.card-title{
+
+    cursor: pointer;
+}
+
+.fecha{
+
+    float: right;
+    margin-left: 20px;
+    color: rgb(124, 124, 124);
+    /* font-size: 13px; */
+}
+
+.monedas{
+    float: right;
+    font-family: reckless;
+    font-size: 35px;
+    margin-top: -2.5%;
+}
+
+.reloj{
+
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin-top: 2.5%;
+}
+
+.solicitar{
+    margin-top: 1%;
+}
+
+#botonx{
+
+    color: white;
+    font-weight: bold;
+
+
+}
+
+.container{
+
+    padding: 16px;
+}
+
+
+
+.modal-header, .modal-body{
+
+    background-color: rgb(255, 204, 0);
+    border: none;
+}
+
+.modal-header{
+
+    height: 100px;
+    color: white;
+    
+}
+
+.modal-body{
+
+    height: 550px;
+}
+
+.elmodal{
+
+    border-radius: 200px;
+}
+
+#h4filtro{
+
+    font-family: Reckless;
+    font-size: 60px;
+    margin-left: 175px;
+}
+
+.imgflitro{
+
+    width: 90px;
+    height: 90px;
+    border-radius: 15px;
+    margin: 12px;
+    cursor: pointer;
+}
+
+.inputFiltro{
+
+    border-radius: 15px;
+}
+
+.inputsFiltro{
+
+    border: none;
+    height: 50px;
+}
+
+#botonFiltro{
+
+    background-color: rgb(47, 47, 47);
+    border-radius: 50px;
+    font-size: 30px;
+    font-family: Reckless;
+    width: 200px;
+    margin-top: 12px;
+    margin-left: 132.5px;
+    border: none;
+    
+}
+
+#container1{
+
+    float: initial;
+}
+
+@font-face{
+
+    font-family: 'Reckless';
+    src: local('Reckless'),
+    url('../../../assets/Reckless.otf')
+}

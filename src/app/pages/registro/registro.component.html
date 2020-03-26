@@ -1,0 +1,83 @@
+<body>
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-3"> 
+              <h1>OUT <span class = "blanco">TIME</span> </h1> 
+          </div>
+      
+          <form id ="horizontalForm">
+           <div class="form-row">
+                <div class="col has-search">
+              
+                  <input type="text" class="form-control" placeholder="Email" id="email">
+                </div>
+                <div class="col">
+                  <input type="password" class="form-control" placeholder="Contraseña" id="Password">
+                </div>
+                <div class="col">
+                <button routerLink="/muro" type="submit" id ="loginBoton" class="btn btn-primary">Iniciar Sesión</button>
+              </div>
+          </div>
+  
+            </form>
+          </div>
+  </div>
+  
+      <div id = "espacio" class="container-fluid">
+          <div class="row"> 
+              <div class="col-12"></div>
+          </div>
+      </div>
+  
+      <div class="container-fluid">
+          <div class="row">
+        
+              <div id= "tiempoLeft" class="col-6"> 
+                  <h2><span class= "blanco"> TIEMPO POR </span> TIEMPO <br>
+                      <span class="blanco"> GASTA TU TIEMPO EN LO QUE DE VERDAD TE</span> GUSTE <br>
+                      <span class = "blanco">NO PIERAS MÁS EL TIEMPO Y</span> UNETE
+                  </h2>
+              </div>
+  
+          <div id = "tictac" class="col-6"> 
+          <h2 CLASS= "blanco"> TIC TAC TIC TAC TIC TAC TIC TAC TIC <br>
+        TAC TIC TAC TIC TAC TIC TAC TIC TAC!</h2> 
+              <button (click) = " openModal(template)"id= "registro"> Regístrate </button>
+              </div>
+          </div>
+      </div>
+  
+         
+  <ng-template #template class="elmodal" >
+      <div id="elmodal" class="modal-header">
+        <h2 id = "modalTitle" class="modal-title pull-center">OUT <span class = "blanco">TIME</span></h2>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+    
+        </button>
+      </div>
+  
+      <div id="elmodal" class="modal-body">
+          <form>
+              <div class="form-group">
+                  <label class= "blanco">Crea tu cuenta:</label>
+                  <input id= "modalInput" type="text" class="form-control" placeholder="Nombre">
+              </div>
+              <div class="form-group">
+                  <input id= "modalInput" type="text" class="form-control" placeholder="Email">
+              </div>
+      
+  
+              <div class="form-group">
+                  <input id= "modalInput" type="password" class="form-control" placeholder="Contraseña">
+              </div>
+              <div class="form-group">
+                      <button routerLink="/muro" id ="modalBoton" type="submit" class="btn btn-dark">Tic Tac</button>
+              </div>
+        </form>
+      </div>
+     
+    </ng-template>
+  
+  </body>
+  

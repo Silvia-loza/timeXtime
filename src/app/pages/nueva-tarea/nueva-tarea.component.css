@@ -1,0 +1,141 @@
+@font-face {
+    font-family: "Reckless";
+    src: local("Reckless"), url("../../../assets/Reckless.otf");
+  }
+
+  p {
+      color: white;
+      height: 37px;
+      
+
+      
+    
+  }
+  
+
+  .espacio{
+      width: 700px;
+      height: 25px;
+      
+  }
+  
+  #contenedor1 {
+    width: 670px;
+    height: 220px;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    background: white;
+    padding-top: 10px;
+    
+  }
+  
+  form {
+    background: white;
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+  }
+  
+  .img-ts {
+    width: 158px;
+    height: 158px;
+    cursor: pointer;
+    margin-left: 1px;
+    padding: 8px; 
+    
+
+  }
+  
+  body {
+    background: #ECEFF1;
+  }
+  
+  /* .campos{
+
+    height: 50px;
+  } */
+  .campos:focus{
+
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+    border-color:#FFCC00;
+
+  }
+  
+  #div1 {
+    width: 700px;
+  }
+  
+  #botonxl {
+    width: 120px;
+    height: 120px;
+    padding: 10px 16px;
+    border-radius: 65px;
+    font-size: 24px;
+    line-height: 1.33;
+    background: #2F2F2F;
+    margin-left: 260px;
+    color: white;
+    font-size: xx-large;
+    font-family: Reckless;
+  }
+  
+  /* Estilo del área del input[file] */
+  
+  
+  .drag-drop {
+    height: 8em;
+    width: 8em;
+    background-color: #eceff1;
+    border-radius: 1em;
+    text-align: center;
+    color: white;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .drag-drop span.desc {
+    display: block;
+    font-size: 0.7em;
+    padding: 0 0.5em;
+    color:#2F2F2F ;
+    
+  
+  }
+  
+  input[type="file"] {
+    height: 10em;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+  }
+  /* Estilo del área del input[file] con :hover */
+  
+  
+  .drag-drop:hover,
+  input[type="file"]:hover {
+    background-color: rgb(255, 204, 0);
+    cursor: pointer;
+  }
+  
+  .drag-drop:hover span.desc {
+    color: #fff;
+  }
+  
+  /* Composición del icono de Upload con FontAwesome */
+  
+  .fa-stack {
+    margin-top: 0.5em;
+  }
+  .fa-stack .top {
+    color: white;
+  }
+  .fa-stack .medium {
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 0.25em rgb(253, 253, 253);
+  }
+  .fa-stack .bottom {
+    color: rgb(255, 204, 0);
+  }

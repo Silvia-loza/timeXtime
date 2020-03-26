@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light" id="nav1" >
+    <div class=" col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        
+      <div class="form-group has-search" >
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" class="form-control" placeholder="Buscar..." id="barraBuscar">
+      </div>
+            
+    </div>
+    <div class=" col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+        
+    </div>
+    <div class=" col-1 col-sm-2 col-md-2 col-lg-3 col-xl-3">
+      <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto" id="ul1">
+      
+            <li class="nav-item active">
+              <button class="btn botonArriba" type="button" id="button1" (click)="openModal(template)">Filtros</button>
+            </li>
+            <li class="nav-item active">
+              <button routerLink="/nueva-tarea" class="btn btn-outline-warning botonArriba" type="submit" id="button2"> <i class="fa fa-plus-circle"></i> Nueva petición 
+                
+              </button>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </nav>
+
+  <hr id="hr1">
+
+
+  <div class="container" id="container1">
+
+    <!-- <div class=" col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+
+
+    </div> -->
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+      <div class="card " id="card1">
+        <img class="card-img-top" src="..\..\..\assets\cat.png" alt="Card image cap">
+        
+        <div class="card-body">
+          <h6 class="zona">Alcorcón, Madrid</h6>
+          <h6 class="fecha">25/04/2020</h6>
+          <br>
+          <br>
+          <h5 class="card-title" routerLink="/oferta">¿Alguien puede cuidar de mii gato?</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content... </p>
+          
+          <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
+          <h6 class="monedas">10</h6>
+
+          <a class="btn btn-warning solicitar" id="botonx">Solicitar</a>
+        </div>
+      </div>
+
+      <div class="card " id="card1">
+        <img class="card-img-top" src="..\..\..\assets\cat.png" alt="Card image cap">
+        
+        <div class="card-body">
+          <h6 class="zona">Alcorcón, Madrid</h6>
+          <h6 class="fecha">25/04/2020</h6>
+          <br>
+          <br>
+          <h5 class="card-title" routerLink="/oferta">¿Alguien puede cuidar de mii gato?</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content... </p>
+          
+          <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
+          <h6 class="monedas">10</h6>
+
+          <a class="btn btn-warning solicitar" id="botonx">Solicitar</a>
+        </div>
+      </div>
+
+      <div class="card " id="card1">
+        <img class="card-img-top" src="..\..\..\assets\cat.png" alt="Card image cap">
+        
+        <div class="card-body">
+          <h6 class="zona">Alcorcón, Madrid</h6>
+          <h6 class="fecha">25/04/2020</h6>
+          <br>
+          <br>
+          <h5 class="card-title" routerLink="/oferta">¿Alguien puede cuidar de mii gato?</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content... </p>
+          
+          <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
+          <h6 class="monedas">10</h6>
+
+          <a class="btn btn-warning solicitar" id="botonx">Solicitar</a>
+        </div>
+      </div>
+
+      <div class="card " id="card1">
+        <img class="card-img-top" src="..\..\..\assets\cat.png" alt="Card image cap">
+        
+        <div class="card-body">
+          <h6 class="zona">Alcorcón, Madrid</h6>
+          <h6 class="fecha">25/04/2020</h6>
+          <br>
+          <br>
+          <h5 class="card-title" routerLink="/oferta">¿Alguien puede cuidar de mii gato?</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content... </p>
+          
+          <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
+          <h6 class="monedas">10</h6>
+
+          <a class="btn btn-warning solicitar" id="botonx">Solicitar</a>
+        </div>
+      </div>
+
+      <div class="card " id="card1">
+        <img class="card-img-top" src="..\..\..\assets\cat.png" alt="Card image cap">
+        
+        <div class="card-body">
+          <h6 class="zona">Alcorcón, Madrid</h6>
+          <h6 class="fecha">25/04/2020</h6>
+          <br>
+          <br>
+          <h5 class="card-title" routerLink="/oferta">¿Alguien puede cuidar de mii gato?</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content... </p>
+          
+          <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
+          <h6 class="monedas">10</h6>
+
+          <a class="btn btn-warning solicitar" id="botonx">Solicitar</a>
+        </div>
+      </div>
+
+      <div class="card " id="card1">
+        <img class="card-img-top" src="..\..\..\assets\cat.png" alt="Card image cap">
+        
+        <div class="card-body">
+          <h6 class="zona">Alcorcón, Madrid</h6>
+          <h6 class="fecha">25/04/2020</h6>
+          <br>
+          <br>
+          <h5 class="card-title" routerLink="/oferta">¿Alguien puede cuidar de mii gato?</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content... </p>
+          
+          <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
+          <h6 class="monedas">10</h6>
+
+          <a class="btn btn-warning solicitar" id="botonx">Solicitar</a>
+        </div>
+      </div>
+
+      
+
+
+    </div>
+
+    <!-- <div class=" col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+
+
+    </div> -->
+
+  </div>
+  
+  <!-- <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br> -->
+
+  
+  
+
+  <ng-template #template class="elmodal">
+    <div class="modal-header">
+      <h4 class="modal-title pull-center" id="h4filtro">Filtros</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+  
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <div> <label >Categorías:</label>
+
+        <br>
+
+        <img class="imgflitro" src="..\..\..\assets\cat2.jpg" alt="">
+        <img class="imgflitro" src="..\..\..\assets\cat2.jpg" alt="">
+        <img class="imgflitro" src="..\..\..\assets\cat2.jpg" alt="">
+        <img class="imgflitro" src="..\..\..\assets\cat2.jpg" alt="">
+
+      </div>
+      <form>
+        <div class="form-group">
+          <label >Expira el:</label>
+          <input type="date" class="form-control inputsFiltro" aria-describedby="emailHelp" placeholder="">
+          
+        </div>
+        <div class="form-group">
+          <label >Precio:</label>
+          <input type="password" class="form-control inputsFiltro" placeholder="Introduzca precio mínimo">
+        </div>
+        <div class="form-group">
+          <label >Localización:</label>
+          <input type="password" class="form-control inputsFiltro" placeholder="Seleccione localización">
+        </div>
+        
+        <button type="submit" class="btn btn-primary" id="botonFiltro">Buscar</button>
+      </form>
+    </div>
+  </ng-template>
+
+  
+  
+</body>
+
+
+</html>
+

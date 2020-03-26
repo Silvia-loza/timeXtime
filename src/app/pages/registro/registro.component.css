@@ -1,0 +1,154 @@
+@font-face {
+    font-family:'Reckless';
+    src: local("Reckless"),
+    url('../../../assets/Reckless.otf');
+}
+
+body {
+    background-color: #FFCC00;
+    height: 100vh;
+    width: 100%;
+    font-family:Reckless;
+   
+}
+
+.blanco {
+    color:white; 
+}
+
+h1 {
+    font-size:80px;
+    margin-top: 1%;
+    margin-left: 15%
+    
+}
+
+#horizontalForm {
+    margin-top: 3%;
+    margin-left: 40%;
+
+}
+
+input{
+    border-radius: 15px;
+    margin-left: 3%;
+  
+}
+#modalInput {
+    border-radius: 8px;
+    height: 65px;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+
+#email {
+    background-position: 5%;
+    padding-left: 30px;
+    width:190px;
+    background-image: url('../../../assets/atprueba.jpg');
+    background-repeat: no-repeat;
+    background-size: 18px;
+    height: 50px;
+    border-radius: 30px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  
+
+    
+}
+#Password {
+    background-position: 5%;
+    padding-left: 30px;
+    width:190px;
+    background-image: url('../../../assets/llave.png');
+    background-repeat: no-repeat;
+    background-size: 18px;
+    height: 50px;
+    border-radius: 30px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    
+    
+}
+
+#email:focus, #Password:focus{
+
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+    border-color:#FFCC00;
+}
+#loginBoton {
+    background-color: #2F2F2F;
+    color: white;
+    height: 50px;
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-left: 3%;
+    width: 150px;
+    border-style: none;
+}
+#espacio {
+    height: 20%;
+}
+#tiempoLeft {
+   margin-top: 10%;
+   padding-right: 10%;
+   text-align: right;
+}
+h2 {
+    font-size: 45px;
+    font-family: 'reckless';
+}
+#tictac {
+    padding-left: 5%;
+    
+}
+#registro {
+    background-color: #2F2F2F;
+    color: white;
+    border-radius: 100%;
+    width: 180px;
+    height: 180px;
+    font-size: 54px;
+    margin-top: 8%;
+    margin-left: 15%;
+    border-style: none;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  
+}
+
+#modalInput:focus{
+
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+    border-color:#FFCC00;
+}
+
+
+#elmodal {
+    background-color: #FFCC00;
+    font-size: 20px;
+   
+}
+#modalTitle {
+    font-size: 80px;
+   margin-left: 30%;
+}
+#modalBoton {
+    margin-left: 31%;
+    font-family: 'reckless';
+    font-size: 30px;
+    border-radius: 45px;
+    width: 180px;
+    height: fit-content;
+    background-color: #2F2F2F;
+}
+
+.modal-header{
+
+    border: none;
+}
+
+.close:focus{
+
+    box-shadow: none;
+}
