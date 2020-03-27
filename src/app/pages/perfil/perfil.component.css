@@ -1,4 +1,4 @@
-
+/* 
 
 .perfil {
 
@@ -86,7 +86,7 @@
   
 
 }
-/* Estrellas */
+
 .clasificacion{
     position: absolute;
     margin-left: 4.4%;
@@ -129,27 +129,99 @@
   input[type="radio"]:checked ~ label {
     color:#FFCC00;
   }
-  #tareas{
-    position: absolute;
-    margin-left: 4.5%;
-    z-index:20;
-    bottom: 38%;
-    color: #2F2F2F;
+#tareas{
+  position: absolute;
+  margin-left: 4.5%;
+  z-index:20;
+  bottom: 38%;
+  color: #2F2F2F;
 
+}
 
-  }
 #id_reloj{
 
-    width: 60px;
-    height: 60px;
-    margin-left: 13%;
-    bottom: 28%;
-    position: absolute;
+  width: 60px;
+  height: 60px;
+  margin-left: 13%;
+  bottom: 28%;
+  position: absolute;
 }
 #tiempo{
-    position: absolute;
-    margin-left: 9%;
-    z-index:20;
-    bottom: 28%;
-    color: #2F2F2F;
+  position: absolute;
+  margin-left: 9%;
+  z-index:20;
+  bottom: 28%;
+  color: #2F2F2F;
+} */
+
+
+#id_perfil{
+
+  border-radius: 200px;
+  height: 220px;
+  width: 220px;
+  margin-top: 30%;
+}
+
+#tiempo{
+
+  text-align: center;
+}
+
+#id_reloj{
+
+  height: 45px;
+  width: 45px;
+  /* float: right; */
+}
+
+.start label {
+  font-size:55px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color:#FFCC00;
+}
+
+input[type="radio"]:checked ~ label {
+  color:#FFCC00;
+}
+
+#bio:focus, input:focus, input[type]:focus{
+  
+  border-color:#FFCC00;
+  box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+  outline: 0 none;
+}
+
+
+.formulario{
+
+  margin-top: 17%;
+}
+
+#guardar{
+
+  margin-top: 25%;
+  margin-left: 13%;
+  width: 180px;
+  height: 60px;
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
+  border-radius: 40px;
 }

@@ -6,13 +6,10 @@
   p {
       color: white;
       height: 37px;
-      
-
-      
+    }
     
-  }
-  
-
+    
+    
   .espacio{
       width: 700px;
       height: 25px;
@@ -21,7 +18,7 @@
   
   #contenedor1 {
     width: 670px;
-    height: 220px;
+    height: 240px;
     border: 1px solid #ccc;
     border-radius: 0.5em;
     background: white;
@@ -85,10 +82,9 @@
   .drag-drop {
     height: 8em;
     width: 8em;
-    background-color: #eceff1;
+    background-color: #d8d8d8;
     border-radius: 1em;
     text-align: center;
-    color: white;
     position: relative;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -97,7 +93,7 @@
     display: block;
     font-size: 0.7em;
     padding: 0 0.5em;
-    color:#2F2F2F ;
+    color:rgb(224, 224, 224) ;
     
   
   }
@@ -127,15 +123,15 @@
   /* Composición del icono de Upload con FontAwesome */
   
   .fa-stack {
-    margin-top: 0.5em;
+    margin-top: 1em;
   }
   .fa-stack .top {
-    color: white;
+    color: rgb(255, 204, 0);
   }
   .fa-stack .medium {
     color: rgb(255, 255, 255);
     text-shadow: 0 0 0.25em rgb(253, 253, 253);
   }
   .fa-stack .bottom {
-    color: rgb(255, 204, 0);
+    color: rgb(255, 254, 254);
   }

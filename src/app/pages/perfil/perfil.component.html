@@ -1,75 +1,117 @@
 <body>
-<div class="foto_perfil">
-    <img src ="https://ximg.es/300.png/09f/fff" id="id_perfil">
-</div>
 
-<div class="perfil"></div>
+
+
 
 <div class="container">
 
-    <form>
+  <div class="row">
+
+    <div class="col-lg-3">
+
+      
+      <img src ="https://ximg.es/300.png/09f/fff" id="id_perfil">
+    
+
+      <form class="start">
+        <p class="clasificacion">
+          <input id="radio1" type="radio" name="estrellas" value="5">
+          <label for="radio1">★</label>
+          <input id="radio2" type="radio" name="estrellas" value="4">
+          <label for="radio2">★</label>
+          <input id="radio3" type="radio" name="estrellas" value="3">
+          <label for="radio3">★</label>
+          <input id="radio4" type="radio" name="estrellas" value="2">
+          <label for="radio4">★</label>
+          <input id="radio5" type="radio" name="estrellas" value="1">
+          <label for="radio5">★</label>
+        </p>
+      </form>
+      <h5 id="tareas">5 publicadas | 2 realizadas</h5>
+      
+      
+      
+      <h1 id="tiempo">200 <img src ="../../../assets/reloj.png" id="id_reloj"> </h1>
+      
+    
+      <button type="button" id= "guardar" class="btn btn-warning">Guardar</button>
+
+
+
+    </div>
+
+    
+
+    <div class="col-lg-6">
+
+      <form class="formulario">
         <div class="form-row">
-        <div class="form-group col-md-6">
+          <div class="form-group col-md-6">
             <label for="formGroupExampleInput">Nombre</label>
             <input type="text" class="form-control" id="name" placeholder="Introduce tu nombre">
           </div>
         </div>
+    
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="formGroupExampleInput">Primer apellido</label>
             <input type="text" class="form-control" id="lastname1" placeholder="Introduce tu primer apellido">
           </div>
-        
+          
           <div class="form-group col-md-6">
             <label for="formGroupExampleInput">Segundo apellido</label>
             <input type="text" class="form-control" id="lastname2" placeholder="Introduce tu segundo apellido">
           </div>
         </div> 
-
+    
         <div class="form-row">
-        <label for="inputPassword5">Contraseña</label>
-        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-      </div>
-
-        <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="formGroupExampleInput">Telefono</label>
-            <input type="tel" class="form-control" id="telf" placeholder="Introduce tu telefono">
-          </div>
-
-          <div class="form-group col-md-6">
-          <label for="exampleFormControlInput1">Email</label>
-          <input type="email" class="form-control" id="mail" placeholder="Introduce tu email">
+          <label for="formGroupExampleInput">Contraseña</label>
+          <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Introduce tu contraseña">
         </div>
-    </div>
-
+    
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="formGroupExampleInput">Teléfono</label>
+            <input type="tel" class="form-control" id="telf" placeholder="Introduce tu teléfono">
+          </div>
+    
+          <div class="form-group col-md-6">
+            <label for="exampleFormControlInput1">Email</label>
+            <input type="email" class="form-control" id="mail" placeholder="Introduce tu email">
+          </div>
+        </div>
+    
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Biografia</label>
           <textarea class="form-control" maxlength="500" id="bio" rows="10"></textarea>
         </div>
       </form>
+
+
+      
+    </div>
+
+    <div class="col-lg-3">
+
+
+      
+    </div>
+
+
+
+  </div>
+
+  
+
+
+
+
+
+
 </div>
 
-<button type="button" id= "guardar"class="btn btn-warning">Guardar</button>
 
-<form class="start">
-    <p class="clasificacion">
-      <input id="radio1" type="radio" name="estrellas" value="5">
-      <label for="radio1">★</label>
-      <input id="radio2" type="radio" name="estrellas" value="4">
-      <label for="radio2">★</label>
-      <input id="radio3" type="radio" name="estrellas" value="3">
-      <label for="radio3">★</label>
-      <input id="radio4" type="radio" name="estrellas" value="2">
-      <label for="radio4">★</label>
-      <input id="radio5" type="radio" name="estrellas" value="1">
-      <label for="radio5">★</label>
-    </p>
-  </form>
-  <h4 id="tareas">5 publicadas | 2 realizadas</h4>
-  <h1 id="tiempo">200</h1>
-<div class="tiempo">
-  <img src ="../../../assets/reloj.png" id="id_reloj">
-</div>
+
+
 
 </body>
