@@ -5,7 +5,15 @@
     float: left;
     margin: 3.5px;
     margin-top: 25px;
+    cursor: pointer;
+
+    
 }
+
+.icono:focus,.icono:active {
+    outline: none;
+    box-shadow: none;
+ }
 
 #id_home{
     margin-left: 50%;
