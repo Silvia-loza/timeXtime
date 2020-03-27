@@ -139,3 +139,8 @@
   textarea{
     resize: none;
   }
+
+  #masinfo{
+
+    height: 150px;
+  }
