@@ -1,206 +1,150 @@
 @font-face {
-    font-family: principal;
-    src: url(../../../assets/Reckless.otf) format("opentype");
-  }
-
-
-.perfil {
-
-    background:white;
-	color: white;
-    height: 100%;
-    width: 20%;
-    position: absolute;
-    left:0px; 
-    right:0px; 
-    bottom:0px;
-    z-index:-1;
+  font-family: principal;
+  src: url(../../../assets/Reckless.otf) format("opentype");
+}
+#plus{
+  position: absolute;
+  margin-left: -17%;
+  font-size: 40px;
+  bottom: 40%;
 
 }
-
-.container{
-
-    margin: 0 auto;
-    align-content: center;
-    margin-left: 25%;
-    width: 600px;
-    margin-top:8%;
-
-}
-
-#nueva_peticion{
-    position: absolute;
-    left:5.5%; 
-    right:0px; 
-    bottom:26%;
-    z-index:10;
-    border-radius: 50px;
-    width: 250px;
-    height: 70px;
-    color:#FFCC00;
-    font-weight: bolder;
-    font-size: large;
-    border-color: #FFCC00;
-    border-width: 2px;
+#text{
+  font-size: large;
+  margin-left: 10%;
 }
 
 #id_perfil{
-
-    border-radius: 200px;    
-    margin-left: 4.2%;
-    position: absolute;
-    bottom: 52%;
-  
-
+border-radius: 200px;
 }
-/* Estrellas */
-.clasificacion{
-    position: absolute;
-    margin-left: 4.4%;
-    z-index:20;
-    bottom: 35%;
-}
-#start {
-    width: 250px;
-    margin: 0 auto;
-    height: 50px;
-
-  }
-  
-  #start p {
-    text-align: center;
-  }
-  
-  .start label {
-    font-size:70px;
-  }
-  
-  input[type="radio"] {
-    display: none;
-  }
-  
-  label {
-    color: grey;
-  }
-  
-  .clasificacion {
-    direction: rtl;
-    unicode-bidi: bidi-override;
-  }
-  
-  label:hover,
-  label:hover ~ label {
-    color:#FFCC00;
-  }
-  
-  input[type="radio"]:checked ~ label {
-    color:#FFCC00;
-  }
-  #tareas{
-    position: absolute;
-    margin-left: 4.5%;
-    z-index:20;
-    bottom: 38%;
-    color: #2F2F2F;
-
-
-  }
-#id_reloj{
-
-    width: 60px;
-    height: 60px;
-    margin-left: 13%;
-    bottom: 28%;
-    position: absolute;
-}
-#tiempo{
-    position: absolute;
-    margin-left: 9%;
-    z-index:20;
-    bottom: 28%;
-    color: #2F2F2F;
-}
-#plus{
-    position: absolute;
-    margin-left: -70%;
-    font-size: 40px;
-    bottom: 23%;
+#nombre{
+margin-top: 2%;
+margin-left: 4%;
 }
 
-#nueva_peticion { 
-    background-color: transparent;
-    color: #FFCC00;
-    border: 2px solid #FFCC00;
-    border-radius: 50px;
+/* ESTRELLAS */
+
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
 }
- 
+
+#form p {
+  text-align: center;
+}
+
+.start label {
+  font-size:70px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
+/* Reloj */
+#id_tiempo{
+  height: 45px;
+  width: 45px;
+  margin-left: 20%;
+}
+
 #nueva_peticion:hover {
-    background-color: #FFCC00;
-    color: white;
-    text-decoration: none;
+  background-color: #FFCC00;
+  color: white;
+  text-decoration: none;
 }
+
 #tareas_realizadas{
-    width: 400px;
-    height: 80px;
-    border-radius: 15px;
-    font-family: principal;
-    font-size: 400%;
-    background-color: transparent;
-    border-color:#FFCC00 ;
-    color:#FFCC00 ;
+  width: 360px;
+  height: 80px;
+  border-radius: 15px;
+  font-family: principal;
+  font-size: 400%;
+  background-color: transparent;
+  border-color:#FFCC00 ;
+  color:#FFCC00 ;
 }
 #tareas_publicadas{
-    width: 400px;
-    height: 80px;
-    margin-left: 300%;
-    position: absolute;
-    border-radius: 15px;
-    font-family: principal;
-    font-size: 400%;
-    background-color: transparent;
-    border-color:#FFCC00 ;
-    color:#FFCC00 ;
-   
-    
-}
-
-#text1 {
-    position: absolute;
-    bottom: -20%;
+  width: 360px;
+  height: 80px;
+  margin-left: 10%;
+  position: absolute;
+  border-radius: 15px;
+  font-family: principal;
+  font-size: 400%;
+  background-color: transparent;
+  border-color:#FFCC00 ;
+  color:#FFCC00 ;
+ 
+  
 }
 
 #tareas_realizadas:hover {
-    background-color: #FFCC00;
-    color: white;
-    text-decoration: none;
+  background-color: #FFCC00;
+  color: white;
+  text-decoration: none;
 }
 
 #tareas_realizadas:focus {
-    background-color: #FFCC00;
-    color: white;
-    text-decoration: none;
+  background-color: #FFCC00;
+  color: white;
+  text-decoration: none;
 }
 #tareas_publicadas:focus {
-    background-color: #FFCC00;
-    color:white;
-    text-decoration: none;
+  background-color: #FFCC00;
+  color:white;
+  text-decoration: none;
 }
 
 #tareas_publicadas:hover {
-    background-color: #FFCC00;
-    color: white;
-    text-decoration: none;
-}
-#text2 {
-    position: absolute;
-    bottom: -20%;
+  background-color: #FFCC00;
+  color: white;
+  text-decoration: none;
 }
 
-#text{
-margin-left: 10%;
+#text2 {
+  position: absolute;
+  bottom: -20%;
 }
-.nombre{
-    position: absolute;
-    margin-top: 13%;
-    margin-left: 7%;
+#text1 {
+  position: absolute;
+  bottom: 67%;
+}
+
+#nueva_peticion{
+
+
+
+  width: 250px;
+  height: 80px;
+  color:#FFCC00;
+  font-weight: bolder;
+  border-color: #FFCC00;
+  border-width: 2px;
+  background-color: transparent;
+  color: #FFCC00;
+  border: 2px solid #FFCC00;
+  border-radius: 50px;
+
+  margin-top: 5%;
+  margin-bottom: 5%;
+
 }
