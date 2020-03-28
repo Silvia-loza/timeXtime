@@ -10,10 +10,10 @@
     
 }
 
-.icono:focus,.icono:active {
+.icono:focus,.icono:active, #id_logo:focus, #id_logo:active {
     outline: none;
     box-shadow: none;
- }
+}
 
 #id_home{
     margin-left: 50%;
