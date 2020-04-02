@@ -61,21 +61,21 @@
           <form>
               <div class="form-group">
                   <label class= "blanco">Crea tu cuenta:</label>
-                  <input id= "modalInput" type="text" class="form-control" placeholder="Nombre de usuario">
+                  <input id= "modalInput" type="text" class="form-control" placeholder="Nombre de usuario" #nombre>
               </div>
               <div class="form-group">
-                  <input id= "modalInput" type="text" class="form-control" placeholder="Email">
+                  <input id= "modalInput" type="text" class="form-control" placeholder="Email" #mail>
               </div>
       
   
               <div class="form-group">
-                  <input id= "modalInput" type="password" class="form-control" placeholder="Contraseña">
+                  <input id= "modalInput" type="password" class="form-control" placeholder="Contraseña" #contrasena>
               </div>
               <div class="form-group">
                 <input id= "modalInput" type="password" class="form-control" placeholder="Confirma contraseña">
             </div>
               <div class="form-group">
-                      <button routerLink="/muro" id ="modalBoton" type="submit" class="btn btn-dark">Tic Tac</button>
+                      <button id ="modalBoton" type="submit" class="btn btn-dark" (click) = "insertarUsuario(nombre.value, mail.value, contrasena.value)">Tic Tac</button>
               </div>
         </form>
       </div>

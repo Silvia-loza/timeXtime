@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { LoginService } from 'src/app/shared/login.service';
 import { Router } from '@angular/router';
+import { Usuarios } from 'src/app/models/usuarios';
 
 @Component({
   selector: 'app-registro',
@@ -41,6 +42,20 @@ export class RegistroComponent implements OnInit {
 
     })
     
+  }
+
+  insertarUsuario(nombre_usuario, email, contrasena){
+
+    let usuario = new Usuarios
+
+    usuario.nombre_usuario = nombre_usuario
+    usuario.email = email
+    usuario.contrasena = contrasena
+
+    this.apiService.postUsuario(usuario).subscribe((data)=>
+    {
+      console.log(data)
+    });
   }
 
   ngOnInit(): void {
