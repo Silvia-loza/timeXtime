@@ -8,10 +8,8 @@
   <div class="row">
 
     <div class="col-lg-3">
-
       
-      <img src ="https://ximg.es/300.png/09f/fff" id="id_perfil">
-    
+      <img src ="{{perfil[0].foto}}" id="foto_perfil"/>
 
       <form class="start">
         <p class="clasificacion">
@@ -27,15 +25,13 @@
           <label for="radio5">★</label>
         </p>
       </form>
-      <h5 id="tareas">5 publicadas | 2 realizadas</h5>
-      
-      
-      
-      <h1 id="tiempo">200 <img src ="../../../assets/reloj.png" id="id_reloj"> </h1>
-      
-    
-      <button type="button" id= "guardar" class="btn btn-warning">Guardar</button>
 
+      
+      <h5 id="tareas">{{ perfil[0].tareas_publicadas}} publicadas| {{ perfil[0].tareas_solicitadas}} solicitadas</h5>
+      
+      <h1 id="tiempo"> {{ perfil[0].monedas}} <img src ="../../../assets/reloj.png" id="id_reloj"> </h1>
+      
+      <button type="button" id= "guardar" class="btn btn-warning"id= "guardar" class="btn btn-warning" (click) = "editarPerfil(id_usuario.value, nombreUsuario.value, nombre.value, primer_apellido.value, segundo_apellido.value, contrasena.value, telefono.value, email.value, biografia.value, foto.value)">Guardar</button>
 
 
     </div>
@@ -45,27 +41,34 @@
     <div class="col-lg-6">
 
       <form class="formulario">
+        
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="formGroupExampleInput">Nombre de usuario</label>
-            <input type="text" class="form-control" id="name" placeholder="Introduce tu nombre de usuario">
+            <label for="formGroupExampleInput">Id usuario</label>
+            <input type="text" class="form-control" id="id_name" placeholder="Introduce id" #id_usuario>
+            <button type="button" id= "usuarioId"  (click)= "mostrarPerfil(id_usuario.value)"> id ok </button>
           </div>
 
           <div class="form-group col-md-6">
+            <label for="formGroupExampleInput">Nombre de usuario</label>
+            <input type="text" class="form-control" id="nameUser" value = "{{perfil[0].nombre_usuario}}" placeholder="Introduce tu nombre de usuario" #nombreUsuario>
+          </div>
+
+        <div class="form-group col-md-6">
             <label for="formGroupExampleInput">Nombre</label>
-            <input type="text" class="form-control" id="name" placeholder="Introduce tu nombre">
+            <input type="text" class="form-control" id="name"value = "{{perfil[0].nombre}}"  placeholder="Introduce tu nombre" #nombre>
           </div>
         </div>
     
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="formGroupExampleInput">Primer apellido</label>
-            <input type="text" class="form-control" id="lastname1" placeholder="Introduce tu primer apellido">
+            <input type="text" class="form-control" id="lastname1" value = "{{perfil[0].primer_apellido}}" placeholder="Introduce tu primer apellido" #primer_apellido>
           </div>
           
           <div class="form-group col-md-6">
             <label for="formGroupExampleInput">Segundo apellido</label>
-            <input type="text" class="form-control" id="lastname2" placeholder="Introduce tu segundo apellido">
+            <input type="text" class="form-control" id="lastname2" value = "{{perfil[0].segundo_apellido}}"placeholder="Introduce tu segundo apellido" #segundo_apellido>
           </div>
         </div> 
     
@@ -73,53 +76,40 @@
 
           <div class="form-group col-md-12">
             <label for="formGroupExampleInput">Contraseña</label>
-            <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Introduce tu contraseña">
+            <input type="password" id="inputPassword5" value = "{{perfil[0].contrasena}}" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Introduce tu contraseña" #contrasena>
           </div>
         </div>
     
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="formGroupExampleInput">Teléfono</label>
-            <input type="tel" class="form-control" id="telf" placeholder="Introduce tu teléfono">
+            <input type="tel" class="form-control" id="telf" value = "{{perfil[0].telefono}}" placeholder="Introduce tu teléfono" #telefono>
           </div>
     
           <div class="form-group col-md-6">
             <label for="exampleFormControlInput1">Email</label>
-            <input type="email" class="form-control" id="mail" placeholder="Introduce tu email">
+            <input type="email" class="form-control" id="mail" value = "{{perfil[0].email}}" placeholder="Introduce tu email" #email>
           </div>
-        </div>
+        
     
-        <div class="form-group">
+          <div class="form-group col-12">
           <label for="exampleFormControlTextarea1">Biografía</label>
-          <textarea class="form-control" maxlength="500" id="bio" rows="10"></textarea>
-        </div>
+          <textarea class="form-control" maxlength="500" id="bio" value = "{{perfil[0].biografia}}" rows="10" #biografia></textarea>
+          </div>
+
+          <input type = "file" (change) = "onFotoSelected($event)" placeholder ="Subir Foto" #foto>
+          <!--<div class="form-group">
+          <label for="exampleFormControlInput1">Foto</label>
+          <input #foto type="image"  class="form-control" id="foto" placeholder="Introduce tu Foto">
+          </div> !-->
+         </div>
+    
       </form>
-
-
       
     </div>
-
-    <div class="col-lg-3">
-
-
-      
-    </div>
-
-
 
   </div>
 
-  
-
-
-
-
-
-
 </div>
-
-
-
-
 
 </body>
