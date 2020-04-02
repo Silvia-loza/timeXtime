@@ -8,7 +8,7 @@ export class Usuarios {
     public segundo_apellido: String 
     public telefono: number 
     public email:String 
-    public contraseña:String 
+    public contrasena:String 
     public biografia: String
     public foto: String
     public valoracion: number 
