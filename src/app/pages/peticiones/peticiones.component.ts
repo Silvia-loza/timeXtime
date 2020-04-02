@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/shared/login.service';
 
 @Component({
   selector: 'app-peticiones',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeticionesComponent implements OnInit {
 
-  constructor() { }
+  public user:object
+
+  constructor(private apiService:LoginService) { 
+
+    this.user = this.apiService.usuarioLogin
+  }
 
   ngOnInit(): void {
   }

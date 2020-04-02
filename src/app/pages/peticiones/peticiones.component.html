@@ -1,67 +1,42 @@
-<div class="container">
-    <div class="row">
-      <div class="col-sm">
-<br>
-<br>
-<br>
-      </div>
-    </div>
-  </div>
 
-<div class="container">
-    <div class="row">
-      <div class="col-lg-4">
-        <img src ="https://ximg.es/300.png/09f/fff" id="id_perfil">
+<div class="container" id="container1">
+  <div class="row">
+    <div class="col-lg-4">
+      <img src ="{{user[0].foto}}" id="id_perfil">
+      <h2 id="nombre">{{user[0].nombre}} {{user[0].primer_apellido}} {{user[0].segundo_apellido}}</h2>
+      <div class="container" id="estrellas" *ngIf="user[0].valoracion === 1">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
       </div>
-      <div class="col-lg-4">
-        <button type="button" id= "tareas_realizadas"class="btn btn-light"><p id="text1">Peticiones publicadas</p></button>
+      <div class="container" id="estrellas" *ngIf="user[0].valoracion === 2">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
       </div>
-      <div class="col-lg-4">
-        <button type="button" id= "tareas_publicadas"class="btn btn-light"><p id="text2">Peticiones solicitadas</p></button>
+      <div class="container" id="estrellas" *ngIf="user[0].valoracion === 3">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
       </div>
+      <div class="container" id="estrellas" *ngIf="user[0].valoracion === 4">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+      </div>
+      
+      <div class="container" id="estrellas" *ngIf="user[0].valoracion === 5">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+      </div>
+      <h1 id="tiempo">{{user[0].monedas}} <img src ="../../../assets/reloj-de-arena.png" id="id_tiempo"></h1>
+      <button routerLink="/nueva-tarea" type="button" id= "nueva_peticion"class="btn btn-light"><i class="fa fa-plus-circle" id="plus"></i> Nueva petición</button>
     </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        <h2 id="nombre">Emma Watson</h2>
-      </div>
+    <div class="col-lg-8">
+      <button type="button" id="tareas_realizadas" class="btn btn-light">Peticiones publicadas</button>
+      <button type="button" id="tareas_publicadas" class="btn btn-light">Peticiones solicitadas</button>
     </div>
+    
   </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        <form>
-            <p class="start">
-              <input id="radio1" type="radio" name="estrellas" value="5">
-              <label for="radio1">★</label>
-              <input id="radio2" type="radio" name="estrellas" value="4">
-              <label for="radio2">★</label>
-              <input id="radio3" type="radio" name="estrellas" value="3">
-              <label for="radio3">★</label>
-              <input id="radio4" type="radio" name="estrellas" value="2">
-              <label for="radio4">★</label>
-              <input id="radio5" type="radio" name="estrellas" value="1">
-              <label for="radio5">★</label>
-            </p>
-          </form>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        <img src ="../../../assets/reloj-de-arena.png" id="id_tiempo">
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        <div class="col-sm"><button routerLink="/nueva-tarea" type="button" id= "nueva_peticion"class="btn btn-light"><span id="text">Nueva petición</span><i class="fa fa-plus-circle" id="plus"></i></button></div>
-      </div>
-    </div>
-  </div>
+</div>

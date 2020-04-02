@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MuroService } from 'src/app/shared/muro.service';
 
 @Component({
   selector: 'app-oferta-perfil',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OfertaPerfilComponent implements OnInit {
 
-  constructor() { }
+  public peticion:object
+  public usuario: object
+  constructor(private apiService:MuroService) { 
+
+    this.peticion = this.apiService.peticion
+    this.usuario = this.apiService.usuario
+    
+  }
+
+
 
   ngOnInit(): void {
   }

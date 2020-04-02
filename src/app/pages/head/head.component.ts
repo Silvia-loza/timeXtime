@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderService } from 'src/app/shared/header.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-head',
@@ -7,7 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeadComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiService:HeaderService, private router:Router) { }
+
+  
+
+  mostrarPeticiones(){
+
+    this.apiService.getPeticiones().subscribe((data) =>
+    {
+
+      this.apiService.peticiones = data
+
+      this.router.navigate(['/', 'muro'])
+    })
+  }
 
   ngOnInit(): void {
   }

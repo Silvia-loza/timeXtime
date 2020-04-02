@@ -13,7 +13,8 @@
         
       <div class="form-group has-search" >
         <span class="fa fa-search form-control-feedback"></span>
-        <input type="text" class="form-control" placeholder="Buscar..." id="barraBuscar">
+        <input type="text" class="form-control" placeholder="Buscar..." id="barraBuscar" #busqueda>
+        <button class="btn btn-outline-warning" (click) = "mostarPeticionesBusqueda(busqueda.value)" type="submit">ok</button>
       </div>
             
     </div>
@@ -39,162 +40,49 @@
 
   <hr id="hr1">
 
-
   <div class="container" id="container1">
-
-    <!-- <div class=" col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-
-
-    </div> -->
 
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
-      <div class="row">
 
-        <div class="col-lg-4">
+      <div *ngIf="peticiones!=null">
 
-          <div class="card " id="card1">
-            <img class="card-img-top" src="..\..\..\assets\cat.png" alt="Card image cap">
-            
-            <div class="card-body">
-              <h6 class="zona">Alcorcón, Madrid</h6>
-              <h6 class="fecha">25/04/2020</h6>
-              <br>
-              <br>
-              <h5 class="card-title" routerLink="/oferta">¿Alguien puede cuidar de mii gato?</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content... </p>
+        <div class="row">
+
+          <div class="col-lg-12">
+
+            <div *ngFor="let peticion of peticiones; let i = index">
               
-              <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
-              <h6 class="monedas">10</h6>
-    
-              <a class="btn btn-warning solicitar" id="botonx">Solicitar</a>
+              <div class="card " id="card1">
+                <img class="card-img-top" src="{{peticion.foto}}" alt="Card image cap" (click) = "mostrarPeticion(i)">
+                
+                <div class="card-body">
+                  <h6 class="zona">{{peticion.localizacion}}</h6>
+                  <h6 class="fecha">{{peticion.fecha_finalizacion}}</h6>
+                  <br>
+                  <br>
+                  <h5 class="card-title" (click) = "mostrarPeticion(i)" >{{peticion.titulo}}</h5>
+                  <p class="card-text">{{peticion.descripcion}} </p>
+                  
+                  <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
+                  <h6 class="monedas">{{peticion.precio}}</h6>
+        
+                  <a class="btn btn-warning solicitar" id="botonx">Solicitar</a>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <div class="card " id="card1">
-            <img class="card-img-top" src="..\..\..\assets\cat.png" alt="Card image cap">
-            
-            <div class="card-body">
-              <h6 class="zona">Alcorcón, Madrid</h6>
-              <h6 class="fecha">25/04/2020</h6>
-              <br>
-              <br>
-              <h5 class="card-title" routerLink="/oferta">¿Alguien puede cuidar de mii gato?</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content... </p>
-              
-              <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
-              <h6 class="monedas">10</h6>
-    
-              <a class="btn btn-warning solicitar" id="botonx">Solicitar</a>
-            </div>
-          </div>
-
-          
-
-        </div>
-
-        <div class="col-lg-4">
-
-          <div class="card " id="card1">
-            <img class="card-img-top" src="..\..\..\assets\cat.png" alt="Card image cap">
-            
-            <div class="card-body">
-              <h6 class="zona">Alcorcón, Madrid</h6>
-              <h6 class="fecha">25/04/2020</h6>
-              <br>
-              <br>
-              <h5 class="card-title" routerLink="/oferta">¿Alguien puede cuidar de mii gato?</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content... </p>
-              
-              <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
-              <h6 class="monedas">10</h6>
-    
-              <a class="btn btn-warning solicitar" id="botonx">Solicitar</a>
-            </div>
-          </div>
-    
-          <div class="card " id="card1">
-            <img class="card-img-top" src="..\..\..\assets\cat.png" alt="Card image cap">
-            
-            <div class="card-body">
-              <h6 class="zona">Alcorcón, Madrid</h6>
-              <h6 class="fecha">25/04/2020</h6>
-              <br>
-              <br>
-              <h5 class="card-title" routerLink="/oferta">¿Alguien puede cuidar de mii gato?</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content... </p>
-              
-              <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
-              <h6 class="monedas">10</h6>
-    
-              <a class="btn btn-warning solicitar" id="botonx">Solicitar</a>
-            </div>
           </div>
 
         </div>
-
-
-        <div class="col-lg-4">
-          
-          <div class="card " id="card1">
-            <img class="card-img-top" src="..\..\..\assets\cat.png" alt="Card image cap">
-            
-            <div class="card-body">
-              <h6 class="zona">Alcorcón, Madrid</h6>
-              <h6 class="fecha">25/04/2020</h6>
-              <br>
-              <br>
-              <h5 class="card-title" routerLink="/oferta">¿Alguien puede cuidar de mii gato?</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content... </p>
-              
-              <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
-              <h6 class="monedas">10</h6>
     
-              <a class="btn btn-warning solicitar" id="botonx">Solicitar</a>
-            </div>
-          </div>
-    
-          <div class="card " id="card1">
-            <img class="card-img-top" src="..\..\..\assets\cat.png" alt="Card image cap">
-            
-            <div class="card-body">
-              <h6 class="zona">Alcorcón, Madrid</h6>
-              <h6 class="fecha">25/04/2020</h6>
-              <br>
-              <br>
-              <h5 class="card-title" routerLink="/oferta">¿Alguien puede cuidar de mii gato?</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content... </p>
-              
-              <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
-              <h6 class="monedas">10</h6>
-    
-              <a class="btn btn-warning solicitar" id="botonx">Solicitar</a>
-            </div>
-          </div>
-
-        </div>
-
       </div>
-
-      
-
-      
-
-  
-
-      
-
 
     </div>
 
-    <!-- <div class=" col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-
-
-    </div> -->
-
   </div>
 
-  
+ 
   
 
   <ng-template #template class="elmodal">
@@ -209,30 +97,47 @@
 
       <div> <label >Categorías:</label>
 
-        <br>
+        <br>        
+        
+        <label class="figure img-text">
+          <input type="radio" name="categoria">
+          <img src="../../../assets/Professor.jpg" alt="error" class="img-ts img-thumbnail imgfiltro" (click)="categorias('clases')">
+        </label>
 
-        <img class="imgfiltro img-ts img-thumbnail" src="..\..\..\assets\Professor.jpg" alt="">
-        <img class="imgfiltro img-ts img-thumbnail" src="..\..\..\assets\Mascotas.jpg" alt="">
-        <img class="imgfiltro img-ts img-thumbnail" src="..\..\..\assets\recadosIIIII.jpg" alt="">
-        <img class="imgfiltro img-ts img-thumbnail" src="..\..\..\assets\servicios.jpg" alt="">
+        <label class="figure img-text">
+          <input type="radio" name="categoria">
+          <img src="..\..\..\assets\Mascotas.jpg" alt="error" class="img-ts img-thumbnail imgfiltro" (click)="categorias('mascotas')">
+        </label>
+
+        <label class="figure img-text">
+          <input type="radio" name="categoria" >
+          <img src="..\..\..\assets\recadosIIIII.jpg" alt="error" class="img-ts img-thumbnail imgfiltro" (click)="categorias('recados')">
+        </label>
+
+        <label class="figure img-text">
+          <input type="radio" name="categoria">
+          <img src="..\..\..\assets\servicios.jpg" alt="error" class="img-ts img-thumbnail imgfiltro" (click)="categorias('servicios')">
+        </label>
+      
+        
 
       </div>
       <form>
         <div class="form-group">
           <label >Expira el:</label>
-          <input type="date" class="form-control inputsFiltro" aria-describedby="emailHelp" placeholder="">
+          <input type="date" class="form-control inputsFiltro" aria-describedby="emailHelp" placeholder="" #fecha>
           
         </div>
         <div class="form-group">
           <label >Precio:</label>
-          <input type="password" class="form-control inputsFiltro" placeholder="Introduzca precio mínimo">
+          <input type="number" class="form-control inputsFiltro" placeholder="Introduzca precio mínimo" #precio>
         </div>
         <div class="form-group">
           <label >Localización:</label>
-          <input type="password" class="form-control inputsFiltro" placeholder="Seleccione localización">
+          <input type="text" class="form-control inputsFiltro" placeholder="Seleccione localización" #localizacion>
         </div>
         
-        <button type="submit" class="btn btn-primary" id="botonFiltro">Buscar</button>
+        <button type="button" class="btn btn-primary" id="botonFiltro" (click) = "mostrarPeticionesFiltros(precio.value, localizacion.value, fecha.value)" (click)="modalRef.hide()">Buscar</button>
       </form>
     </div>
   </ng-template>

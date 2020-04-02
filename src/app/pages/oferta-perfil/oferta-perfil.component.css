@@ -132,6 +132,7 @@
 #estrellas{
 
     margin-left: 0.6%;
+    text-align: left;
 
 
 
@@ -143,12 +144,18 @@
 
 }
 
+/* #nombre{
+
+    text-align: left;
+} */
+
 #bio{
 
     text-align: justify;
-    width: 350px;
+    width: 400px;
     height: 200px;
-    margin-left: -15%;
+    margin-left: -20%;
+    font-size: 13px;
 }
 
 @font-face{

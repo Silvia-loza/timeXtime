@@ -2,68 +2,10 @@
   font-family: principal;
   src: url(../../../assets/Reckless.otf) format("opentype");
 }
-#plus{
-  position: absolute;
-  margin-left: -17%;
-  font-size: 40px;
-  bottom: 40%;
 
-}
-#text{
-  font-size: large;
-  margin-left: 10%;
-}
-
-#id_perfil{
-border-radius: 200px;
-}
-#nombre{
-margin-top: 2%;
-margin-left: 4%;
-}
-
-/* ESTRELLAS */
-
-#form {
-  width: 250px;
-  margin: 0 auto;
-  height: 50px;
-}
-
-#form p {
-  text-align: center;
-}
-
-.start label {
-  font-size:70px;
-}
-
-input[type="radio"] {
-  display: none;
-}
-
-label {
-  color: grey;
-}
-
-.clasificacion {
-  direction: rtl;
-  unicode-bidi: bidi-override;
-}
-
-label:hover,
-label:hover ~ label {
-  color: orange;
-}
-
-input[type="radio"]:checked ~ label {
-  color: orange;
-}
-/* Reloj */
 #id_tiempo{
   height: 45px;
   width: 45px;
-  margin-left: 20%;
 }
 
 #nueva_peticion:hover {
@@ -93,58 +35,59 @@ input[type="radio"]:checked ~ label {
   background-color: transparent;
   border-color:#FFCC00 ;
   color:#FFCC00 ;
- 
-  
+  justify-content: center;
+   
 }
 
-#tareas_realizadas:hover {
+#tareas_realizadas:focus, #tareas_realizadas:hover {
   background-color: #FFCC00;
   color: white;
   text-decoration: none;
 }
 
-#tareas_realizadas:focus {
+
+#tareas_publicadas:hover, #tareas_publicadas:focus {
   background-color: #FFCC00;
   color: white;
   text-decoration: none;
-}
-#tareas_publicadas:focus {
-  background-color: #FFCC00;
-  color:white;
-  text-decoration: none;
-}
-
-#tareas_publicadas:hover {
-  background-color: #FFCC00;
-  color: white;
-  text-decoration: none;
-}
-
-#text2 {
-  position: absolute;
-  bottom: -20%;
-}
-#text1 {
-  position: absolute;
-  bottom: 67%;
 }
 
 #nueva_peticion{
 
-
-
   width: 250px;
   height: 80px;
   color:#FFCC00;
-  font-weight: bolder;
+  font-weight: bold;
   border-color: #FFCC00;
   border-width: 2px;
   background-color: transparent;
   color: #FFCC00;
   border: 2px solid #FFCC00;
   border-radius: 50px;
+  font-size: 22.5px;
 
   margin-top: 5%;
   margin-bottom: 5%;
 
+}
+
+#id_perfil{
+
+  width: 245px;
+  height: 245px;
+  border-radius: 245px;
+}
+
+.estrella{
+
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  
+
+}
+
+#container1{
+
+  padding-top: 80px;
 }
