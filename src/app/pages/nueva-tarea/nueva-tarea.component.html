@@ -1,29 +1,37 @@
 <body>
 
 
+    
+
+
 
     <div class="espacio"></div>
 
     <div class="container" id="contenedor1">
         <h5>¿Qué necesitas?</h5>
-        <figure class="figure img-text">
-            <img src="../../../assets/Professor.jpg" alt="error" class="img-ts img-thumbnail">
+        <label class="figure img-text">
+            <input type="radio" name="categoria" value="clases" >
+            <img src="../../../assets/Professor.jpg" alt="error" class="img-ts img-thumbnail" (click)="categorias('clases')">
             <figcaption class="figure-caption text-md-center">Clases</figcaption>
-           
-            
-        </figure>
-        <figure class="figure img-text">
-            <img src="../../../assets/Mascotas.jpg" alt="error" class="img-ts img-thumbnail">
+        </label>
+
+        <label class="figure img-text">
+            <input type="radio" name="categoria" value="mascotas">
+            <img src="../../../assets/Mascotas.jpg" alt="error" class="img-ts img-thumbnail" (click)="categorias('mascotas')">
             <figcaption class="figure-caption text-md-center">Mascotas</figcaption>
-        </figure>
-        <figure class="figure img-text">
-            <img src="../../../assets/recadosIIIII.jpg" alt="error" class="img-ts img-thumbnail">
+        </label>
+
+        <label class="figure img-text">
+            <input type="radio" name="categoria" value="recados">
+            <img src="../../../assets/recadosIIIII.jpg" alt="error" class="img-ts img-thumbnail" (click)="categorias('recados')">
             <figcaption class="figure-caption text-md-center">Recados</figcaption>
-        </figure>
-        <figure class="figure img-text">
-            <img src="../../../assets/servicios.jpg" alt="error" class="img-ts img-thumbnail">
+        </label>
+
+        <label class="figure img-text">
+            <input type="radio" name="categoria" value="servicios">
+            <img src="../../../assets/servicios.jpg" alt="error" class="img-ts img-thumbnail" (click)="categorias('servicios')">
             <figcaption class="figure-caption text-md-center">Servicios</figcaption>
-        </figure>
+        </label>
 
 
     </div>
@@ -32,12 +40,12 @@
 
     <div class="container" id="div1">
         <br>
-        <form action="">
+        <form action="nuevaTarea" method="post">
 
             <div class="form-group">
                 <label for="photo">Añadir foto</label>
                 <div class="drag-drop">
-                    <input type="file" multiple="multiple" id="photo">
+                    <input type="file" id="photo" name="photo" #foto>
                     <span class="fa-stack fa-2x">
                         <i class="fa fa-cloud fa-stack-2x bottom pulsating"></i>
                         <i class="fa fa-circle fa-stack-1x top medium"></i>
@@ -50,42 +58,46 @@
 
             <div class="form-group">
                 <label for="option">Título</label>
-                <input class="form-control campos" id="titulo" type="text" placeholder="Introduce tu título">
+                <input class="form-control campos" id="titulo" type="text" placeholder="Introduce tu título" #titulo>
             </div>
 
             <div class="form-group">
                 <label for="option">Localización</label>
-                <input class="form-control campos" id="localizacion" type="text" placeholder="Introduce tu localización">
+                <input class="form-control campos" id="localizacion" type="text" placeholder="Introduce tu localización"
+                    #localizacion>
             </div>
 
             <div class="row">
                 <div class="col">
                     <label for="option">Precio</label>
-                    <input type="text" class="form-control campos" id="coste" placeholder="Introduce unidades de tiempo">
+                    <input type="number" class="form-control campos" id="coste"
+                        placeholder="Introduce unidades de tiempo" #precio>
                 </div>
 
                 <div class="col">
                     <label for="option">Fecha de realización</label>
-                    <input type="date" class="form-control campos" id="fecha" placeholder="Fecha de realización">
+                    <input type="date" class="form-control campos" id="fecha" placeholder="Fecha de realización" #fecha>
                 </div>
 
-               
-                
-                
 
-                
+
+
+
+
             </div>
 
             <br>
 
             <div class="form-group">
                 <label for="textarea">Descripción</label>
-                <textarea class="form-control campos" id="masinfo" rows="3"></textarea>
+                <textarea class="form-control campos" id="masinfo" rows="3" #descripcion></textarea>
             </div>
 
             <br>
 
-            <button type="submit" class="btn btn-default btn-circle btn-xl" id="botonxl"><i class="fa fa-check"></i>
+            <button type="button"
+                (click)="insertarTarea( foto.value, titulo.value, localizacion.value, precio.value, fecha.value, descripcion.value)"
+                class="btn btn-default btn-circle btn-xl" id="botonxl"><i class="fa fa-check"></i>
                 <p>Confirmar</p>
             </button>
 
