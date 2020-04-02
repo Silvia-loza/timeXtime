@@ -21,8 +21,33 @@
             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+              <div *ngIf="peticion[0].categoria === 'mascotas'">
 
-              <img class="huella" src="..\..\..\assets\huella.png" alt="">
+
+                <img class="huella" src="..\..\..\assets\huella.png" alt="">
+              </div>
+
+              <div *ngIf="peticion[0].categoria === 'servicios'">
+
+
+                <img class="huella" src="..\..\..\assets\servicios.png" alt="">
+              </div>
+
+              <div *ngIf="peticion[0].categoria === 'recados'">
+
+
+                <img class="huella" src="..\..\..\assets\recados.png" alt="">
+              </div>
+
+              <div *ngIf="peticion[0].categoria === 'clases'">
+
+
+                <img class="huella" src="..\..\..\assets\clases.png" alt="">
+              </div>
+
+
+
+              
 
             </div>
           </div>
@@ -43,7 +68,29 @@
             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"> 
 
-              <img class="huella" src="..\..\..\assets\huella.png" alt="">
+              <div *ngIf="peticion[0].categoria === 'mascotas'">
+
+
+                <img class="huella" src="..\..\..\assets\huella.png" alt="">
+              </div>
+
+              <div *ngIf="peticion[0].categoria === 'servicios'">
+
+
+                <img class="huella" src="..\..\..\assets\servicios.png" alt="">
+              </div>
+
+              <div *ngIf="peticion[0].categoria === 'recados'">
+
+
+                <img class="huella" src="..\..\..\assets\recados.png" alt="">
+              </div>
+
+              <div *ngIf="peticion[0].categoria === 'clases'">
+
+
+                <img class="huella" src="..\..\..\assets\clases.png" alt="">
+              </div>
 
             </div>
             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
@@ -54,18 +101,18 @@
         <div class="col-lg-4" id="div2">
 
             <div class="card " id="card1">
-              <img class="card-img-top" src="..\..\..\assets\cat.png" alt="Card image cap">
+              <img class="card-img-top" src="{{peticion[0].foto}}" alt="Card image cap">
             
               <div class="card-body">
-                <h6 class="zona">Alcorcón, Madrid</h6>
-                <h6 class="fecha">25/04/2020</h6>
+                <h6 class="zona">{{peticion[0].localizacion}}</h6>
+                <h6 class="fecha">{{peticion[0].fecha_finalizacion}}</h6>
                 <br>
                 <br>
-                <h5 class="card-title">¿Alguien puede cuidar de mii gato?</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur eveniet distinctio facere sapiente officia ipsa sed odio labore, suscipit, perferendis veniam, corporis quibusdam non fugiat blanditiis laboriosam nobis maiores. Vel. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, delectus? Reiciendis enim quas, commodi cupiditate laboriosam reprehenderit illo quae alias quia co</p>
+                <h5 class="card-title">{{peticion[0].titulo}}</h5>
+                <p class="card-text">{{peticion[0].descripcion}}</p>
 
                 <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
-                <h6 class="monedas">10</h6>
+                <h6 class="monedas">{{peticion[0].precio}}</h6>
             
                 <a class="btn btn-warning solicitar" id="boton1">Solicitar</a>
               </div>
@@ -74,12 +121,35 @@
     
         <div class="col-lg-4" id="div3">
 
-          <img src="..\..\..\assets\emma.jpg" id="avatar">
+          <img src="{{usuario[0].foto}}" id="avatar">
 
-          <h2 id="nombre">Emma Watson</h2>
+          <h3 id="nombre">{{usuario[0].nombre}} {{usuario[0].primer_apellido}} {{usuario[0].segundo_apellido}}</h3>
+
+          <div class="container" id="estrellas" *ngIf="usuario[0].valoracion === 1">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+          </div>
+
+          <div class="container" id="estrellas" *ngIf="usuario[0].valoracion === 2">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+          </div>
+
+          <div class="container" id="estrellas" *ngIf="usuario[0].valoracion === 3">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+          </div>
 
 
-          <div class="container" id="estrellas">
+          <div class="container" id="estrellas" *ngIf="usuario[0].valoracion === 4">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+          </div>
+          
+
+          <div class="container" id="estrellas" *ngIf="usuario[0].valoracion === 5">
             <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
             <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
             <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
@@ -90,11 +160,11 @@
           <div class="card" id="bio">
             <div class="card-body">
               <h5 class="card-title">Bio</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.  </p>
+              <p class="card-text">{{usuario[0].biografia}}</p>
             </div>
           </div>
 
-          <h5 id="publicadas">5 Publicadas | 2 Realizadas</h5>
+          <h5 id="publicadas">{{usuario[0].tareas_publicadas}} Publicadas | {{usuario[0].tareas_solicitadas}} Realizadas</h5>
           <a class="btn btn-warning solicitar" id="boton2">Contacto</a>
         
         </div>

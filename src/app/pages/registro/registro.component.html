@@ -9,13 +9,13 @@
            <div class="form-row">
                 <div class="col has-search">
               
-                  <input type="text" class="form-control" placeholder="Email" id="email">
+                  <input type="text" class="form-control" placeholder="Email" id="email" #email>
                 </div>
                 <div class="col">
-                  <input type="password" class="form-control" placeholder="Contraseña" id="Password">
+                  <input type="password" class="form-control" placeholder="Contraseña" id="Password" #password>
                 </div>
                 <div class="col">
-                <button routerLink="/muro" type="submit" id ="loginBoton" class="btn btn-primary">Iniciar Sesión</button>
+                <button type="button" id ="loginBoton" class="btn btn-primary" (click) = "getLogin(email.value, password.value)">Iniciar Sesión</button>
               </div>
           </div>
   
