@@ -112,21 +112,23 @@
 
 .card-text{
 
-    text-align: justify;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    
-    
+    width:275px;
+    text-overflow:ellipsis;
+    white-space:nowrap; 
+    overflow:hidden; 
     height: 3em;
+
 }
 
 .card-title{
 
     cursor: pointer;
+    width:275px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    
+
 }
 
 .fecha{

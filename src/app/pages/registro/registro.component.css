@@ -46,21 +46,34 @@ input{
     background-position: 5%;
     padding-left: 30px;
     width:190px;
-    background-image: url('../../../assets/atprueba.jpg');
+
     background-repeat: no-repeat;
     background-size: 18px;
     height: 50px;
     border-radius: 30px;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  
+}
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
 
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 3.000rem;
+    height: 2.375rem;
+    line-height: 3.100rem;
+    text-align: center;
+    pointer-events: none;
     
 }
+    
+
 #Password {
     background-position: 5%;
     padding-left: 30px;
     width:190px;
-    background-image: url('../../../assets/llave.png');
     background-repeat: no-repeat;
     background-size: 18px;
     height: 50px;
