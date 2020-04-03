@@ -15,23 +15,22 @@
 }
 
 #tareas_realizadas{
-  width: 370px;
+  width: 365px;
   height: 80px;
-  border-radius: 15px;
+  border-radius: 0px;
   font-family: principal;
-  font-size: 400%;
+  font-size: 300%;
   background-color: transparent;
   border-color:#FFCC00 ;
   color:#FFCC00 ;
 }
 #tareas_publicadas{
-  width: 370px;
+  width: 365px;
   height: 80px;
-  margin-left: 10%;
   position: absolute;
-  border-radius: 15px;
+  border-radius: 0px;
   font-family: principal;
-  font-size: 400%;
+  font-size: 300%;
   background-color: transparent;
   border-color:#FFCC00 ;
   color:#FFCC00 ;
@@ -43,6 +42,7 @@
   background-color: #FFCC00;
   color: white;
   text-decoration: none;
+  box-shadow: none;
 }
 
 
@@ -50,6 +50,7 @@
   background-color: #FFCC00;
   color: white;
   text-decoration: none;
+  box-shadow: none;
 }
 
 #nueva_peticion{
@@ -66,8 +67,7 @@
   border-radius: 50px;
   font-size: 22.5px;
 
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 10%;
 
 }
 
@@ -96,3 +96,104 @@ body{
 
   min-height: 700px;
 }
+
+
+#nombre{
+
+  margin-top: 5%;
+}
+
+#estrellas{
+
+  margin-top: 5%;
+}
+
+#tiempo{
+
+  margin-top: 5%;
+}
+
+.card-img-top{
+
+  width: 290px;
+  height: 220px;
+}
+
+.zona{
+  color: rgb(255, 204, 0);
+  font-weight: bold;
+  float: left;
+}
+
+.card{
+
+  width: 290px;
+  margin: 22px;
+  height: 500px;
+  box-shadow: 3px 3px #e9e8e8;
+  float: left;
+  
+}
+
+.card-text{
+
+  text-align: justify;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  
+  
+  height: 3em;
+}
+
+.card-title{
+
+  cursor: pointer;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.fecha{
+
+  float: right;
+  margin-left: 20px;
+  color: rgb(124, 124, 124);
+  /* font-size: 13px; */
+}
+
+.monedas{
+  float: right;
+  font-family: reckless;
+  font-size: 35px;
+  margin-top: -2.5%;
+}
+
+.reloj{
+
+  width: 25px;
+  height: 25px;
+  float: right;
+  margin-top: 2.5%;
+}
+
+.solicitar{
+  margin-top: 1%;
+}
+
+#botonx{
+
+  color: white;
+  font-weight: bold;
+
+
+}
+
+#container2{
+
+  /* margin-left: 6%; */
+  background-color: rgb(255, 204, 0);
+  margin-bottom: 5%;
+}
+
+

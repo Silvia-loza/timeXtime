@@ -1,5 +1,7 @@
 
-<app-head></app-head>
+<app-head [hidden] = "!apiService.isLogged"></app-head>
+
 <router-outlet></router-outlet>
 
 <app-footer></app-footer>
+
