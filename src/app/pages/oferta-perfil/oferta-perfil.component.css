@@ -5,7 +5,14 @@
     transform: rotate(35deg);
 }
 
+.servicios{
+    width: 250px;
+    height: 250px;
+}
 
+.card-text{
+    min-height: 220px;
+}
 
 .container{
 
