@@ -13,7 +13,16 @@ export class LoginService {
 
   public usuarioLogin:object
 
-  constructor(private http: HttpClient) { }
+  public isLogged: boolean
+
+  
+
+  constructor(private http: HttpClient) {
+
+    
+    this.isLogged = false
+    
+  }
 
   getUsuario(email:String, contrasena: String){
 

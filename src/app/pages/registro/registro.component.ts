@@ -31,6 +31,12 @@ export class RegistroComponent implements OnInit {
 
       if(this.apiService.usuarioLogin[0] != undefined){
 
+        this.apiService.isLogged = true
+
+        console.log(this.apiService.isLogged)
+
+        
+
         this.router.navigate(['/', 'muro'])
 
         
