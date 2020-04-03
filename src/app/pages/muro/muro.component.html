@@ -13,8 +13,10 @@
         
       <div class="form-group has-search" >
         <span class="fa fa-search form-control-feedback"></span>
-        <input type="text" class="form-control" placeholder="Buscar..." id="barraBuscar" #busqueda>
-        <button class="btn btn-outline-warning" (click) = "mostarPeticionesBusqueda(busqueda.value)" type="submit">ok</button>
+
+        <input type="text" (keyup.enter)="mostarPeticionesBusqueda(busqueda.value)" class="form-control" id="barraBuscar" placeholder="Buscar..." #busqueda/>
+
+        
       </div>
             
     </div>
@@ -58,7 +60,7 @@
                 
                 <div class="card-body">
                   <h6 class="zona">{{peticion.localizacion}}</h6>
-                  <h6 class="fecha">{{peticion.fecha_finalizacion}}</h6>
+                  <h6 class="fecha">{{peticion.fecha_finalizacion | date:'dd/MM/yyyy'}}</h6>
                   <br>
                   <br>
                   <h5 class="card-title" (click) = "mostrarPeticion(i)" >{{peticion.titulo}}</h5>
