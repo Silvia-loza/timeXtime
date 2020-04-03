@@ -1,42 +1,47 @@
-
-<div class="container" id="container1">
-  <div class="row">
-    <div class="col-lg-4">
-      <img src ="{{user[0].foto}}" id="id_perfil">
-      <h2 id="nombre">{{user[0].nombre}} {{user[0].primer_apellido}} {{user[0].segundo_apellido}}</h2>
-      <div class="container" id="estrellas" *ngIf="user[0].valoracion === 1">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+<body>
+  
+  <div class="container" id="container1">
+    <div class="row">
+      <div class="col-lg-4">
+        <img src ="{{user[0].foto}}" id="id_perfil">
+        <h2 id="nombre">{{user[0].nombre}} {{user[0].primer_apellido}} {{user[0].segundo_apellido}}</h2>
+        <div class="container" id="estrellas" *ngIf="user[0].valoracion === 1">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        </div>
+        <div class="container" id="estrellas" *ngIf="user[0].valoracion === 2">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        </div>
+        <div class="container" id="estrellas" *ngIf="user[0].valoracion === 3">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        </div>
+        <div class="container" id="estrellas" *ngIf="user[0].valoracion === 4">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        </div>
+        
+        <div class="container" id="estrellas" *ngIf="user[0].valoracion === 5">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        </div>
+        <h1 id="tiempo">{{user[0].monedas}} <img src ="../../../assets/reloj-de-arena.png" id="id_tiempo"></h1>
+        <button routerLink="/nueva-tarea" type="button" id= "nueva_peticion"class="btn btn-light"><i class="fa fa-plus-circle" id="plus"></i> Nueva petición</button>
       </div>
-      <div class="container" id="estrellas" *ngIf="user[0].valoracion === 2">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-      </div>
-      <div class="container" id="estrellas" *ngIf="user[0].valoracion === 3">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-      </div>
-      <div class="container" id="estrellas" *ngIf="user[0].valoracion === 4">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+      <div class="col-lg-8">
+        <button type="button" id="tareas_realizadas" class="btn btn-light">Peticiones publicadas</button>
+        <button type="button" id="tareas_publicadas" class="btn btn-light">Peticiones solicitadas</button>
       </div>
       
-      <div class="container" id="estrellas" *ngIf="user[0].valoracion === 5">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-      </div>
-      <h1 id="tiempo">{{user[0].monedas}} <img src ="../../../assets/reloj-de-arena.png" id="id_tiempo"></h1>
-      <button routerLink="/nueva-tarea" type="button" id= "nueva_peticion"class="btn btn-light"><i class="fa fa-plus-circle" id="plus"></i> Nueva petición</button>
     </div>
-    <div class="col-lg-8">
-      <button type="button" id="tareas_realizadas" class="btn btn-light">Peticiones publicadas</button>
-      <button type="button" id="tareas_publicadas" class="btn btn-light">Peticiones solicitadas</button>
-    </div>
-    
   </div>
-</div>
+
+
+</body>
+
