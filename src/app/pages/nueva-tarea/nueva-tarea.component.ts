@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NuevatareaService } from 'src/app/shared/nuevatarea.service';
 import { Peticiones } from 'src/app/models/peticiones';
+import { LoginService } from 'src/app/shared/login.service';
+import { Petusu } from 'src/app/models/petusu';
 
 @Component({
   selector: 'app-nueva-tarea',
@@ -9,8 +11,8 @@ import { Peticiones } from 'src/app/models/peticiones';
 })
 export class NuevaTareaComponent implements OnInit {
   public categoria: String
-  peticiones: Object;
-  constructor(private apiService: NuevatareaService) { }
+  
+  constructor(private apiService: NuevatareaService, private apiService2: LoginService) { }
 
 categorias(categoria:String){
     this.categoria = categoria
@@ -30,10 +32,27 @@ insertarTarea(foto:String, titulo:String, localizacion: String, precio:number, f
     peticion.descripcion=descripcion
 
     this.apiService.postTarea(peticion).subscribe((data) =>
-  {
-    this.peticiones = data
-    //console.log(data)
+    {
+      
+      
+      this.apiService.getUltimaPeticion().subscribe((data) =>
+      {
+      
+        let newPetUsu = new Petusu()
+
+        newPetUsu.id_peticion = data[0].id_peticion
+        newPetUsu.id_creador = this.apiService2.usuarioLogin[0].id_usuario
+
+        this.apiService.postPetUsu(newPetUsu).subscribe((data)=>
+        {
+
+          console.log(data)
+        })
+
+      })
     })
+
+    
   }
 
 
