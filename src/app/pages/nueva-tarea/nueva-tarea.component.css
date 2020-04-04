@@ -6,7 +6,7 @@
 /* HIDE RADIO */
 [type="radio"] {
   position: absolute;
-  opacity: 0;
+  opacity: 1;
   width: 0;
   height: 0;
   
@@ -109,7 +109,7 @@ body {
   margin-bottom: 20px;
 }
 .drag-drop span.desc {
-  display: block;
+  display: initial;
   font-size: 0.7em;
   padding: 0 0.5em;
   color: rgb(224, 224, 224);
