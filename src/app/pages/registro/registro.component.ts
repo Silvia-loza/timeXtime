@@ -33,8 +33,6 @@ export class RegistroComponent implements OnInit {
 
         this.apiService.isLogged = true
 
-        console.log(this.apiService.isLogged)
-
         
 
         this.router.navigate(['/', 'muro'])

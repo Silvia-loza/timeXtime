@@ -38,7 +38,7 @@
    
 }
 
-#tareas_realizadas:focus, #tareas_realizadas:hover {
+#tareas_realizadas:focus, #tareas_realizadas:hover{
   background-color: #FFCC00;
   color: white;
   text-decoration: none;
@@ -46,7 +46,7 @@
 }
 
 
-#tareas_publicadas:hover, #tareas_publicadas:focus {
+#tareas_publicadas:hover, #tareas_publicadas:focus{
   background-color: #FFCC00;
   color: white;
   text-decoration: none;
