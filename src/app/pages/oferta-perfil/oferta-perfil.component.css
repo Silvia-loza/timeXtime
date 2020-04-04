@@ -5,6 +5,11 @@
     transform: rotate(35deg);
 }
 
+h3 {
+    text-align: left;
+    margin-left: -20px
+}
+
 .servicios{
     width: 250px;
     height: 250px;
@@ -19,10 +24,49 @@
     margin: 25px;
 }
 
+
+#avatar{
+
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    
+
+}
+
+
+.estrella{
+
+    width: 35px;
+    height: 35px;
+    
+
+}
+
+#estrellas{
+
+   text-align: left;
+}
+
+#div1{
+
+    padding-top: 30px;
+    padding-right: 100px;
+}
+
+
 #div2{
 
     float: left;
 }
+
+
+#div3{
+
+    padding-top: 30px;
+    padding-left: 150px;
+}
+
 
 .card-img-top{
 
@@ -107,43 +151,6 @@
 
 }
 
-#avatar{
-
-    width: 200px;
-    height: 200px;
-    border-radius: 200px;
-    
-
-}
-
-#div1{
-
-    padding-top: 30px;
-    padding-right: 100px;
-}
-
-#div3{
-
-    padding-top: 30px;
-    padding-left: 150px;
-}
-
-.estrella{
-
-    width: 35px;
-    height: 35px;
-    
-
-}
-
-#estrellas{
-
-    margin-left: 0.6%;
-    text-align: left;
-
-
-
-}
 
 #publicadas{
 
