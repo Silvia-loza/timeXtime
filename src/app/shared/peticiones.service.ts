@@ -16,8 +16,18 @@ export class PeticionesService {
     return this.http.get(this.url + "?id=" + id)
   }
 
+  getPetUsuPub(id: number){
+
+    return this.http.get(this.url + "/petusu?id=" + id)
+  }
+
   getPeticionesSol(id: number){
 
     return this.http.get(this.url2 + "?id=" + id)
+  }
+
+  getPetUsuSol(id: number){
+
+    return this.http.get(this.url2 + "/petusu?id=" + id)
   }
 }

@@ -11,6 +11,7 @@ export class PeticionesComponent implements OnInit {
 
   public user:object
   public peticiones: object
+  public petUsu: object
 
   constructor(private apiService:LoginService, private apiService2:PeticionesService) { 
 
@@ -24,6 +25,12 @@ export class PeticionesComponent implements OnInit {
       this.peticiones = data
 
     })
+
+    this.apiService2.getPetUsuPub(this.user[0].id_usuario).subscribe((data) =>
+    {
+
+      this.petUsu = data
+    })
   }
 
   mostrarPeticionesSol(){
@@ -32,6 +39,12 @@ export class PeticionesComponent implements OnInit {
     {
 
       this.peticiones = data
+    })
+
+    this.apiService2.getPetUsuSol(this.user[0].id_usuario).subscribe((data) =>
+    {
+
+      this.petUsu = data
     })
   }
 

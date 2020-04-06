@@ -123,7 +123,7 @@
                 
                 <div *ngIf="petUsu[0].id_creador != userLogin[0].id_usuario">
 
-                  <button class="btn btn-warning solicitar" id="boton1" >Solicitar</button>
+                  <button class="btn btn-warning solicitar" id="boton1" (click)="solicitar()">Solicitar</button>
 
                 </div>
                 
