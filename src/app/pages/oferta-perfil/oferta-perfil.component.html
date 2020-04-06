@@ -120,10 +120,20 @@
                   <button class="btn btn-warning solicitar" id="boton1" disabled>{{peticion[0].estado}}</button>
 
                 </div>
-                
-                <div *ngIf="petUsu[0].id_creador != userLogin[0].id_usuario">
 
-                  <button class="btn btn-warning solicitar" id="boton1" (click)="solicitar()">Solicitar</button>
+                <div *ngIf="peticion[0].estado === 'sin solicitar'">
+                  <div *ngIf="petUsu[0].id_creador != userLogin[0].id_usuario">
+
+                    <button type="button" class="btn btn-warning solicitar" id="boton1" (click)="solicitar()">Solicitar</button>
+  
+                  </div>
+
+
+                </div>
+                
+                <div *ngIf="petUsu[0].id_creador != userLogin[0].id_usuario && peticion[0].estado === 'solicitada'">
+
+                  <button class="btn btn-warning solicitar" id="boton1" disabled>{{peticion[0].estado}}</button>
 
                 </div>
                 

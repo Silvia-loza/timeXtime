@@ -29,7 +29,11 @@ export class OfertaPerfilComponent implements OnInit {
     this.apiService3.putSolicitarPeticiones(this.peticion[0]).subscribe((data) =>
     {
 
-      console.log(data)
+      this.apiService.getPeticion(this.peticion[0].id_peticion).subscribe((data) =>
+      {
+
+        this.peticion = data
+      })
     })
 
     this.apiService3.putSolicitarPetUsu(this.userLogin[0].id_usuario, this.petUsu[0]).subscribe((data) =>
