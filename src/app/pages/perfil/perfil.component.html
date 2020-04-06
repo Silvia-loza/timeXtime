@@ -1,39 +1,98 @@
 <body>
+<app-head></app-head>
+  <div class="container" >
 
+    <div class="row" >
+  
+      <div class="col-lg-3" class = "perfil-left">
+        <form >
+            <div class="form-group">
 
-
-
-<div class="container">
-
-  <div class="row">
-
-    <div class="col-lg-3">
-      
-      <img src ="{{perfil[0].foto}}" id="foto_perfil"/>
-
-      <form class="start">
-        <p class="clasificacion">
-          <input id="radio1" type="radio" name="estrellas" value="5">
-          <label for="radio1">★</label>
-          <input id="radio2" type="radio" name="estrellas" value="4">
-          <label for="radio2">★</label>
-          <input id="radio3" type="radio" name="estrellas" value="3">
-          <label for="radio3">★</label>
-          <input id="radio4" type="radio" name="estrellas" value="2">
-          <label for="radio4">★</label>
-          <input id="radio5" type="radio" name="estrellas" value="1">
-          <label for="radio5">★</label>
-        </p>
+                    <img src ="{{perfil[0].foto}}" id="foto_perfil"/>
+                    <div class="drag-drop">
+                    <label id = "anadirFoto" for="photo"> Añadir foto
+                    </label>
+                    <input id="botonMaldito" type="file" name="photo" #foto 
+                    (change)="handleFileInput($event.target.files)">
+                    </div>
+                  
+            </div>
+            <br>
+            <br>
+              
+            <h3 id="nombre">{{perfil[0].nombre_usuario}}</h3>
+            <br>
+        
+  
+        <div id="start">
+  
+          <div class="container" *ngIf="perfil[0].valoracion === 0">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+          </div>
+  
+  
+          <div class="container" *ngIf="perfil[0].valoracion === 1">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+          </div>
+  
+          <div class="container" id="estrellas" *ngIf="perfil[0].valoracion === 2">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+          </div>
+  
+          <div class="container" id="estrellas" *ngIf="perfil[0].valoracion === 3">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+          </div>
+  
+  
+          <div class="container" id="estrellas" *ngIf="perfil[0].valoracion === 4">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
+          </div>
+          
+  
+          <div class="container" id="estrellas" *ngIf="perfil[0].valoracion === 5">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
+        
+          </div>
+        
+          <br>
+  
+       
+  
+        
+        <h5 id="tareas">{{ perfil[0].tareas_publicadas}} publicadas| {{ perfil[0].tareas_solicitadas}} solicitadas <span> </span></h5>
+        <br>
+        
+        <h3 id="tiempo"> {{ perfil[0].monedas}} <img src ="../../../assets/reloj.png" id="id_reloj"> </h3>
+     
+        <button type="button" id= "guardar" class="btn btn-warning"id= "guardar" class="btn btn-warning" (click) = "editarPerfil(id_usuario.value, nombreUsuario.value, nombre.value, primer_apellido.value, segundo_apellido.value, contrasena.value, telefono.value, email.value, biografia.value, foto.value)">Guardar</button>
+      </div>
+    
       </form>
-
-      
-      <h5 id="tareas">{{ perfil[0].tareas_publicadas}} publicadas| {{ perfil[0].tareas_solicitadas}} solicitadas</h5>
-      
-      <h1 id="tiempo"> {{ perfil[0].monedas}} <img src ="../../../assets/reloj.png" id="id_reloj"> </h1>
-      
-      <button type="button" id= "guardar" class="btn btn-warning"id= "guardar" class="btn btn-warning" (click) = "editarPerfil(id_usuario.value, nombreUsuario.value, nombre.value, primer_apellido.value, segundo_apellido.value, contrasena.value, telefono.value, email.value, biografia.value, foto.value)">Guardar</button>
-
-
+  
     </div>
 
     
@@ -96,12 +155,7 @@
           <label for="exampleFormControlTextarea1">Biografía</label>
           <textarea class="form-control" maxlength="500" id="bio" value = "{{perfil[0].biografia}}" rows="10" #biografia></textarea>
           </div>
-
-          <input type = "file" (change) = "onFotoSelected($event)" placeholder ="Subir Foto" #foto>
-          <!--<div class="form-group">
-          <label for="exampleFormControlInput1">Foto</label>
-          <input #foto type="image"  class="form-control" id="foto" placeholder="Introduce tu Foto">
-          </div> !-->
+          
          </div>
     
       </form>

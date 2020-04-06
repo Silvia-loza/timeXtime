@@ -19,4 +19,5 @@ export class PerfilService {
  {
    return this.http.get(this.url2 + "?id=" + id_usuario)
  }
+
 }

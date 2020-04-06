@@ -1,13 +1,35 @@
+
 #foto_perfil {
 
   border-radius: 200px;
   height: 220px;
-  width: 220px;
-  margin-top: 30%;
+  width: 220px; 
+  /*margin:auto 6%;*/
+  display: block;
+  margin: 0 auto;
+  
+}
+#nombre{
+  text-align: center;
+}
+#start {
+  display: block;
+  margin: 0 auto 0 10%;
 }
 
-#tiempo{
+.estrella{
 
+  width: 35px;
+  height: 35px;
+  margin-left: 0.6%;
+  text-align: left;
+
+}
+
+
+#tiempo{
+  
+  align-content: center;
   text-align: center;
 }
 
@@ -55,15 +77,27 @@ input[type="radio"]:checked ~ label {
 .formulario{
 
   margin-top: 17%;
+  margin-left: 7%;
+}
+.perfil-left{
+  padding-left: 10%;
+  padding-top: 10%;
+  padding-right: 10%;
+  background-color:#FFCC00 ;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  border-radius: 40px;
+  width: 45%;
 }
 
 #guardar{
-
-  margin-top: 25%;
-  margin-left: 10%;
+  display: block;
+  margin: 7% auto 10% 7%;
+  text-align: center;
   width: 180px;
   height: 60px;
-  color: white;
+  color:#FFCC00 ;
+  background-color: white;
   font-weight: bolder;
   font-size: 20px;
   border-radius: 40px;
@@ -71,4 +105,25 @@ input[type="radio"]:checked ~ label {
 
 textarea{
   resize: none;
+}
+
+
+
+
+#botonMaldito {
+  opacity: 0;
+  margin-bottom: 10%;
+  margin-top: 1%;
+  z-index: 3;
+  position: absolute;
+  
+}
+
+#anadirFoto{
+ z-index: 1;
+ position: absolute;
+ margin-top: 1%;
+ color: white;
+ margin-left: 1%;
+ font-weight: bold;
 }
