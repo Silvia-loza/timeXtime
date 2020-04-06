@@ -1,0 +1,96 @@
+<app-head></app-head>
+
+<form class="bloque">
+    <div class="fondo">
+    
+    
+        <div class="container" id="contenedor1">
+            <h5>¿Qué necesitas?</h5>
+            <label class="figure img-text">
+                <input type="radio" name="categoria" value="clases"(click)="categorias('clases')">
+                <img src="../../../assets/Professor.jpg" alt="error" class="img-ts img-thumbnail">
+                <figcaption class="figure-caption text-md-center">Clases</figcaption>
+            </label>
+    
+            <label class="figure img-text">
+                <input type="radio" name="categoria" value="mascotas" (click)="categorias('mascotas')">
+                <img src="../../../assets/Mascotas.jpg" alt="error" class="img-ts img-thumbnail">
+                <figcaption class="figure-caption text-md-center">Mascotas</figcaption>
+            </label>
+    
+            <label class="figure img-text">
+                <input type="radio" name="categoria" value="recados"(click)="categorias('recados')">
+                <img src="../../../assets/recadosIIIII.jpg" alt="error" class="img-ts img-thumbnail">
+                <figcaption class="figure-caption text-md-center">Recados</figcaption>
+            </label>
+    
+            <label class="figure img-text">
+                <input type="radio" name="categoria" value="servicios"(click)="categorias('servicios')">
+                <img src="../../../assets/servicios.jpg" alt="error" class="img-ts img-thumbnail">
+                <figcaption class="figure-caption text-md-center">Servicios</figcaption>
+            </label>
+    
+        </div>
+    
+    
+            <br>
+
+            <div class="subir_foto">
+            <img src ="{{peticion[0].foto}}" id="id_peticion" #foto/>
+
+            <div class="form-group">
+              <label for="photo">Añadir foto</label>
+              <div class="drag-drop">
+                  <input type="file" id="photo" name="photo" #foto>
+                </div>
+              </div>
+            </div>
+      
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="Titulo">Titulo</label>
+                <input type="text" class="form-control" id="titulo" #titulo value = "{{peticion[0].titulo}}">
+              </div>
+  
+
+          <div class="form-group col-md-6">
+            <label for="precio">Precio</label>
+            <input type="number" class="form-control" id="precio" #precio value = "{{peticion[0].precio}}">
+          </div>
+ 
+      </div>
+    
+    
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="Titulo">Zona</label>
+                <input type="text" class="form-control" id="Zona" #zona value = "{{peticion[0].localizacion}}">
+              </div>
+
+
+            <div class="form-group col-md-6">
+                <label for="fecha">Fecha</label>
+                <input type="date" class="form-control" id="fecha" #fecha value = "{{peticion[0].fecha_finalizacion}}">
+              </div>
+            </div>
+    
+    
+    
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="descripcion">Descripcion</label>
+            <textarea class="form-control" class="form-control" id="descripcion" rows="6"  #descripcion value = "{{peticion[0].descripcion}}"></textarea>
+          </div>
+        </div>
+    
+    
+        <a class="btn btn-warning editar" id="button1" (click) = "editarPeticion(foto.value, titulo.value, precio.value, zona.value, fecha.value, descripcion.value)">Editar</a>
+        <a class="btn btn-warning editar2" id="button2">Eliminar</a>
+
+
+
+      </div>
+    </form> 
+    <br>
+    <br>
+    <br>

@@ -6,6 +6,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { NuevaTareaComponent } from './pages/nueva-tarea/nueva-tarea.component';
 import { PeticionesComponent } from './pages/peticiones/peticiones.component';
+import { EditTareaComponent } from './pages/edit-tarea/edit-tarea.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:"nueva-tarea", component: NuevaTareaComponent},
   {path:"peticiones", component: PeticionesComponent},
   {path:"oferta", component: OfertaPerfilComponent},
+  {path:"editar", component: EditTareaComponent},
   {path:"", component: RegistroComponent},
   {path:"", redirectTo:"/registro", pathMatch:"full"}
 ];

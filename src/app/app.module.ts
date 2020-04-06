@@ -14,6 +14,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { OfertaPerfilComponent } from './pages/oferta-perfil/oferta-perfil.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { NuevaTareaComponent } from './pages/nueva-tarea/nueva-tarea.component';
+import {EditTareaComponent} from './pages/edit-tarea/edit-tarea.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NuevaTareaComponent } from './pages/nueva-tarea/nueva-tarea.component';
     MuroComponent,
     OfertaPerfilComponent,
     RegistroComponent,
-    NuevaTareaComponent
+    NuevaTareaComponent,
+    EditTareaComponent,
     
   ],
   imports: [

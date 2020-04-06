@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/shared/login.service';
 import { PeticionesService } from 'src/app/shared/peticiones.service';
+import {MuroService} from 'src/app/shared/muro.service'
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-peticiones',
@@ -13,7 +16,7 @@ export class PeticionesComponent implements OnInit {
   public peticiones: object
   public petUsu: object
 
-  constructor(private apiService:LoginService, private apiService2:PeticionesService) { 
+  constructor(private apiService:LoginService, private apiService2:PeticionesService, private apiService1:MuroService, private router: Router, private apiService3:LoginService) { 
 
     this.user = this.apiService.usuarioLogin
   }
