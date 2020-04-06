@@ -11,17 +11,9 @@ export class AppComponent {
 
   public user:object
 
-  public isHidden: boolean
-
   constructor(public apiService:LoginService){
 
     this.user = this.apiService.usuarioLogin
-
-    
-
-    
-
-    
   }
 
   

@@ -3,6 +3,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MuroService } from 'src/app/shared/muro.service';
 import { Router } from '@angular/router';
 import { HeaderService } from 'src/app/shared/header.service';
+import { LoginService } from 'src/app/shared/login.service';
 
 @Component({
   selector: 'app-muro',
@@ -21,10 +22,18 @@ export class MuroComponent implements OnInit {
 
   public categoria: String
 
+  public petUsu: object
 
-  constructor(private modalService: BsModalService, private apiService:MuroService, private router: Router, private apiService2:HeaderService){
+  public userLogin: object
 
-    this.peticiones = this.apiService2.peticiones
+
+  constructor(private modalService: BsModalService, private apiService:MuroService, private router: Router, private apiService2:HeaderService, private apiService3:LoginService){
+
+    this.peticiones = this.apiService3.peticiones
+    // this.peticiones = this.apiService2.peticiones
+
+    this.petUsu = this.apiService3.petUsu
+    this.userLogin = this.apiService3.usuarioLogin
   }
 
   openModal(template: TemplateRef<any>){
@@ -79,6 +88,13 @@ export class MuroComponent implements OnInit {
  
       })
     })
+
+    this.apiService.getPetUsu(this.elID).subscribe((data) =>
+    {
+      this.apiService.petUsu = data
+    })
+
+    
   }
 
 

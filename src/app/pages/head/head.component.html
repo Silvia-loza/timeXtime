@@ -33,8 +33,8 @@
         <div >
            <img class="icono" src ="../../../assets/chat.png" id="id_chat">
         </div>
-        <div >
-          <img class="icono" src ="../../../assets/reloj2.png" id="id_reloj">
+        <div *ngIf="user!=undefined">
+          {{user[0].monedas}}<img class="icono" src ="../../../assets/reloj2.png" id="id_reloj">
         </div>
         
       </div>

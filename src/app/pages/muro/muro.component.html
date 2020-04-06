@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+  <app-head></app-head>
 
   <nav class="navbar navbar-expand-lg navbar-light" id="nav1" >
     <div class=" col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
@@ -69,7 +70,18 @@
                   <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
                   <h6 class="monedas">{{peticion.precio}}</h6>
         
-                  <a class="btn btn-warning solicitar" id="botonx">Solicitar</a>
+                  <div *ngIf="petUsu[i].id_creador === userLogin[0].id_usuario">
+
+                    <button class="btn btn-warning solicitar" id="botonx" disabled>{{peticiones[i].estado}}</button>
+                  </div>
+                  <div *ngIf="petUsu[i].id_creador != userLogin[0].id_usuario">
+
+                    <button class="btn btn-warning solicitar" id="botonx">Solicitar</button>
+
+                  </div>
+
+                  <!-- {{petUsu[peticiones[i].id_peticion].id_creador}} -->
+                  
                 </div>
               </div>
             </div>

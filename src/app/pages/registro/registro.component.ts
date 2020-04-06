@@ -21,32 +21,39 @@ export class RegistroComponent implements OnInit {
 
   getLogin(email:String, contrasena:String){
 
+
+    this.apiService.getPeticiones().subscribe((data) =>
+    {
+      this.apiService.peticiones = data
+    })
+
+    this.apiService.getPetUsu().subscribe((data) =>
+    {
+      this.apiService.petUsu = data
+
+    })
+
     this.apiService.getUsuario(email, contrasena).subscribe((data) =>
     {
 
-      
       this.apiService.usuarioLogin = data
-
-      
 
       if(this.apiService.usuarioLogin[0] != undefined){
 
-        this.apiService.isLogged = true
-
-        
-
         this.router.navigate(['/', 'muro'])
-
         
-
       } else {
 
         console.log("Datos incorrectos")
       }
 
     })
+
+    
     
   }
+
+  
 
   insertarUsuario(nombre_usuario, email, contrasena){
 
@@ -61,6 +68,11 @@ export class RegistroComponent implements OnInit {
       console.log(data)
     });
   }
+
+  
+
+    
+  
 
   ngOnInit(): void {
   }

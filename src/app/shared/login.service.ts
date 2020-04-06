@@ -10,19 +10,22 @@ export class LoginService {
   private url1='http://localhost:3000/registro/modal/nuevo-registro'
 
   private url = "http://localhost:3000/registro/iniciar-sesion"
+  
+  private url2 = "http://localhost:3000/header/casita"
+
+  private url3 = "http://localhost:3000/registro/iniciar-sesion/petusu"
+  
+  public peticiones: object
 
   public usuarioLogin:object
+
+  public petUsu: object
 
   public isLogged: boolean
 
   
 
-  constructor(private http: HttpClient) {
-
-    
-    this.isLogged = false
-    
-  }
+  constructor(private http: HttpClient) {}
 
   getUsuario(email:String, contrasena: String){
 
@@ -31,5 +34,15 @@ export class LoginService {
 
   postUsuario(newUser: Usuarios){
     return this.http.post(this.url1, newUser)
+  }
+
+  getPeticiones(){
+
+    return this.http.get(this.url2)
+  }
+
+  getPetUsu(){
+
+    return this.http.get(this.url3)
   }
 }

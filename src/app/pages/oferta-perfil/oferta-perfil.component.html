@@ -8,6 +8,7 @@
 </head>
 <body>
 
+  <app-head></app-head>
   
 
     <div class="container-fluid">
@@ -105,7 +106,7 @@
             
               <div class="card-body">
                 <h6 class="zona">{{peticion[0].localizacion}}</h6>
-                <h6 class="fecha">{{peticion[0].fecha_finalizacion}}</h6>
+                <h6 class="fecha">{{peticion[0].fecha_finalizacion | date:'dd/MM/yyyy'}}</h6>
                 <br>
                 <br>
                 <h5 class="card-title">{{peticion[0].titulo}}</h5>
@@ -114,7 +115,18 @@
                 <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
                 <h6 class="monedas">{{peticion[0].precio}}</h6>
             
-                <a class="btn btn-warning solicitar" id="boton1">Solicitar</a>
+
+                <div *ngIf="petUsu[0].id_creador === userLogin[0].id_usuario">
+                  <button class="btn btn-warning solicitar" id="boton1" disabled>{{peticion[0].estado}}</button>
+
+                </div>
+                
+                <div *ngIf="petUsu[0].id_creador != userLogin[0].id_usuario">
+
+                  <button class="btn btn-warning solicitar" id="boton1" >Solicitar</button>
+
+                </div>
+                
               </div>
             </div>
         </div>  

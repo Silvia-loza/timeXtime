@@ -16,8 +16,6 @@ export class HeadComponent implements OnInit {
 
     this.user = this.apiService2.usuarioLogin
 
-    console.log(this.apiService2.usuarioLogin)
-    console.log(this.user)
   }
 
   
