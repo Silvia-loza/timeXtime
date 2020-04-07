@@ -73,21 +73,9 @@ export class PeticionesComponent implements OnInit {
 
       this.apiService1.peticion = data
 
-      this.apiService1.getUsuario(this.elID).subscribe((data2) =>
-      {
-        this.apiService1.usuario = data2
+      this.router.navigate(['/', 'editar'])
 
-        this.router.navigate(['/', 'editar'])
- 
-      })
     })
-
-    this.apiService1.getPetUsu(this.elID).subscribe((data) =>
-    {
-      this.apiService.petUsu = data
-    })
-
-    
   }
 
   ngOnInit(): void {
