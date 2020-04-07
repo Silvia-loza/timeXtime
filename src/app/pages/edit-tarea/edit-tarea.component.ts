@@ -30,14 +30,24 @@ export class EditTareaComponent implements OnInit {
    {
     let editarPeticion = new Peticiones();
 
+    if(foto === undefined){
+
+      editarPeticion.foto = this.peticion[0].foto
+    } else {
+
+      editarPeticion.foto=foto
+    }
+
     editarPeticion.id_peticion = this.peticion[0].id_peticion
     editarPeticion.categoria=this.categoria
-    editarPeticion.foto=foto
+    
     editarPeticion.titulo=titulo
     editarPeticion.localizacion=localizacion
     editarPeticion.precio=precio
     editarPeticion.fecha_finalizacion=fecha_finalizacion
     editarPeticion.descripcion=descripcion
+
+    
 
 
     this.apiService.putTarea(editarPeticion).subscribe((data) =>
