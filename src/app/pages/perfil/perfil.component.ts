@@ -30,7 +30,7 @@ export class PerfilComponent implements OnInit {
    {
 
     let nuevoPerfil = new Usuarios();
-    //nuevoPerfil.id_usuario = this.LoginService[0];
+    nuevoPerfil.id_usuario = this.apiService2.usuarioLogin[0].id_usuario;
   
     nuevoPerfil.nombre_usuario = nombre_usuario;
     nuevoPerfil.nombre = nombre;
