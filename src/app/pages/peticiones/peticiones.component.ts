@@ -15,6 +15,17 @@ export class PeticionesComponent implements OnInit {
   public user:object
   public peticiones: object
   public petUsu: object
+  
+
+  public indice: number
+
+  public elID:number
+
+  public categoria: String
+
+
+
+  public userLogin: object
 
   constructor(private apiService:LoginService, private apiService2:PeticionesService, private apiService1:MuroService, private router: Router, private apiService3:LoginService) { 
 
@@ -49,6 +60,34 @@ export class PeticionesComponent implements OnInit {
 
       this.petUsu = data
     })
+  }
+
+  mostrarPeticion(indice){
+
+    this.indice = indice
+
+    this.elID = this.peticiones[this.indice].id_peticion
+
+    this.apiService1.getPeticion(this.elID).subscribe((data) =>
+    {
+
+      this.apiService1.peticion = data
+
+      this.apiService1.getUsuario(this.elID).subscribe((data2) =>
+      {
+        this.apiService1.usuario = data2
+
+        this.router.navigate(['/', 'editar'])
+ 
+      })
+    })
+
+    this.apiService1.getPetUsu(this.elID).subscribe((data) =>
+    {
+      this.apiService.petUsu = data
+    })
+
+    
   }
 
   ngOnInit(): void {
