@@ -68,19 +68,129 @@
               
                         <div *ngIf="petUsu[i].id_creador === user[0].id_usuario">
 
-                          <button class="btn btn-warning solicitar" id="botonx" disabled>{{peticiones[i].estado}}</button>
+                          <div *ngIf="peticiones[i].estado === 'sin solicitar'">
+
+                            <button class="btn btn-warning solicitar" id="botonx" disabled>{{peticiones[i].estado}}</button>
+                          </div>
+
+                          <div *ngIf="peticiones[i].estado === 'solicitada'">
+
+                            <button class="btn btn-success solicitar" id="botonx" (click)="openModal(template)">{{peticiones[i].estado}}</button>
+                          </div>
+
+                          <div *ngIf="peticiones[i].estado === 'aceptada'">
+
+                            <button class="btn btn-success solicitar" id="botonx" disabled>{{peticiones[i].estado}}</button>
+                          </div>
+
+                          <div *ngIf="peticiones[i].estado === 'realizada'">
+
+                            <button class="btn btn-primary solicitar" id="botonx" (click)="openModal(template2)">{{peticiones[i].estado}}</button>
+                          </div>
+
+                          <div *ngIf="peticiones[i].estado === 'expirada'">
+
+                            <button class="btn btn-danger solicitar" id="botonx" disabled>{{peticiones[i].estado}}</button>
+                          </div>
+
+                          
                         </div>
 
                         <div *ngIf="petUsu[i].id_creador != user[0].id_usuario">
 
-                          <button class="btn btn-warning solicitar" id="botonx">{{peticiones[i].estado}}</button>
+                          <div *ngIf="peticiones[i].estado === 'solicitada'">
+
+                            <button class="btn btn-warning solicitar" id="botonx" disabled>{{peticiones[i].estado}}</button>
+
+                          </div>
+
+                          <div *ngIf="peticiones[i].estado === 'aceptada'">
+
+                            <button class="btn btn-primary solicitar" id="botonx" (click)="openModal(template1)">{{peticiones[i].estado}}</button>
+
+                          </div>
+
+                          <div *ngIf="peticiones[i].estado === 'realizada'">
+
+                            <button class="btn btn-primary solicitar" id="botonx" disabled>{{peticiones[i].estado}}</button>
+
+                          </div>
+
+                          
                     
                         </div>
                         <label id = "anadirFoto" for="photo" (click) = "mostrarPeticion(i)">Editar
                         </label>
  
                 
-                
+                        <ng-template #template class="elmodal">
+                          <div class="modal-header">
+                            <h4 class="modal-title pull-center" id="h4filtro">Alguien ha solicitado tu petición</h4>
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                              <span aria-hidden="true">&times;</span>
+                        
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                      
+                            <div> 
+                                                 
+                              <p>(Nombre_usuario del solicitante) ha solicitado tu petición "{{peticiones[i].titulo}}". Haz click en aceptar si quieres que la lleve a cabo o haz click en rechazar si quieres que la petición vuelva al muro y la haga otra persona.</p>        
+                              
+                                                                                
+                            </div>
+
+                            <button class="btn btn-outline-success" (click)="aceptarSolicitud(peticiones[i])" (click)="modalRef.hide()"> <i class="fa fa-check-circle"></i> Aceptar</button>
+                            <button class="btn btn-outline-danger" id="rechazar" (click)="rechazarSolicitud(peticiones[i])" (click)="modalRef.hide()"> <i class="fa fa-times-circle"></i> Rechazar</button>
+                            
+                          </div>
+                        </ng-template>
+
+                        <ng-template #template1 class="elmodal">
+                          <div class="modal-header">
+                            <h4 class="modal-title pull-center" id="h4filtro">¿Ya has realizado la petición?</h4>
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                              <span aria-hidden="true">&times;</span>
+                        
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                      
+                            <div> 
+                                                 
+                              <p>Por favor, asegúrate de haber completado la petición antes de hacer click en "Sí". Ten en cuenta que en caso de que no se haya completado la petición, no recibirás tus monedas</p>        
+                              
+                                                                                
+                            </div>
+
+                            <button class="btn btn-outline-success" (click)="realizarSolicitud(peticiones[i])"(click)="modalRef.hide()"> <i class="fa fa-check-circle"></i> Sí</button>
+                            <button class="btn btn-outline-danger" id="rechazar" (click)="modalRef.hide()"> <i class="fa fa-times-circle"></i> No</button>
+                            
+                          </div>
+                        </ng-template>
+
+                        <ng-template #template2 class="elmodal">
+                          <div class="modal-header">
+                            <h4 class="modal-title pull-center" id="h4filtro">¡Petición completada!</h4>
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                              <span aria-hidden="true">&times;</span>
+                        
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                      
+                            <div> 
+                                                 
+                              <p>Parece que (Nombre_usuario del solicitante) ha completado tu petición "{{peticiones[i].titulo}}". Por favor, asegúrate de que la petición se ha completado correctamente antes de continuar.</p>        
+                              
+                                                                                
+                            </div>
+
+                            <button class="btn btn-outline-success" (click)="aceptarSolicitud(peticiones[i])" (click)="modalRef.hide()"> <i class="fa fa-check-circle"></i> Aceptar</button>
+                            <button class="btn btn-outline-danger" id="rechazar" (click)="rechazarSolicitud(peticiones[i])" (click)="modalRef.hide()"> <i class="fa fa-times-circle"></i> Rechazar</button>
+                            
+                          </div>
+                        </ng-template>
                   
 
                       </div>

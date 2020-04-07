@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { LoginService } from 'src/app/shared/login.service';
 import { PeticionesService } from 'src/app/shared/peticiones.service';
 import {MuroService} from 'src/app/shared/muro.service'
 import { Router } from '@angular/router';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Peticiones } from 'src/app/models/peticiones';
 
 
 @Component({
@@ -23,8 +25,9 @@ export class PeticionesComponent implements OnInit {
 
   public categoria: String
 
+  modalRef: BsModalRef
 
-  constructor(private apiService:LoginService, private apiService2:PeticionesService, private apiService1:MuroService, private router: Router) { 
+  constructor(private apiService:LoginService, private apiService2:PeticionesService, private apiService1:MuroService, private router: Router, private modalService: BsModalService) { 
 
     this.user = this.apiService.usuarioLogin
   }
@@ -76,6 +79,43 @@ export class PeticionesComponent implements OnInit {
 
       this.router.navigate(['/', 'editar'])
 
+    })
+  }
+
+  openModal(template: TemplateRef<any>){
+
+    this.modalRef = this.modalService.show(template)
+  }
+
+  aceptarSolicitud(peticion:Peticiones){
+
+    this.apiService2.putAceptar(peticion).subscribe((data) =>
+    {
+
+      this.mostrarPeticionesPub()
+    })
+  }
+
+  rechazarSolicitud(peticion:Peticiones){
+
+    this.apiService2.putRechazar(peticion).subscribe((data) =>
+    {
+
+      this.mostrarPeticionesPub()
+    })
+
+    this.apiService2.putRechazarPetUsu(peticion).subscribe((data) =>
+    {
+      
+    })
+  }
+
+  realizarSolicitud(peticion:Peticiones){
+
+    this.apiService2.putRealizada(peticion).subscribe((data) =>
+    {
+
+      this.mostrarPeticionesSol()
     })
   }
 
