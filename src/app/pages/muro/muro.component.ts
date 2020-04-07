@@ -4,6 +4,7 @@ import { MuroService } from 'src/app/shared/muro.service';
 import { Router } from '@angular/router';
 import { HeaderService } from 'src/app/shared/header.service';
 import { LoginService } from 'src/app/shared/login.service';
+import { OfertaPerfilService } from 'src/app/shared/oferta-perfil.service';
 
 @Component({
   selector: 'app-muro',
@@ -27,11 +28,9 @@ export class MuroComponent implements OnInit {
   public userLogin: object
 
 
-  constructor(private modalService: BsModalService, private apiService:MuroService, private router: Router, private apiService2:HeaderService, private apiService3:LoginService){
+  constructor(private modalService: BsModalService, private apiService:MuroService, private router: Router, private apiService2:OfertaPerfilService, private apiService3:LoginService){
 
     this.peticiones = this.apiService3.peticiones
-    // this.peticiones = this.apiService2.peticiones
-
     this.petUsu = this.apiService3.petUsu
     this.userLogin = this.apiService3.usuarioLogin
   }
@@ -95,6 +94,32 @@ export class MuroComponent implements OnInit {
     })
 
     
+  }
+
+  solicitar(indice:number){
+
+    this.apiService2.putSolicitarPeticiones(this.peticiones[indice]).subscribe((data) =>
+    {
+
+      this.apiService3.getPeticiones().subscribe((data) =>
+      {
+
+        this.peticiones = data
+
+        this.apiService3.getPetUsu().subscribe((data) =>
+        {
+
+          this.petUsu = data
+        })
+      })
+    })
+
+    this.apiService2.putSolicitarPetUsu(this.userLogin[0].id_usuario, this.petUsu[indice]).subscribe((data) =>
+    {
+
+      console.log(data)
+    })
+
   }
 
 

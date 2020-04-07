@@ -24,10 +24,7 @@ export class PeticionesComponent implements OnInit {
   public categoria: String
 
 
-
-  public userLogin: object
-
-  constructor(private apiService:LoginService, private apiService2:PeticionesService, private apiService1:MuroService, private router: Router, private apiService3:LoginService) { 
+  constructor(private apiService:LoginService, private apiService2:PeticionesService, private apiService1:MuroService, private router: Router) { 
 
     this.user = this.apiService.usuarioLogin
   }
@@ -38,13 +35,15 @@ export class PeticionesComponent implements OnInit {
     {
       this.peticiones = data
 
+      this.apiService2.getPetUsuPub(this.user[0].id_usuario).subscribe((data) =>
+      {
+
+        this.petUsu = data
+      })
+
     })
 
-    this.apiService2.getPetUsuPub(this.user[0].id_usuario).subscribe((data) =>
-    {
-
-      this.petUsu = data
-    })
+    
   }
 
   mostrarPeticionesSol(){
@@ -53,13 +52,15 @@ export class PeticionesComponent implements OnInit {
     {
 
       this.peticiones = data
+
+      this.apiService2.getPetUsuSol(this.user[0].id_usuario).subscribe((data) =>
+      {
+
+        this.petUsu = data
+      })
     })
 
-    this.apiService2.getPetUsuSol(this.user[0].id_usuario).subscribe((data) =>
-    {
-
-      this.petUsu = data
-    })
+    
   }
 
   mostrarPeticion(indice){

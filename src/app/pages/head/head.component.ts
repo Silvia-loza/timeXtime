@@ -27,12 +27,14 @@ export class HeadComponent implements OnInit {
 
       this.apiService2.peticiones = data
 
-      this.router.navigate(['/', 'muro'])
+      
     })
 
     this.apiService2.getPetUsu().subscribe((data) =>
     {
       this.apiService2.petUsu = data
+
+      this.router.navigate(['/', 'muro'])
 
     })
   }
