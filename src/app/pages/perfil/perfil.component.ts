@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Usuarios} from '../../models/usuarios';
 import { PerfilService} from '../../shared/perfil.service'
 import { FileUploadService} from '../../shared/file-upload.service'
-import {LoginService} from '../../shared/login.service'
+import { LoginService } from '../../shared/login.service'
 import { Router } from '@angular/router';
+import { HeaderService } from 'src/app/shared/header.service';
 
 @Component({
   selector: 'app-perfil',
@@ -18,8 +19,10 @@ import { Router } from '@angular/router';
 export class PerfilComponent implements OnInit {
 
   public perfil : Object
+  public fotoUsu : Object
+  public mostrarP : Object
     
-  constructor(private apiService: PerfilService, private apiService2: LoginService, private router: Router) { 
+  constructor(private apiService: PerfilService, private apiService2: LoginService, private router: Router, private apiService3: HeaderService) { 
     this.perfil = this.apiService2.usuarioLogin
   }
     
@@ -30,6 +33,17 @@ export class PerfilComponent implements OnInit {
    {
 
     let nuevoPerfil = new Usuarios();
+
+    if(foto === undefined)
+        {
+
+         nuevoPerfil.foto = this.perfil[0].foto
+       } else {
+
+       nuevoPerfil.foto= '..\\..\\assets\\' + foto.slice(foto.lastIndexOf('\\') + 1);
+                                    }
+
+
     nuevoPerfil.id_usuario = this.apiService2.usuarioLogin[0].id_usuario;
   
     nuevoPerfil.nombre_usuario = nombre_usuario;
@@ -40,17 +54,22 @@ export class PerfilComponent implements OnInit {
     nuevoPerfil.telefono = telefono;
     nuevoPerfil.email = email;
     nuevoPerfil.biografia = biografia;
-    nuevoPerfil.foto = '..\\..\\assets\\' + foto.slice(foto.lastIndexOf('\\') + 1);
+
+    
     
     //this.fileToUpload = file
     
     this.apiService.putPefil(nuevoPerfil).subscribe((data) =>
     {
-      console.log(data)
-      //this.uploadFileToActivity()
+        this.perfil = data
     })
+  
   }
   
+
+
+
+
 handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
     console.log(this.fileToUpload);
