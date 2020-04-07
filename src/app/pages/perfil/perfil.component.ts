@@ -63,9 +63,13 @@ export class PerfilComponent implements OnInit {
     {
         this.perfil = data
     })
-    return this.perfil
+  
   }
   
+
+
+
+
 handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
     console.log(this.fileToUpload);
