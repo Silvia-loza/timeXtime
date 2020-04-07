@@ -113,12 +113,15 @@
 .card-text{
 
     width:275px;
-    text-overflow:ellipsis;
-    white-space:nowrap; 
     overflow:hidden; 
-    height: 3em;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;  
+    text-align: justify;
 
 }
+
+
 
 .card-title{
 

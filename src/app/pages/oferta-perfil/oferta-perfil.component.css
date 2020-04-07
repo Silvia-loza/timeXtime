@@ -6,8 +6,7 @@
 }
 
 h3 {
-    text-align: left;
-    margin-left: -20px
+    text-align: 2px
 }
 
 .servicios{
@@ -30,12 +29,13 @@ h3 {
     width: 200px;
     height: 200px;
     border-radius: 200px;
+    margin-left: 10px
     
 
 }
 
 #start {
-    margin-left: 30px;
+    margin-left: -20px
     
    
   }
@@ -71,8 +71,7 @@ h3 {
     padding-top: 30px;
     padding-left: 150px;
 }
-
-
+ 
 .card-img-top{
 
     width: 250px;
