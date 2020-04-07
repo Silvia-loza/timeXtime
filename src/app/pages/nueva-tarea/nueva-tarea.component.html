@@ -3,107 +3,111 @@
     <app-head></app-head>
 
 
-    <div class="espacio"></div>
-
-    <div class="container" id="contenedor1">
-        <h5>¿Qué necesitas?</h5>
-        <label class="figure img-text">
-            <input type="radio" name="categoria" value="clases" >
-            <img src="../../../assets/Professor.jpg" alt="error" class="img-ts img-thumbnail" (click)="categorias('clases')">
-            <figcaption class="figure-caption text-md-center">Clases</figcaption>
-        </label>
-
-        <label class="figure img-text">
-            <input type="radio" name="categoria" value="mascotas">
-            <img src="../../../assets/Mascotas.jpg" alt="error" class="img-ts img-thumbnail" (click)="categorias('mascotas')">
-            <figcaption class="figure-caption text-md-center">Mascotas</figcaption>
-        </label>
-
-        <label class="figure img-text">
-            <input type="radio" name="categoria" value="recados">
-            <img src="../../../assets/recadosIIIII.jpg" alt="error" class="img-ts img-thumbnail" (click)="categorias('recados')">
-            <figcaption class="figure-caption text-md-center">Recados</figcaption>
-        </label>
-
-        <label class="figure img-text">
-            <input type="radio" name="categoria" value="servicios">
-            <img src="../../../assets/servicios.jpg" alt="error" class="img-ts img-thumbnail" (click)="categorias('servicios')">
-            <figcaption class="figure-caption text-md-center">Servicios</figcaption>
-        </label>
-
-
-    </div>
-
-
-
     <div class="container" id="div1">
         <br>
-        <form action="nuevaTarea" method="post">
+        <br>
+        <div class="row">
+            <div class="col col-lg-2"></div>
 
-            <div class="form-group">
-                <label for="photo">Añadir foto</label>
-                <div class="drag-drop">
-                    <input type="file" id="photo" name="photo" #foto>
-                    <span class="fa-stack fa-2x">
-                        <i class="fa fa-cloud fa-stack-2x bottom pulsating"></i>
-                        <i class="fa fa-circle fa-stack-1x top medium"></i>
-                        <i class="fa fa-arrow-circle-up fa-stack-1x top"></i>
-                    </span>
-                    <span class="desc"></span>
-                </div>
+            <div class="col-md-auto">
+                <form action="nuevaTarea" method="post">
+
+
+                    <h5>¿Qué necesitas?</h5>
+                    <label class="figure img-text">
+                        <input type="radio" name="categoria" value="clases">
+                        <img src="../../../assets/Professor.jpg" alt="error" class="img-ts img-thumbnail"
+                            (click)="categorias('clases')">
+                        <figcaption class="figure-caption text-md-center">Clases</figcaption>
+                    </label>
+
+                    <label class="figure img-text">
+                        <input type="radio" name="categoria" value="mascotas">
+                        <img src="../../../assets/Mascotas.jpg" alt="error" class="img-ts img-thumbnail"
+                            (click)="categorias('mascotas')">
+                        <figcaption class="figure-caption text-md-center">Mascotas</figcaption>
+                    </label>
+
+                    <label class="figure img-text">
+                        <input type="radio" name="categoria" value="recados">
+                        <img src="../../../assets/recadosIIIII.jpg" alt="error" class="img-ts img-thumbnail"
+                            (click)="categorias('recados')">
+                        <figcaption class="figure-caption text-md-center">Recados</figcaption>
+                    </label>
+
+                    <label class="figure img-text">
+                        <input type="radio" name="categoria" value="servicios">
+                        <img src="../../../assets/servicios.jpg" alt="error" class="img-ts img-thumbnail"
+                            (click)="categorias('servicios')">
+                        <figcaption class="figure-caption text-md-center">Servicios</figcaption>
+                    </label>
+
+                    <br>
+                    <br>
+
+
+                    <div class="form-group">
+                        <label for="photo">Añadir foto</label>
+                        <div class="drag-drop">
+                            <input type="file" id="photo" name="photo" #foto>
+                            <span class="fa-stack fa-2x">
+                            </span>
+                            <span class="desc"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="option">Título</label>
+                        <input class="form-control campos" id="titulo" type="text" placeholder="Introduce tu título"
+                            #titulo>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="option">Localización</label>
+                        <input class="form-control campos" id="localizacion" type="text"
+                            placeholder="Introduce tu localización" #localizacion>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="option">Precio</label>
+                            <input type="number" class="form-control campos" id="coste"
+                                placeholder="Introduce unidades de tiempo" #precio>
+                        </div>
+
+                        <div class="col">
+                            <label for="option">Fecha de realización</label>
+                            <input type="date" class="form-control campos" id="fecha" placeholder="Fecha de realización"
+                                #fecha>
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <label for="textarea">Descripción</label>
+                        <textarea class="form-control campos" id="masinfo" rows="3" #descripcion></textarea>
+                    </div>
+
+                    <br>
+
+                    <button type="submit"
+                        (click)="insertarTarea( foto.value, titulo.value, localizacion.value, precio.value, fecha.value, descripcion.value)"
+                        class="btn btn-default btn-circle btn-xl" id="botonxl" type="reset"
+                        value="Borrar información"><i class="fa fa-check"></i>
+
+                        <p>Confirmar</p>
+                    </button>
+
+
+                </form>
             </div>
 
-
-            <div class="form-group">
-                <label for="option">Título</label>
-                <input class="form-control campos" id="titulo" type="text" placeholder="Introduce tu título" #titulo>
-            </div>
-
-            <div class="form-group">
-                <label for="option">Localización</label>
-                <input class="form-control campos" id="localizacion" type="text" placeholder="Introduce tu localización"
-                    #localizacion>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <label for="option">Precio</label>
-                    <input type="number" class="form-control campos" id="coste"
-                        placeholder="Introduce unidades de tiempo" #precio>
-                </div>
-
-                <div class="col">
-                    <label for="option">Fecha de realización</label>
-                    <input type="date" class="form-control campos" id="fecha" placeholder="Fecha de realización" #fecha>
-                </div>
-
-
-
-
-
-
-            </div>
-
-            <br>
-
-            <div class="form-group">
-                <label for="textarea">Descripción</label>
-                <textarea class="form-control campos" id="masinfo" rows="3" #descripcion></textarea>
-            </div>
-
-            <br>
-
-            <button type="submit"
-                (click)="insertarTarea( foto.value, titulo.value, localizacion.value, precio.value, fecha.value, descripcion.value)"
-                class="btn btn-default btn-circle btn-xl" id="botonxl" type="reset" value="Borrar información" ><i class="fa fa-check" ></i>
-        
-                <p>Confirmar</p>
-            </button>
-
-
-        </form>
+            <div class="col col-lg-2"></div>
+        </div>
     </div>
-
     <div class="espacio"></div>
 
 </body>

@@ -34,19 +34,24 @@ h3 {
 
 }
 
+#start {
+    margin-left: 30px;
+    
+   
+  }
+
 
 .estrella{
 
+
     width: 35px;
     height: 35px;
+    margin-left: 0.6%;
+    text-align: left;
     
 
 }
 
-#estrellas{
-
-   text-align: left;
-}
 
 #div1{
 
