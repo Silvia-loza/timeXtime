@@ -74,8 +74,15 @@
                         <div *ngIf="petUsu[i].id_creador != user[0].id_usuario">
 
                           <button class="btn btn-warning solicitar" id="botonx">{{peticiones[i].estado}}</button>
+                    
                         </div>
-                        
+                        <label id = "anadirFoto" for="photo" (click) = "mostrarPeticion(i)">Editar
+                        </label>
+ 
+                
+                
+                  
+
                       </div>
                     </div>
                   </div>

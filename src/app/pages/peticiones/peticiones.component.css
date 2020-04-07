@@ -196,4 +196,12 @@ body{
   margin-bottom: 5%;
 }
 
-
+#anadirFoto{
+  z-index: 1;
+  position: absolute;
+  margin-top: 1%;
+  color:#FFCC00;
+  margin-left: 1%;
+  font-weight: bold;
+ }
+ 
