@@ -18,15 +18,12 @@ import { Router } from '@angular/router';
 export class PerfilComponent implements OnInit {
 
   public perfil : Object
-  public usuario: Object
-
-  
-  constructor(private apiService: PerfilService, private apiService2: LoginService, private router: Router, private apiservice3:LoginService) { 
-    this.perfil = this.apiservice3.usuarioLogin
+    
+  constructor(private apiService: PerfilService, private apiService2: LoginService, private router: Router) { 
+    this.perfil = this.apiService2.usuarioLogin
   }
     
   fileToUpload: File = null;
-  LoginService: LoginService;
   fileUploadService: FileUploadService;
 
   editarPerfil(nombre_usuario: String, nombre: String, primer_apellido: String, segundo_apellido: String,  contrasena: String, telefono: number, email: String, biografia: String, foto: String)
@@ -46,24 +43,11 @@ export class PerfilComponent implements OnInit {
     nuevoPerfil.foto = '..\\..\\assets\\' + foto.slice(foto.lastIndexOf('\\') + 1);
     
     //this.fileToUpload = file
-  
-  
-   
-  
     
     this.apiService.putPefil(nuevoPerfil).subscribe((data) =>
     {
       console.log(data)
       //this.uploadFileToActivity()
-    })
-  }
-
-
-  mostrarPerfilUsu(){
-    this.apiService.getPerfil(this.usuario[0]).subscribe((data) =>
-    {
-      this.perfil = data
-
     })
   }
   
@@ -82,15 +66,6 @@ uploadFileToActivity() {
     });
 }
 
-  mostrarPerfil(id_usuario: number)
-  {
-   
-
-    this.apiService.getPerfil(id_usuario).subscribe((data) =>
-    {
-      this.perfil = data;
-    })
-  }
   onFotoSelected(event) {
         console.log(event)
   }
