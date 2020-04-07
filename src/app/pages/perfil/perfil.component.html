@@ -88,7 +88,7 @@
         
         <h3 id="tiempo"> {{ perfil[0].monedas}} <img src ="../../../assets/reloj.png" id="id_reloj"> </h3>
      
-        <button type="button" id= "guardar" class="btn btn-warning"id= "guardar" class="btn btn-warning" (click) = "editarPerfil(id_usuario.value, nombreUsuario.value, nombre.value, primer_apellido.value, segundo_apellido.value, contrasena.value, telefono.value, email.value, biografia.value, foto.value)">Guardar</button>
+        <button type="button" id= "guardar" class="btn btn-warning"id= "guardar" class="btn btn-warning" (click) = "editarPerfil(nombreUsuario.value, nombre.value, primer_apellido.value, segundo_apellido.value, contrasena.value, telefono.value, email.value, biografia.value, foto.value)">Guardar</button>
       </div>
     
       </form>
@@ -102,11 +102,7 @@
       <form class="formulario">
         
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="formGroupExampleInput">Id usuario</label>
-            <input type="text" class="form-control" id="id_name" placeholder="Introduce id" #id_usuario>
-            <button type="button" id= "usuarioId"  (click)= "mostrarPerfil(id_usuario.value)"> id ok </button>
-          </div>
+        
 
           <div class="form-group col-md-6">
             <label for="formGroupExampleInput">Nombre de usuario</label>

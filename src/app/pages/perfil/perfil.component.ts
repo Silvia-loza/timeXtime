@@ -3,7 +3,7 @@ import { Usuarios} from '../../models/usuarios';
 import { PerfilService} from '../../shared/perfil.service'
 import { FileUploadService} from '../../shared/file-upload.service'
 import {LoginService} from '../../shared/login.service'
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -11,22 +11,30 @@ import {LoginService} from '../../shared/login.service'
   styleUrls: ['./perfil.component.css'],
   providers:  [ PerfilService ]
 })
+
+
+
+
 export class PerfilComponent implements OnInit {
-  public usuario: Usuarios
+
   public perfil : Object
+  public usuario: Object
+
   
-  constructor(private apiService: PerfilService) { }
+  constructor(private apiService: PerfilService, private apiService2: LoginService, private router: Router, private apiservice3:LoginService) { 
+    this.perfil = this.apiservice3.usuarioLogin
+  }
     
   fileToUpload: File = null;
   LoginService: LoginService;
   fileUploadService: FileUploadService;
 
-  editarPerfil(id_usuario:number, nombre_usuario: String, nombre: String, primer_apellido: String, segundo_apellido: String,  contrasena: String, telefono: number, email: String, biografia: String, foto: String)
+  editarPerfil(nombre_usuario: String, nombre: String, primer_apellido: String, segundo_apellido: String,  contrasena: String, telefono: number, email: String, biografia: String, foto: String)
    {
 
     let nuevoPerfil = new Usuarios();
     //nuevoPerfil.id_usuario = this.LoginService[0];
-    nuevoPerfil.id_usuario = id_usuario;
+  
     nuevoPerfil.nombre_usuario = nombre_usuario;
     nuevoPerfil.nombre = nombre;
     nuevoPerfil.primer_apellido= primer_apellido;
@@ -47,6 +55,15 @@ export class PerfilComponent implements OnInit {
     {
       console.log(data)
       //this.uploadFileToActivity()
+    })
+  }
+
+
+  mostrarPerfilUsu(){
+    this.apiService.getPerfil(this.usuario[0]).subscribe((data) =>
+    {
+      this.perfil = data
+
     })
   }
   

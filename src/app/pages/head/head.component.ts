@@ -36,6 +36,14 @@ export class HeadComponent implements OnInit {
 
     })
   }
+  mostrarPerfil(){
+
+
+    this.apiService2.getPerfil().subscribe((data) =>
+    {
+      this.apiService.peticiones = data
+    })
+  }
 
   ngOnInit(): void {
   }

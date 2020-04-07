@@ -14,6 +14,8 @@ export class LoginService {
   private url2 = "http://localhost:3000/header/casita"
 
   private url3 = "http://localhost:3000/registro/iniciar-sesion/petusu"
+
+  private url4 = "http://localhost:3000/header/perfil"
   
   public peticiones: object
 
@@ -44,5 +46,8 @@ export class LoginService {
   getPetUsu(){
 
     return this.http.get(this.url3)
+  }
+  getPerfil(){
+    return this.http.get(this.url4)
   }
 }
