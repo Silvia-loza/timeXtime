@@ -26,7 +26,7 @@ export class EditTareaComponent implements OnInit {
     this.categoria = categoria
   }
 
-  editarPeticion(foto:String, titulo:String, localizacion: String, precio:number, fecha_finalizacion: Date, descripcion: String)
+  editarPeticion(foto:String, titulo:String, precio:number, localizacion:string, fecha_finalizacion: Date, descripcion: String)
    {
     let editarPeticion = new Peticiones();
 
@@ -42,10 +42,11 @@ export class EditTareaComponent implements OnInit {
     editarPeticion.categoria=this.categoria
     
     editarPeticion.titulo=titulo
-    editarPeticion.localizacion=localizacion
     editarPeticion.precio=precio
+    editarPeticion.localizacion=localizacion
     editarPeticion.fecha_finalizacion=fecha_finalizacion
     editarPeticion.descripcion=descripcion
+    editarPeticion.estado = this.peticion[0].estado
 
     
 

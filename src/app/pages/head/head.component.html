@@ -6,8 +6,6 @@
   <title>Document</title>
 </head>
 <body>
-  
-  
 
   <div class ="container cabecera">
 
@@ -19,33 +17,26 @@
 
       </div>
 
-      <div class="col-lg-6 iconos">
+ <div class="iconos"> 
+<i class="fa fa-home fa-3x" aria-hidden="true" (click)="mostrarPeticiones()" id="home"></i>
+<i class="fa fa-thumb-tack fa-3x" aria-hidden="true" routerLink="/peticiones" id="peticiones"></i>
+<i class="fa fa-user fa-3x" aria-hidden="true" routerLink="/perfil" id="perfil"></i>
+<i class="fa fa-comments fa-3x" aria-hidden="true" id="chat"></i>
 
-        <div >
-           <img class="icono" src ="../../../assets/home.png" id="id_home" (click)="mostrarPeticiones()">
-        </div>
-        <div >
-           <img routerLink="/peticiones" class="icono" src ="../../../assets/chincheta.png" id="id_publicacion">
-        </div>
-        <div >
-           <img routerLink="/perfil" class="icono" src ="../../../assets/user.png" id="id_perfil">
-        </div>
-        <div >
-           <img class="icono" src ="../../../assets/chat.png" id="id_chat">
-        </div>
-        <div *ngIf="user!=undefined">
-          {{user[0].monedas}}<img class="icono" src ="../../../assets/reloj2.png" id="id_reloj">
-        </div>
+     <span *ngIf="user!=undefined">
         
-      </div>
-      
+          <i class="fa fa-hourglass-half fa-3x" aria-hidden="true" id="reloj"></i>{{user[0].monedas}}
+ 
+       </span>
+      </div> 
     </div>
-    
-  </div>
+</div>
 
-  
   
 </body>
+
+
+
 </html>
 
 

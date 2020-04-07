@@ -1,28 +1,51 @@
-.icono{
 
-    height: 38px;
-    width: 38px;
-    float: left;
-    margin: 3.5px;
-    margin-top: 25px;
-    cursor: pointer;
-
-    
-}
-
-.icono:focus,.icono:active, #id_logo:focus, #id_logo:active {
+.iconos:focus,.icono:active, #id_logo:focus, #id_logo:active {
     outline: none;
     box-shadow: none;
 }
 
-#id_home{
-    margin-left: 50%;
+.iconos{
+
+    display: block;
+    margin-left: 79%;
+    margin-top: -4%
+
+
+
 }
 
-#id_reloj{
+#home{
+   padding: 6px 6px 15px 6px; 
+   cursor: pointer;
+   outline: none;
+   box-shadow: none;
 
-    margin-left: 18%;
 }
+#peticiones{
+
+    padding: 6px 6px 15px 6px; 
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+}
+
+#perfil{
+
+    padding: 6px 6px 15px 6px; 
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+}
+
+#chat{
+
+    padding: 6px 60px 15px 6px; 
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+
+}
+
 
 #id_logo{
     height: 90px;
@@ -32,6 +55,7 @@
 .cabecera{
     background-color: rgb(255, 204, 0);
     max-width: 100%;
+
 }
 
 #moneditas{

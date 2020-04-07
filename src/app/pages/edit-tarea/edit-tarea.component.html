@@ -1,11 +1,12 @@
 <app-head></app-head>
-
+<body>
+  <br><br>
 <form class="bloque">
     <div class="fondo">
     
-    
+      <h5 id="editar">Editar</h5>
         <div class="container" id="contenedor1">
-            <h5>¿Qué necesitas?</h5>
+         
             <label class="figure img-text">
                 <input type="radio" name="categoria" value="clases"(click)="categorias('clases')">
                 <img src="../../../assets/Professor.jpg" alt="error" class="img-ts img-thumbnail">
@@ -34,7 +35,7 @@
     
     
             <br>
-
+<div class="container">
             <div class="subir_foto">
             <img src ="{{peticion[0].foto}}" id="id_peticion" #foto/>
 
@@ -49,28 +50,52 @@
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="Titulo">Titulo</label>
-                <input type="text" class="form-control" id="titulo" #titulo value = "{{peticion[0].titulo}}">
+                <input type="text" class="form-control campos" id="titulo" #titulo value = "{{peticion[0].titulo}}">
               </div>
   
 
           <div class="form-group col-md-6">
             <label for="precio">Precio</label>
-            <input type="number" class="form-control" id="precio" #precio value = "{{peticion[0].precio}}">
+            <input type="number" class="form-control campos" id="precio" #precio value = "{{peticion[0].precio}}">
           </div>
  
       </div>
     
     
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="Titulo">Zona</label>
-                <input type="text" class="form-control" id="Zona" #zona value = "{{peticion[0].localizacion}}">
-              </div>
+              <div class="form-group col-md-6">
+                <label for="inputState">Distrito</label>
+                <select id="inputState" class="form-control campos" #zona value = "{{peticion[0].localizacion}}">
+                  <option selected>Centro</option>
+                  <option>Arganzuela</option>
+                  <option>Barajas</option>
+                  <option>Carabanchel</option>
+                  <option>Chamartín</option>
+                  <option>Chamberí</option>
+                  <option>Ciudad Lineal</option>
+                  <option>Fuencarral-El Pardo</option>
+                  <option>Hortaleza</option>
+                  <option>Latina</option>
+                  <option>Moncloa-Aravaca</option>
+                  <option>Moratalaz</option>
+                  <option>Puente de Vallecas</option>
+                  <option>Retiro</option>
+                  <option>Salamanca</option>
+                  <option>San Blas Canillejas</option>
+                  <option>Tetuán</option>
+                  <option>Usera</option>
+                  <option>Vicálcaro</option>
+                  <option>Villa de Vallecas</option>
+                  <option>Villaverde</option>
+   
 
+
+                </select>
+              </div>
 
             <div class="form-group col-md-6">
                 <label for="fecha">Fecha</label>
-                <input type="date" class="form-control" id="fecha" #fecha value = "{{peticion[0].fecha_finalizacion}}">
+                <input type="date" class="form-control campos" id="fecha" #fecha value = "{{peticion[0].fecha_finalizacion}}">
               </div>
             </div>
     
@@ -79,14 +104,14 @@
         <div class="form-row">
           <div class="form-group col-md-12">
             <label for="descripcion">Descripcion</label>
-            <textarea class="form-control" class="form-control" id="descripcion" rows="6"  #descripcion value = "{{peticion[0].descripcion}}"></textarea>
+            <textarea class="form-control" class="form-control campos " id="descripcion" rows="6"  #descripcion value = "{{peticion[0].descripcion}}"></textarea>
           </div>
         </div>
     
     
-        <a class="btn btn-warning editar" id="button1" (click) = "editarPeticion(foto.value, titulo.value, precio.value, zona.value, fecha.value, descripcion.value)">Editar</a>
-        <a class="btn btn-warning editar2" id="button2">Eliminar</a>
+        <a class="btn btn-warning editar" id="button1" (click) = "editarPeticion(foto.value, titulo.value, precio.value, zona.value, fecha.value, descripcion.value)">Guardar </a>
 
+      </div>  
 
 
       </div>
@@ -94,3 +119,4 @@
     <br>
     <br>
     <br>
+  </body>
