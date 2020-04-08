@@ -48,6 +48,15 @@ export class HeadComponent implements OnInit {
     })
   }
 
+  actualizarUsuario(){
+
+    this.apiService2.getUsuario(this.user[0].email, this.user[0].contrasena).subscribe((data) =>
+    {
+
+      this.apiService2.usuarioLogin = data
+    })
+  }
+
   ngOnInit(): void {
   }
 

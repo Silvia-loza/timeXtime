@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Peticiones } from '../models/peticiones';
+import { Usuarios } from '../models/usuarios';
+import { Petusu } from '../models/petusu';
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +53,20 @@ export class PeticionesService {
   putRealizada(peticion:Peticiones){
 
     return this.http.put(this.url3 + "/realizar", peticion)
+  }
+
+  putCompletada(peticion:Peticiones){
+
+    return this.http.put(this.url3 + "/completar", peticion)
+  }
+
+  putCompletadaRestaCreador(usuario:Usuarios){
+
+    return this.http.put(this.url3 + "/completar-resta-creador", usuario)
+  }
+
+  putCompletadaSumaSolicitante(usuario:Usuarios){
+
+    return this.http.put(this.url3 + "/completar-suma-solicitante", usuario)
   }
 }

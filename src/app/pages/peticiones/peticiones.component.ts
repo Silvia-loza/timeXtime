@@ -5,6 +5,8 @@ import {MuroService} from 'src/app/shared/muro.service'
 import { Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Peticiones } from 'src/app/models/peticiones';
+import { Usuarios } from 'src/app/models/usuarios';
+import { Petusu } from 'src/app/models/petusu';
 
 
 @Component({
@@ -116,6 +118,49 @@ export class PeticionesComponent implements OnInit {
     {
 
       this.mostrarPeticionesSol()
+    })
+  }
+
+  completarSolicitud(peticion:Peticiones, petUsu:Petusu){
+
+    this.apiService2.putCompletada(peticion).subscribe((data) =>
+    {
+
+      this.mostrarPeticionesPub()
+    })
+
+    let usuarioCreador = new Usuarios()
+
+    usuarioCreador.id_usuario = this.user[0].id_usuario
+    usuarioCreador.monedas = peticion.precio
+
+    console.log(usuarioCreador.id_usuario)
+    console.log(usuarioCreador.monedas)
+    
+    this.apiService2.putCompletadaRestaCreador(usuarioCreador).subscribe((data) =>
+    {
+
+      console.log(data)
+
+      this.apiService.getUsuario(this.user[0].email, this.user[0].contrasena).subscribe((data) =>
+      {
+
+        this.apiService.usuarioLogin = data
+      })
+    })
+
+    let usuarioSolicitante = new Usuarios()
+
+    usuarioSolicitante.id_usuario = petUsu.id_solicitante
+    usuarioSolicitante.monedas = peticion.precio
+
+    console.log(usuarioSolicitante.id_usuario)
+    console.log(usuarioSolicitante.monedas)
+
+    this.apiService2.putCompletadaSumaSolicitante(usuarioSolicitante).subscribe((data) =>
+    {
+
+      console.log(data)
     })
   }
 

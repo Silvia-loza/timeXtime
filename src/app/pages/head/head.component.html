@@ -18,9 +18,9 @@
       </div>
 
  <div class="iconos"> 
-<i class="fa fa-home fa-3x" aria-hidden="true" (click)="mostrarPeticiones()" id="home"></i>
-<i class="fa fa-thumb-tack fa-3x" aria-hidden="true" routerLink="/peticiones" id="peticiones"></i>
-<i class="fa fa-user fa-3x" aria-hidden="true" routerLink="/perfil" id="perfil"></i>
+<i class="fa fa-home fa-3x" aria-hidden="true" (click)="mostrarPeticiones()" (click)="actualizarUsuario()" id="home"></i>
+<i class="fa fa-thumb-tack fa-3x" aria-hidden="true"  (click)="actualizarUsuario()" routerLink="/peticiones" id="peticiones"></i>
+<i class="fa fa-user fa-3x" aria-hidden="true" (click)="actualizarUsuario()" routerLink="/perfil" id="perfil"></i>
 <i class="fa fa-comments fa-3x" aria-hidden="true" id="chat"></i>
 
      <span *ngIf="user!=undefined">

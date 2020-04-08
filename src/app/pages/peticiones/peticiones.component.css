@@ -203,6 +203,7 @@ body{
   color:#FFCC00;
   margin-left: 1%;
   font-weight: bold;
+  cursor: pointer;
  }
 
  #rechazar{
