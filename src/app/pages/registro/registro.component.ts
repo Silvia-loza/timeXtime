@@ -7,13 +7,27 @@ import { Usuarios } from 'src/app/models/usuarios';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  styleUrls: ['./registro.component.css'],
+
 })
+
+
+
 export class RegistroComponent implements OnInit {
 
-  modalRef: BsModalRef
+  modalRef: BsModalRef;
+  public nuevoUsuario = new Usuarios()
 
-  constructor(private modalService: BsModalService, private apiService:LoginService, private router:Router){}
+  constructor(private modalService: BsModalService, private apiService:LoginService, private router:Router) {
+
+     this.nuevoUsuario
+  }
+
+
+  onSubmit(form){
+    console.log(form.value)
+  }
+
 
   openModal(template: TemplateRef<any>){
     this.modalRef = this.modalService.show(template)
