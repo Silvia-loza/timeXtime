@@ -12,7 +12,9 @@ export class PeticionesService {
   private url = "http://localhost:3000/peticiones/publicadas"
   private url2 = "http://localhost:3000/peticiones/solicitadas"
   private url3 = "http://localhost:3000/boton/solicitar"
-
+  private url4 = "http://localhost:3000/boton/valorar/cambios-"
+  private url5 = "http://localhost:3000/header/perfil"
+  
   constructor(private http:HttpClient) { }
 
   getPeticionesPub(id: number){
@@ -68,5 +70,33 @@ export class PeticionesService {
   putCompletadaSumaSolicitante(usuario:Usuarios){
 
     return this.http.put(this.url3 + "/completar-suma-solicitante", usuario)
+  }
+  // 
+
+  putCambiosUsuario(usuario:Usuarios){
+
+    return this.http.put(this.url4 + "usuario", usuario)
+  }
+
+  putCambiosUsuarioVal(usuario:Usuarios){
+
+    return this.http.put(this.url4 + "usuarioVal", usuario)
+  }
+
+  putCambiosPeticionCre(peticion:Peticiones){
+
+    return this.http.put(this.url4 + "peticionCre", peticion)
+  }
+
+  putCambiosPeticionSol(peticion:Peticiones){
+
+    return this.http.put(this.url4 + "peticionSol", peticion)
+  }
+
+  // 
+
+  getUsuarios(id:number){
+
+    return this.http.get(this.url5 + "?id=" + id)
   }
 }

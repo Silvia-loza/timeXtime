@@ -15,6 +15,8 @@ import { OfertaPerfilComponent } from './pages/oferta-perfil/oferta-perfil.compo
 import { RegistroComponent } from './pages/registro/registro.component';
 import { NuevaTareaComponent } from './pages/nueva-tarea/nueva-tarea.component';
 import {EditTareaComponent} from './pages/edit-tarea/edit-tarea.component';
+import { ValoracionComponent } from './pages/valoracion/valoracion.component';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -28,13 +30,16 @@ import {EditTareaComponent} from './pages/edit-tarea/edit-tarea.component';
     RegistroComponent,
     NuevaTareaComponent,
     EditTareaComponent,
+    ValoracionComponent,
     
   ],
   imports: [
     ModalModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

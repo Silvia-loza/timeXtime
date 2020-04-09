@@ -137,13 +137,12 @@ body{
 
 .card-text{
 
+  overflow:hidden; 
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
   text-align: justify;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  
-  
-  height: 3em;
+  min-height: 75px;
 }
 
 .card-title{
@@ -210,4 +209,57 @@ body{
 
   margin-left: 10%;
  }
- 
+
+
+
+#headModalVal, #bodyModalVal{
+
+  border: none;
+  background-color: rgb(255, 204, 0);
+}
+
+p{
+
+  text-align: justify;
+}
+
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
+
+#form p {
+  text-align: center;
+}
+
+#form label {
+  font-size: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  font-size: 60px;
+  text-align: center;
+  margin: 5px;
+
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
+

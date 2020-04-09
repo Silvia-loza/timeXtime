@@ -6,32 +6,9 @@
       <div class="col-lg-4">
         <img src ="{{user[0].foto}}" id="id_perfil">
         <h2 id="nombre">{{user[0].nombre}} {{user[0].primer_apellido}} {{user[0].segundo_apellido}}</h2>
-        <div class="container" id="estrellas" *ngIf="user[0].valoracion === 1">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        </div>
-        <div class="container" id="estrellas" *ngIf="user[0].valoracion === 2">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        </div>
-        <div class="container" id="estrellas" *ngIf="user[0].valoracion === 3">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        </div>
-        <div class="container" id="estrellas" *ngIf="user[0].valoracion === 4">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        </div>
         
-        <div class="container" id="estrellas" *ngIf="user[0].valoracion === 5">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-          <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        </div>
+        <app-valoracion></app-valoracion>
+        
         <h1 id="tiempo">{{user[0].monedas}} <img src ="../../../assets/reloj-de-arena.png" id="id_tiempo"></h1>
         <button routerLink="/nueva-tarea" type="button" id= "nueva_peticion"class="btn btn-light"><i class="fa fa-plus-circle" id="plus"></i> Nueva petición</button>
       </div>
@@ -77,7 +54,7 @@
 
                           <div *ngIf="peticiones[i].estado === 'solicitada'">
 
-                            <button class="btn btn-success solicitar" id="botonx" (click)="openModal(template)">{{peticiones[i].estado}}</button>
+                            <button class="btn btn-success solicitar" id="botonx" (click)="datosSolicitante(petUsu[i].id_solicitante)" (click)="openModal(template)">{{peticiones[i].estado}}</button>
                           </div>
 
                           <div *ngIf="peticiones[i].estado === 'aceptada'">
@@ -87,7 +64,7 @@
 
                           <div *ngIf="peticiones[i].estado === 'realizada'">
 
-                            <button class="btn btn-primary solicitar" id="botonx" (click)="openModal(template2)">{{peticiones[i].estado}}</button>
+                            <button class="btn btn-primary solicitar" id="botonx" (click)="datosSolicitante(petUsu[i].id_solicitante)" (click)="openModal(template2)">{{peticiones[i].estado}}</button>
                           </div>
 
                           <div *ngIf="peticiones[i].estado === 'expirada'">
@@ -98,6 +75,13 @@
                           <div *ngIf="peticiones[i].estado === 'completada'">
 
                             <button class="btn btn-secondary solicitar" id="botonx" disabled>{{peticiones[i].estado}}</button>
+                            <br>
+
+                            <div *ngIf="peticiones[i].valorada_creador === 0">
+
+                              <label id = "anadirFoto" (click)="datosSolicitante(petUsu[i].id_solicitante)" (click)="openModal(template3a)">Pendiente de valoración</label>
+
+                            </div>
 
                           </div>
 
@@ -127,6 +111,13 @@
                           <div *ngIf="peticiones[i].estado === 'completada'">
 
                             <button class="btn btn-secondary solicitar" id="botonx" disabled>{{peticiones[i].estado}}</button>
+                            <br>
+                            <div *ngIf="peticiones[i].valorada_solicitante === 0">
+
+                              <label id = "anadirFoto" (click)="datosCreador(petUsu[i].id_creador)" (click)="openModal(template3b)">Pendiente de valoración</label>
+
+                            </div>
+                            
 
                           </div>
 
@@ -148,7 +139,7 @@
                       
                             <div> 
                                                  
-                              <p>(Nombre_usuario del solicitante) ha solicitado tu petición "{{peticiones[i].titulo}}". Haz click en aceptar si quieres que la lleve a cabo o haz click en rechazar si quieres que la petición vuelva al muro y la haga otra persona.</p>        
+                              <p>{{usuarioSolicitante[0].nombre_usuario}} ha solicitado tu petición "{{peticiones[i].titulo}}". Haz click en aceptar si quieres que la lleve a cabo o haz click en rechazar si quieres que la petición vuelva al muro y la haga otra persona.</p>        
                               
                                                                                 
                             </div>
@@ -194,13 +185,95 @@
                       
                             <div> 
                                                  
-                              <p>Parece que (Nombre_usuario del solicitante) ha completado tu petición "{{peticiones[i].titulo}}". Por favor, asegúrate de que la petición se ha completado correctamente antes de continuar.</p>        
+                              <p>Parece que {{usuarioSolicitante[0].nombre_usuario}} ha completado tu petición "{{peticiones[i].titulo}}". Por favor, asegúrate de que la petición se ha completado correctamente antes de continuar.</p>        
                               
                                                                                 
                             </div>
 
                             <button class="btn btn-outline-success" (click)="completarSolicitud(peticiones[i], petUsu[i])" (click)="modalRef.hide()"> <i class="fa fa-check-circle"></i> Continuar</button>
                             <button class="btn btn-outline-danger" id="rechazar" (click)="modalRef.hide()"> <i class="fa fa-times-circle"></i> Volver</button>
+                            
+                          </div>
+                        </ng-template>
+
+                        <ng-template #template3a class="elmodal" id="modalVal">
+                          <div class="modal-header" id="headModalVal">
+                            <h4 class="modal-title pull-center" id="h4filtro">Valora a {{usuarioSolicitante[0].nombre_usuario}}</h4>
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                              <span aria-hidden="true">&times;</span>
+                        
+                            </button>
+                          </div>
+                          <div class="modal-body" id="bodyModalVal">
+
+                            <img src="../../../assets/emma.jpg" alt="" id="id_perfil">
+                            <h3>{{usuarioSolicitante[0].nombre_usuario}}</h3>
+
+                            <form>
+                              <p class="clasificacion">
+                                <input id="radio1" type="radio" name="estrellas" (click)="estrellitas(5)">
+                                <label for="radio1">★</label>
+                                <input id="radio2" type="radio" name="estrellas" (click)="estrellitas(4)">
+                                <label for="radio2">★</label>
+                                <input id="radio3" type="radio" name="estrellas" (click)="estrellitas(3)">
+                                <label for="radio3">★</label>
+                                <input id="radio4" type="radio" name="estrellas" (click)="estrellitas(2)">
+                                <label for="radio4">★</label>
+                                <input id="radio5" type="radio" name="estrellas" (click)="estrellitas(1)">
+                                <label for="radio5">★</label>
+                              </p>
+                            </form>
+                      
+                            <div> 
+                                                 
+                              <p>La peticion "{{peticiones[i].titulo}}" se ha completado correctamente. Te agradeceríamos que ahora valoraras al usuario que ha realizado tu petición. Por favor, indica el número de estrellas que le darías a {{usuarioSolicitante[0].nombre_usuario}} por la tarea que ha llevado a cabo.</p>        
+                              
+                                                                                
+                            </div>
+
+                            <button class="btn btn-outline-success" (click)="valoracionModal3a(peticiones[i])" (click)="modalRef.hide()"> <i class="fa fa-check-circle"></i> Valorar</button>
+                            
+                            
+                          </div>
+                        </ng-template>
+
+                        <ng-template #template3b class="elmodal" id="modalVal">
+                          <div class="modal-header" id="headModalVal">
+                            <h4 class="modal-title pull-center" id="h4filtro">Valora a {{usuarioCreador[0].nombre_usuario}}</h4>
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                              <span aria-hidden="true">&times;</span>
+                        
+                            </button>
+                          </div>
+                          <div class="modal-body" id="bodyModalVal">
+
+                            <img src="../../../assets/emma.jpg" alt="" id="id_perfil">
+                            <h3>{{usuarioCreador[0].nombre_usuario}}</h3>
+
+                            <form>
+                              <p class="clasificacion">
+                                <input id="radio1" type="radio" name="estrellas" (click)="estrellitas(5)">
+                                <label for="radio1">★</label>
+                                <input id="radio2" type="radio" name="estrellas" (click)="estrellitas(4)">
+                                <label for="radio2">★</label>
+                                <input id="radio3" type="radio" name="estrellas" (click)="estrellitas(3)">
+                                <label for="radio3">★</label>
+                                <input id="radio4" type="radio" name="estrellas" (click)="estrellitas(2)">
+                                <label for="radio4">★</label>
+                                <input id="radio5" type="radio" name="estrellas" (click)="estrellitas(1)">
+                                <label for="radio5">★</label>
+                              </p>
+                            </form>
+                      
+                            <div> 
+                                                 
+                              <p>La peticion "{{peticiones[i].titulo}}" se ha completado correctamente. Te agradeceríamos que ahora valoraras al usuario para el que realizaste la petición. Por favor, indica el número de estrellas que le darías a {{usuarioCreador[0].nombre_usuario}} por la tarea.</p>        
+                              
+                                                                                
+                            </div>
+
+                            <button class="btn btn-outline-success" (click)="valoracionModal3b(peticiones[i])" (click)="modalRef.hide()"> <i class="fa fa-check-circle"></i> Valorar</button>
+                            
                             
                           </div>
                         </ng-template>

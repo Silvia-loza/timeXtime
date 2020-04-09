@@ -9,6 +9,8 @@ export class Peticiones {
     public descripcion: String 
     public fecha_finalizacion: Date 
     public estado: String
+    public valorada_creador:boolean
+    public valorada_solicitante: boolean
 
     constructor(){
 
