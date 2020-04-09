@@ -1,7 +1,7 @@
 <app-head></app-head>
 <body>
   <br><br>
-<form class="bloque">
+<form name="myForm" class="bloque" #peticionesForm="ngForm" (ngSubmit)="onSubmit(peticionesForm); peticionesForm.reset()">
     <div class="fondo">
     
       <h5 id="editar">Editar</h5>
@@ -31,9 +31,7 @@
                 <figcaption class="figure-caption text-md-center">Servicios</figcaption>
             </label>
     
-        </div>
-    
-    
+          </div>
             <br>
 <div class="container">
             <div class="subir_foto">
@@ -45,28 +43,39 @@
                   <input type="file" id="photo" name="photo" #foto>
                 </div>
               </div>
-            </div>
+            </div> 
       
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="Titulo">Titulo</label>
-                <input type="text" class="form-control campos" id="titulo" #titulo value = "{{peticion[0].titulo}}">
-              </div>
-  
+                <input [ngModel]="peticion[0].titulo" class="form-control campos" name="titulo" id="titulo" #titulo="ngModel"
+                 minlength="10" maxlength="60" required>
+                <div class="form-control-feedback" 
+                                *ngIf="titulo.errors && (titulo.dirty || titulo.touched)" id="err"> 
+                                <p *ngIf="titulo.errors.required" id="err">El titulo es necesario</p>
+                                <p *ngIf="titulo.errors.minlength" id="err">El titulo debe tener al menos 10 carácteres</p>
+                                  </div>
+                              </div>
+                          
+                            
+         <div class="form-group col-md-6">
+           <label for="precio">Precio</label>
+           <input [ngModel]="peticion[0].precio" type="number" class="form-control campos" name="precio" id="precio" #precio="ngModel"
+           required>
+           <div class="form-control-feedback" 
+           *ngIf="precio.errors && (precio.dirty || precio.touched)" id="precio"> 
+         <div *ngIf="precio.errors.required" id="err">El precio es obligatorio</div>
+     </div>
+    </div>
+  </div>
 
-          <div class="form-group col-md-6">
-            <label for="precio">Precio</label>
-            <input type="number" class="form-control campos" id="precio" #precio value = "{{peticion[0].precio}}">
-          </div>
- 
-      </div>
     
     
         <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputState">Distrito</label>
-                <select id="inputState" class="form-control campos" #zona value = "{{peticion[0].localizacion}}">
-                  <option selected>Centro</option>
+                <select id="inputState" class="form-control campos" #zona [ngModel]="peticion[0].localizacion">
+                  <option selected>Selecciona una opción</option>
                   <option>Arganzuela</option>
                   <option>Barajas</option>
                   <option>Carabanchel</option>
@@ -87,31 +96,44 @@
                   <option>Vicalcaro</option>
                   <option>Villa de Vallecas</option>
                   <option>Villaverde</option>
-   
-
-
                 </select>
               </div>
 
             <div class="form-group col-md-6">
                 <label for="fecha">Fecha</label>
-                <input type="date" class="form-control campos" id="fecha" #fecha value = "{{peticion[0].fecha_finalizacion}}">
+                <input [ngModel]="peticion[0].fecha_finalizacion" name="fecha" type="date" class="form-control campos" id="fecha" #fecha="ngModel"
+                [ngClass]="{ 'is-invalid': peticionesForm.submitted && fecha.invalid }" required>
+                <div class="invalid-feedback" *ngIf="peticionesForm.submitted && fecha.invalid">
+                  <div *ngIf="fecha.errors.required" id="fecha">La fecha de finalización es obligatoria</div>
               </div>
             </div>
+          </div>
+          
     
     
     
         <div class="form-row">
           <div class="form-group col-md-12">
             <label for="descripcion">Descripcion</label>
-            <textarea class="form-control" class="form-control campos " id="descripcion" rows="6"  #descripcion value = "{{peticion[0].descripcion}}"></textarea>
-          </div>
+            <textarea [ngModel]= peticion[0].descripcion class="form-control" name="descripcion" class="form-control campos " id="descripcion" rows="6"  #descripcion="ngModel"
+             minlength="20"required>
+          </textarea>
+          <div class="form-control-feedback" 
+          *ngIf="descripcion.errors && (descripcion.dirty || descripcion.touched)" id="err"> 
+          <p *ngIf="descripcion.errors.required" id="err">La descripción es necesaria</p>
+          <p *ngIf="descripcion.errors.minlength" id="err">La descripción debe tener al menos 10 carácteres</p>
+            </div>
         </div>
-    
-    
-        <a class="btn btn-warning editar" id="button1" (click) = "editarPeticion(foto.value, titulo.value, precio.value, zona.value, fecha.value, descripcion.value)">Guardar </a>
+      </div>
+     <br>
+
+
+        <button class="btn btn-warning editar btn-block" type="submit"  [disabled]="peticionesForm.invalid" id="button1" (click) = "editarPeticion(foto.value, titulo.value, precio.value, zona.value, fecha.value, descripcion.value)">Guardar </button>
 
       </div>  
+      <div [hidden]="!peticionesForm.submitted">
+        <h2>¡Gracias, tu petición se editó correctamente!</h2>
+      </div>
 
 
       </div>

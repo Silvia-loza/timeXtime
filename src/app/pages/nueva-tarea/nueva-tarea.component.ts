@@ -3,6 +3,7 @@ import { NuevatareaService } from 'src/app/shared/nuevatarea.service';
 import { Peticiones } from 'src/app/models/peticiones';
 import { LoginService } from 'src/app/shared/login.service';
 import { Petusu } from 'src/app/models/petusu';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms'
 
 @Component({
   selector: 'app-nueva-tarea',
@@ -11,13 +12,19 @@ import { Petusu } from 'src/app/models/petusu';
 })
 export class NuevaTareaComponent implements OnInit {
   public categoria: String
-  
-  constructor(private apiService: NuevatareaService, private apiService2: LoginService) { }
+  public peticiones1= new Peticiones()
+
+  constructor(private apiService: NuevatareaService, private apiService2: LoginService) {
+
+    this.peticiones1
+   }
+   onSubmit(form){
+    console.log(form.value)
+  }
 
 categorias(categoria:String){
     this.categoria = categoria
   }
-
 
 insertarTarea(foto:String, titulo:String, localizacion: String, precio:number, fecha_finalizacion: Date, descripcion: String)
   { 
@@ -54,7 +61,6 @@ insertarTarea(foto:String, titulo:String, localizacion: String, precio:number, f
 
     
   }
-
 
 
 

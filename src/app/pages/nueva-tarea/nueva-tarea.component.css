@@ -3,6 +3,16 @@
   src: local("Reckless"), url("../../../assets/Reckless.otf");
 }
 
+
+  .ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #ffcc00;
+  }
+
+
+#err{
+  color:red;
+}
+
 /* HIDE RADIO */
 [type="radio"] {
   position: absolute;
