@@ -65,7 +65,7 @@
                   <br>
                   <br>
                   <h5 class="card-title" (click) = "mostrarPeticion(i)" >{{peticion.titulo}}</h5>
-                  <p class="card-text">{{peticion.descripcion}} </p>
+                  <p class="card-text" id="cuerpo_descripcion">{{peticion.descripcion}} </p>
                   
                   <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
                   <h6 class="monedas">{{peticion.precio}}</h6>
@@ -146,9 +146,31 @@
           <label >Precio:</label>
           <input type="number" class="form-control inputsFiltro" placeholder="Introduzca precio mínimo" #precio>
         </div>
-        <div class="form-group">
-          <label >Localización:</label>
-          <input type="text" class="form-control inputsFiltro" placeholder="Seleccione localización" #localizacion>
+        <div class="form-group">      
+          <label for="inputState">Localización</label>
+          <select id="inputState" class="form-control campos" #localizacion>
+            <option selected>Centro</option>
+            <option>Arganzuela</option>
+            <option>Barajas</option>
+            <option>Carabanchel</option>
+            <option>Chamartin</option>
+            <option>Chamberi</option>
+            <option>Ciudad Lineal</option>
+            <option>Fuencarral-El Pardo</option>
+            <option>Hortaleza</option>
+            <option>Latina</option>
+            <option>Moncloa-Aravaca</option>
+            <option>Moratalaz</option>
+            <option>Puente de Vallecas</option>
+            <option>Retiro</option>
+            <option>Salamanca</option>
+            <option>San Blas Canillejas</option>
+            <option>Tetuan</option>
+            <option>Usera</option>
+            <option>Vicalcaro</option>
+            <option>Villa de Vallecas</option>
+            <option>Villaverde</option>
+          </select>
         </div>
         
         <button type="button" class="btn btn-primary" id="botonFiltro" (click) = "mostrarPeticionesFiltros(precio.value, localizacion.value, fecha.value)" (click)="modalRef.hide()">Buscar</button>
