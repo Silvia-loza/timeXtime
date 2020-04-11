@@ -149,53 +149,247 @@
 
           <div id="start">
   
-            <div class="container" *ngIf="usuario[0].valoracion === 0">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            </div>
-
-            <div class="container" *ngIf="usuario[0].valoracion === 1">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            </div>
-
-            <div class="container" id="estrellas" *ngIf="usuario[0].valoracion === 2">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            </div>
-
-            <div class="container" id="estrellas" *ngIf="usuario[0].valoracion === 3">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            </div>
-
-            <div class="container" id="estrellas" *ngIf="usuario[0].valoracion === 4">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
-              <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            </div>
-
-            <div class="container" id="estrellas" *ngIf="usuario[0].valoracion === 5">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
-              <img src="..\..\..\assets\image.png" alt="" class="estrella">
+            <div *ngIf="(usuario[0].valoracion == 1 || usuario[0].valoracion > 1) && (usuario[0].valoracion < 1.4 || usuario[0].valoracion == 1.4)" id="estrellas">
+              <span class="fa fa-star checked"></span>
+              <span class="far fa-star"></span>
+              <span class="far fa-star"></span>
+              <span class="far fa-star"></span>
+              <span class="far fa-star"></span>
+              
+              <div class="container">
           
+                <div class="row">
+        
+                  <div class="col-lg-6">
+      
+                      <h5 id="puntos">{{usuario[0].valoracion}}/5 </h5> 
+      
+                  </div>
+      
+                  <div class="col-lg-6">
+      
+                      <h6 id="numero">{{usuario[0].numero_valoraciones}} valoraciones</h6>
+      
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          
+            <div *ngIf="(usuario[0].valoracion == 1.41 || usuario[0].valoracion > 1.41) && (usuario[0].valoracion < 1.9 || usuario[0].valoracion == 1.9)" id="estrellas">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star-half-alt"></span>
+              <span class="far fa-star"></span>
+              <span class="far fa-star"></span>
+              <span class="far fa-star"></span>
+          
+              <div class="container">
+          
+                  <div class="row">
+          
+                      <div class="col-lg-6">
+          
+                          <h5 id="puntos">{{usuario[0].valoracion}}/5 </h5> 
+          
+                      </div>
+          
+                      <div class="col-lg-6">
+          
+                          <h6 id="numero">{{usuario[0].numero_valoraciones}} valoraciones</h6>
+          
+                      </div>
+                  </div>
+              </div>
+          
+            </div>
+          
+            <div *ngIf="(usuario[0].valoracion == 1.91 || usuario[0].valoracion > 1.91) && (usuario[0].valoracion < 2.4 || usuario[0].valoracion == 2.4)" id="estrellas">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="far fa-star"></span>
+              <span class="far fa-star"></span>
+              <span class="far fa-star"></span>
+          
+              <div class="container">
+          
+                  <div class="row">
+          
+                      <div class="col-lg-6">
+          
+                          <h5 id="puntos">{{usuario[0].valoracion}}/5 </h5> 
+          
+                      </div>
+          
+                      <div class="col-lg-6">
+          
+                          <h6 id="numero">{{usuario[0].numero_valoraciones}} valoraciones</h6>
+          
+                      </div>
+                  </div>
+              </div>
+              
+            </div>
+          
+            <div *ngIf="(usuario[0].valoracion == 2.41 || usuario[0].valoracion > 2.41) && (usuario[0].valoracion < 2.9 || usuario[0].valoracion == 2.9)" id="estrellas">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star-half-alt"></span>
+              <span class="far fa-star"></span>
+              <span class="far fa-star"></span>
+              
+              <div class="container">
+          
+                  <div class="row">
+          
+                      <div class="col-lg-6">
+          
+                          <h5 id="puntos">{{usuario[0].valoracion}}/5 </h5> 
+          
+                      </div>
+          
+                      <div class="col-lg-6">
+          
+                          <h6 id="numero">{{usuario[0].numero_valoraciones}} valoraciones</h6>
+          
+                      </div>
+                  </div>
+              </div>
+          
+            </div>
+          
+            <div *ngIf="(usuario[0].valoracion == 2.91 || usuario[0].valoracion > 2.91) && (usuario[0].valoracion < 3.4 || usuario[0].valoracion == 3.4)" id="estrellas">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="far fa-star"></span>
+              <span class="far fa-star"></span>
+              
+              <div class="container">
+          
+                  <div class="row">
+          
+                      <div class="col-lg-6">
+          
+                          <h5 id="puntos">{{usuario[0].valoracion}}/5 </h5> 
+          
+                      </div>
+          
+                      <div class="col-lg-6">
+          
+                          <h6 id="numero">{{usuario[0].numero_valoraciones}} valoraciones</h6>
+          
+                      </div>
+                  </div>
+              </div>
+          
+            </div>
+          
+            <div *ngIf="(usuario[0].valoracion == 3.41 || usuario[0].valoracion > 3.41) && (usuario[0].valoracion < 3.9 || usuario[0].valoracion == 3.9)" id="estrellas">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star-half-alt"></span>
+              <span class="far fa-star"></span>
+              
+              <div class="container">
+          
+                  <div class="row">
+          
+                      <div class="col-lg-6">
+          
+                          <h5 id="puntos">{{usuario[0].valoracion}}/5 </h5> 
+          
+                      </div>
+          
+                      <div class="col-lg-6">
+          
+                          <h6 id="numero">{{usuario[0].numero_valoraciones}} valoraciones</h6>
+          
+                      </div>
+                  </div>
+              </div>
+          
+            </div>
+          
+            <div *ngIf="(usuario[0].valoracion == 3.91 || usuario[0].valoracion > 3.91) && (usuario[0].valoracion < 4.4 || usuario[0].valoracion == 4.4)" id="estrellas">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="far fa-star"></span>
+              
+              <div class="container">
+          
+                  <div class="row">
+          
+                      <div class="col-lg-6">
+          
+                          <h5 id="puntos">{{usuario[0].valoracion}}/5 </h5> 
+          
+                      </div>
+          
+                      <div class="col-lg-6">
+          
+                          <h6 id="numero">{{usuario[0].numero_valoraciones}} valoraciones</h6>
+          
+                      </div>
+                  </div>
+              </div>
+          
+            </div>
+          
+            <div *ngIf="(usuario[0].valoracion == 4.41 || usuario[0].valoracion > 4.41) && (usuario[0].valoracion < 4.9 || usuario[0].valoracion == 4.9)" id="estrellas">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star-half-alt"></span>
+              
+              <div class="container">
+          
+                  <div class="row">
+          
+                      <div class="col-lg-6">
+          
+                          <h5 id="puntos">{{usuario[0].valoracion}}/5 </h5> 
+          
+                      </div>
+          
+                      <div class="col-lg-6">
+          
+                          <h6 id="numero">{{usuario[0].numero_valoraciones}} valoraciones</h6>
+          
+                      </div>
+                  </div>
+              </div>
+          
+            </div>
+          
+            <div *ngIf="usuario[0].valoracion == 4.91 || usuario[0].valoracion > 4.91" id="estrellas">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              
+              <div class="container">
+          
+                  <div class="row">
+          
+                      <div class="col-lg-6">
+          
+                          <h5 id="puntos">{{usuario[0].valoracion}}/5 </h5> 
+          
+                      </div>
+          
+                      <div class="col-lg-6">
+          
+                          <h6 id="numero">{{usuario[0].numero_valoraciones}} valoraciones</h6>
+          
+                      </div>
+                  </div>
+              </div>
+                  
             </div>
         
           <div class="card" id="bio">
@@ -206,7 +400,7 @@
           </div>
 
           <h5 id="publicadas">{{usuario[0].tareas_publicadas}} Publicadas | {{usuario[0].tareas_solicitadas}} Realizadas</h5>
-          <a class="btn btn-warning solicitar" id="boton2">Contacto</a>
+          <a class="btn btn-warning solicitar" id="boton2" (click)="iniciarChat()">Contacto</a>
         
         </div>
       </div>

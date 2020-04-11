@@ -176,6 +176,37 @@ h3 {
     font-size: 13px;
 }
 
+.checked {
+    color: rgb(75, 75, 75);
+}
+
+.fa, .far{
+
+    font-size: 35px;
+    /* color: white; */
+    color: rgb(75, 75, 75);
+}
+
+#numero{
+
+    
+    margin-left: -95%;
+    margin-top: -11%;
+}
+
+#estrellas{
+
+    margin-left: 7.5%;
+}
+
+#puntos{
+
+    margin-top: -11%;
+    margin-left: -12%;
+}
+
+
+
 @font-face{
 
     font-family: 'Reckless';

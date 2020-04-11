@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Peticiones } from '../models/peticiones';
 import { Petusu } from '../models/petusu';
+import { Usuarios } from '../models/usuarios';
 
 @Injectable({
   providedIn: 'root'
@@ -17,22 +18,27 @@ export class NuevatareaService {
 
   constructor(private http: HttpClient) { }
 
-postTarea(nuevaTarea: Peticiones){
+  postTarea(nuevaTarea: Peticiones){
 
-  return this.http.post(this.url, nuevaTarea )
-}
+    return this.http.post(this.url, nuevaTarea )
+  }
 
-getUltimaPeticion(){
+  getUltimaPeticion(){
 
-  return this.http.get(this.url2)
-}
+    return this.http.get(this.url2)
+  }
 
-postPetUsu(nuevoPetUsu:Petusu){
+  postPetUsu(nuevoPetUsu:Petusu){
 
-  return this.http.post(this.url3, nuevoPetUsu)
-}
+    return this.http.post(this.url3, nuevoPetUsu)
+  }
 
-putTarea(editarTarea: Peticiones){
-  return this.http.put(this.url4, editarTarea)
-};
+  putTarea(editarTarea: Peticiones){
+    return this.http.put(this.url4, editarTarea)
+  };
+
+  putSumaPub(usuario:Usuarios){
+
+    return this.http.put(this.url + "/suma", usuario)
+  }
 }

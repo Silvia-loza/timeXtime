@@ -17,16 +17,17 @@ export class NuevaTareaComponent implements OnInit {
   constructor(private apiService: NuevatareaService, private apiService2: LoginService) {
 
     this.peticiones1
-   }
-   onSubmit(form){
+  }
+
+  onSubmit(form){
     console.log(form.value)
   }
 
-categorias(categoria:String){
+  categorias(categoria:String){
     this.categoria = categoria
   }
 
-insertarTarea(foto:String, titulo:String, localizacion: String, precio:number, fecha_finalizacion: Date, descripcion: String)
+  insertarTarea(foto:String, titulo:String, localizacion: String, precio:number, fecha_finalizacion: Date, descripcion: String)
   { 
     let peticion = new Peticiones()
 
@@ -57,6 +58,8 @@ insertarTarea(foto:String, titulo:String, localizacion: String, precio:number, f
         })
 
       })
+
+      this.apiService.putSumaPub(this.apiService2.usuarioLogin[0]).subscribe((data) =>{})
     })
 
     

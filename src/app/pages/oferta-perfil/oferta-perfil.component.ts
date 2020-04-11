@@ -3,6 +3,7 @@ import { MuroService } from 'src/app/shared/muro.service';
 import { LoginService } from 'src/app/shared/login.service';
 import { OfertaPerfilService } from 'src/app/shared/oferta-perfil.service';
 import { Peticiones } from 'src/app/models/peticiones';
+import { Chat } from 'src/app/models/chat';
 
 @Component({
   selector: 'app-oferta-perfil',
@@ -42,6 +43,20 @@ export class OfertaPerfilComponent implements OnInit {
       console.log(data)
     })
 
+  }
+
+  iniciarChat(){
+
+    let chat = new Chat()
+
+    chat.id_usuario1 = this.userLogin[0].id_usuario
+    chat.nombre_usuario1 = this.userLogin[0].nombre_usuario
+    chat.foto1 = this.userLogin[0].foto
+    chat.id_usuario2 = this.usuario[0].id_usuario
+    chat.nombre_usuario2 = this.usuario[0].nombre_usuario
+    chat.foto2 = this.usuario[0].foto
+
+    this.apiService3.postIniciarChat(chat).subscribe((data) =>{})
   }
 
 

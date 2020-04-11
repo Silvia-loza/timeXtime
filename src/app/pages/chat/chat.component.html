@@ -1,0 +1,96 @@
+<body>
+    <app-head></app-head>
+    
+    <div class="container" id="container1">
+
+        <div class="row">
+
+            <div class="col-lg-5">
+                <h2>Tus conversaciones activas</h2>
+
+                <div *ngFor="let chat of chats; let i = index">
+
+                    <div *ngIf="userLogin.id_usuario === chat.id_usuario1">
+
+                        <div class="card">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" (click)="seleccionaChat(chats[i])"><img src="{{chat.foto2}}" alt=""> {{chat.nombre_usuario2}}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div *ngIf="userLogin.id_usuario != chats[i].id_usuario1">
+
+                        <div class="card">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" (click)="seleccionaChat(chats[i])"><img src="{{chat.foto1}}" alt=""> {{chat.nombre_usuario1}}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="col-lg-7">
+
+                <div *ngIf="chat != undefined">
+
+                    <div *ngIf="userLogin.id_usuario === chat.id_usuario1">
+
+                        <div class="card" id="chatCompleto">
+                            <div class="card-body">
+                              <img src="{{chat.foto2}}" alt="">
+                              <h5 class="card-title">{{chat.nombre_usuario2}}</h5>
+                              <textarea class="card-text" readonly >{{chat.texto}}</textarea>
+                              <input type="text" class="form-control" placeholder="Escribe aquí" #texto (keyup.enter)="enviaMensaje(texto.value)" id="inputEnviar">
+                              <button type="submit" class="btn btn-outline-primary" (click)="enviaMensaje(texto.value)" id="enviar"><i class="fa fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                        <!-- [ngClass]="chat.texto.includes('Jorgerod25') ? 'red' : ''" -->
+
+
+                    </div>
+
+                    <div *ngIf="userLogin.id_usuario != chat.id_usuario1">
+
+                        <div class="card" id="chatCompleto">
+                            <div class="card-body">
+                              <img src="{{chat.foto1}}" alt="">
+                              <h5 class="card-title">{{chat.nombre_usuario1}}</h5>
+                              <textarea class="card-text" readonly>{{chat.texto}}</textarea>
+                              <input type="text" class="form-control" placeholder="Escribe aquí" #texto (keyup.enter)="enviaMensaje(texto.value)" id="inputEnviar">
+                              <button type="submit" class="btn btn-outline-primary" (click)="enviaMensaje(texto.value)" id="enviar"><i class="fa fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    
+
+
+                </div>
+
+                <div *ngIf="chat === undefined">
+
+
+                    <div class="card" id="chatCompleto">
+                        <div class="card-body">
+                          <h5 class="card-title">Por favor, selecciona una conversación para empezar a chatear.</h5>
+                          <p class="card-text"></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                
+
+                
+            </div>
+
+        </div>
+    </div>
+
+</body>
