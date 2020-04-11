@@ -16,7 +16,9 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { NuevaTareaComponent } from './pages/nueva-tarea/nueva-tarea.component';
 import {EditTareaComponent} from './pages/edit-tarea/edit-tarea.component';
 import { ValoracionComponent } from './pages/valoracion/valoracion.component';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ChatComponent } from './pages/chat/chat.component';
+import { ChatPipe } from './pipes/chat.pipe'
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms'
     NuevaTareaComponent,
     EditTareaComponent,
     ValoracionComponent,
+    ChatComponent,
+    ChatPipe,
     
   ],
   imports: [
