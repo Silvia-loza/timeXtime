@@ -17,20 +17,22 @@
 
       </div>
 
- <div class="iconos"> 
-<i class="fa fa-home fa-3x" aria-hidden="true" (click)="mostrarPeticiones()" (click)="actualizarUsuario()" id="home"></i>
-<i class="fa fa-thumb-tack fa-3x" aria-hidden="true"  (click)="actualizarUsuario()" routerLink="/peticiones" id="peticiones"></i>
-<i class="fa fa-user fa-3x" aria-hidden="true" (click)="actualizarUsuario()" routerLink="/perfil" id="perfil"></i>
-<i class="fa fa-comments fa-3x" aria-hidden="true" id="chat"></i>
+      <div class="iconos"> 
+        <i class="fa fa-home fa-3x" aria-hidden="true" (click)="mostrarPeticiones()" (click)="actualizarUsuario()" id="home"></i>
+        <i class="fa fa-thumb-tack fa-3x" aria-hidden="true"  (click)="actualizarUsuario()" routerLink="/peticiones" id="peticiones"></i>
+        <i class="fa fa-user fa-3x" aria-hidden="true" (click)="actualizarUsuario()" routerLink="/perfil" id="perfil"></i>
+        <i class="fa fa-comments fa-3x" aria-hidden="true" id="chat" (click)="mostrarChats()"></i>
 
-     <span *ngIf="user!=undefined">
+        
+
+        <span *ngIf="user!=undefined">
         
           <i class="fa fa-hourglass-half fa-2x" aria-hidden="true" id="reloj"></i>{{user[0].monedas}}
  
-       </span>
+        </span>
       </div> 
     </div>
-</div>
+  </div>
 
   
 </body>

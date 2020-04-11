@@ -57,6 +57,17 @@ export class HeadComponent implements OnInit {
     })
   }
 
+  mostrarChats(){
+
+    this.apiService.getChats(this.user[0].id_usuario).subscribe((data) =>
+    {
+      this.apiService.chats = data
+
+      this.router.navigate(['/', 'chat'])
+
+    })
+  }
+
   ngOnInit(): void {
   }
 
