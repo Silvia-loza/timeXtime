@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
@@ -17,6 +16,8 @@ import { NuevaTareaComponent } from './pages/nueva-tarea/nueva-tarea.component';
 import {EditTareaComponent} from './pages/edit-tarea/edit-tarea.component';
 import { ValoracionComponent } from './pages/valoracion/valoracion.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { MessageServiceService } from "./shared/message-service.service";
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -39,10 +40,11 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms'
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SweetAlert2Module.forRoot()
 
   ],
-  providers: [],
+  providers: [MessageServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

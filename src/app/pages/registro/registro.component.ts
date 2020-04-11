@@ -3,6 +3,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { LoginService } from 'src/app/shared/login.service';
 import { Router } from '@angular/router';
 import { Usuarios } from 'src/app/models/usuarios';
+import { MessageServiceService } from './../../shared/message-service.service';
 
 @Component({
   selector: 'app-registro',
@@ -18,16 +19,22 @@ export class RegistroComponent implements OnInit {
   modalRef: BsModalRef;
   public nuevoUsuario = new Usuarios()
 
-  constructor(private modalService: BsModalService, private apiService:LoginService, private router:Router) {
+  constructor(private modalService: BsModalService, private apiService:LoginService, private router:Router, public _MessageService: MessageServiceService) {
 
      this.nuevoUsuario
   }
 
+  contactForm(form) {
+    this._MessageService.sendMessage(form).subscribe(() => {
+
+      })
+    }
+  
 
   onSubmit(form){
+    
     console.log(form.value)
   }
-
 
   openModal(template: TemplateRef<any>){
     this.modalRef = this.modalService.show(template)
@@ -63,11 +70,7 @@ export class RegistroComponent implements OnInit {
 
     })
 
-    
-    
   }
-
-  
 
   insertarUsuario(nombre_usuario, email, contrasena){
 
@@ -81,11 +84,11 @@ export class RegistroComponent implements OnInit {
     {
       console.log(data)
     });
+  
   }
 
-  
 
-    
+  
   
 
   ngOnInit(): void {
