@@ -2,169 +2,109 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-3">
-        <h1>OUT <span class="blanco">TIME</span> </h1>
-      </div>
-
-      <form id="horizontalForm">
-        <div class="form-row">
-          <div class="col has-search">
-            <span class="fa fa-at form-control-feedback"></span>
-            <input type="text" class="form-control" placeholder="Email" id="email" #email>
-    <div class="container-fluid">
-      <div class="row">
-          <div class="col-3"> 
-              <h1>OUT <span class = "blanco">TIME</span> </h1> 
-          </div>
-          <div class="col has-search">
-            <div class="col">
-              <span class="	fa fa-key form-control-feedback"></span>
-              <input type="password" class="form-control" placeholder="Contraseña" id="Password" #password>
+        <div class="col-3"> 
+            <h1>OUT <span class = "blanco">TIME</span> </h1> 
+        </div>
+    
+        <form id ="horizontalForm">
+         <div class="form-row">
+              <div class="col has-search">
+                <span class="fa fa-at form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="Email" id="email" #email>
+              </div>
+              <div class="col has-search">
+              <div class="col">
+                <span class="	fa fa-key form-control-feedback"></span>
+                <input type="password" class="form-control" placeholder="Contraseña" id="Password" #password>
+              </div>
             </div>
-          </div>
-          <div class="col">
-            <button type="button" id="loginBoton" class="btn btn-primary"
-              (click)="getLogin(email.value, password.value)">Iniciar Sesión</button>
-          </div>
+              <div class="col">
+              <button type="button" id ="loginBoton" class="btn btn-primary" (click) = "getLogin(email.value, password.value)">Iniciar Sesión</button>
+            </div>
         </div>
 
-      </form>
+          </form>
+        </div>
+</div>
+
+    <div id = "espacio" class="container-fluid">
+        <div class="row"> 
+            <div class="col-12"></div>
+        </div>
     </div>
-  </div>
 
-  <div id="espacio" class="container-fluid">
-    <div class="row">
-      <div class="col-12"></div>
-    </div>
-  </div>
-
-  <div class="container-fluid">
-    <div class="row">
-
-      <div id="tiempoLeft" class="col-6">
-        <h2><span class="blanco"> TIEMPO POR </span> TIEMPO <br>
-          <span class="blanco"> GASTA TU TIEMPO EN LO QUE DE VERDAD TE</span> GUSTE <br>
-          <span class="blanco">NO PIERDAS MÁS EL TIEMPO Y</span> ÚNETE
-        </h2>
-      </div>
-
-      <div id="tictac" class="col-6">
-        <h2 CLASS="blanco"> TIC TAC TIC TAC TIC TAC TIC TAC TIC <br>
-          TAC TIC TAC TIC TAC TIC TAC TIC TAC!</h2>
-        <button (click)=" openModal(template)" id="registro"> Regístrate </button>
-  
-      <div id="elmodal" class="modal-body">
-          <form  (ngSubmit)="contactForm(userForm.value); onSubmit(userForm)" #userForm="ngForm">
-              <div class="form-group">
-                  <label class= "blanco">Crea tu cuenta:</label>
-
-                  <input id= "modalInput" name="nombre_usuario" type="text" class="form-control" placeholder="Nombre de usuario" [(ngModel)]="nuevoUsuario.nombre" #nombre="ngModel" 
-                  [ngClass]="{ 'is-invalid': userForm.submitted && nombre.invalid }" ngModel nombre required>
-                  <div class="invalid-feedback" *ngIf="userForm.submitted && nombre.invalid">
-                    <p *ngIf="nombre.errors.required">El nombre es obligatorio</p>
-                  </div>
-                </div>
-
-              <div class="form-group">
-                  <input id= "modalInput" name="email" type="text" class="form-control" placeholder="Email" [(ngModel)]="nuevoUsuario.email" #email="ngModel"
-                  [ngClass]="{ 'is-invalid': userForm.submitted && email.invalid }" ngModel email required>
-                  <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback">
-                    <div *ngIf="email.errors.required">La dirección de email es obligatoria</div>
-                    <div *ngIf="email.errors.email">Dirección email incorrecta</div>
-                  </div>
-                  
-              </div>
+    <div class="container-fluid">
+        <div class="row">
       
-  
-              <div class="form-group">  
-                  <input id= "modalInput" name="contrasena1" type="password"  class="form-control" placeholder="Contraseña" [(ngModel)]="nuevoUsuario.contrasena" #contrasena="ngModel"
-                  [ngClass]="{ 'is-invalid': userForm.submitted && contrasena.invalid }" minlength="8" ngModel required>
-                  <div *ngIf="userForm.submitted && contrasena.invalid" class="invalid-feedback">
-                    <div *ngIf="contrasena.errors.required">La clave es obligatoria
-                      <div *ngIf="contrasena.errors.minlength">La clave debe tener al menos 8 caracteres</div>
-                    </div>
-                  </div>
-              </div>
-
-              <div class="form-group">
-                <input id= "modalInput" name="contrasena2" type="password"  class="form-control" placeholder="Confirma contraseña">
+            <div id= "tiempoLeft" class="col-6"> 
+                <h2><span class= "blanco"> TIEMPO POR </span> TIEMPO <br>
+                    <span class="blanco"> GASTA TU TIEMPO EN LO QUE DE VERDAD TE</span> GUSTE <br>
+                    <span class = "blanco">NO PIERDAS MÁS EL TIEMPO Y</span> ÚNETE
+                </h2>
             </div>
-        
-              <div class="form-group">
-                      <button [swal]="['Registrado!', 'Revisa tu correo, has recibido un mensaje de bievenida', 'warning']" id ="modalBoton" type="button" class="btn btn-dark"  (click) = "insertarUsuario(nombre.value, email.value, contrasena.value)">Tic Tac</button>
-              </div>
-        </form>
-      </div>
+
+        <div id = "tictac" class="col-6"> 
+        <h2 CLASS= "blanco"> TIC TAC TIC TAC TIC TAC TIC TAC TIC <br>
+      TAC TIC TAC TIC TAC TIC TAC TIC TAC!</h2> 
+            <button (click) = " openModal(template)"id= "registro"> Regístrate </button>
+            </div>
+        </div>
     </div>
-  </div>
 
-
-  <ng-template #template class="elmodal">
+       
+<ng-template #template class="elmodal" >
     <div id="elmodal" class="modal-header">
-      <h2 id="modalTitle" class="modal-title pull-center">OUT <span class="blanco">TIME</span></h2>
+      <h2 id = "modalTitle" class="modal-title pull-center">OUT <span class = "blanco">TIME</span></h2>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">&times;</span>
-
+  
       </button>
     </div>
 
     <div id="elmodal" class="modal-body">
-      <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-        <div class="form-group">
-          <label class="blanco">Crea tu cuenta:</label>
+        <form  (ngSubmit)="contactForm(userForm.value); onSubmit(userForm)" #userForm="ngForm">
+            <div class="form-group">
+                <label class= "blanco">Crea tu cuenta:</label>
 
-          <input type="text" class="form-control" id="modalInput" name="name" required placeholder="Nombre de usuario"
-          [(ngModel)]= "nuevoUsuario.nombre" #nombre="ngModel"> 
-            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
-            <div *ngIf="nombre.errors.required" id="err">Introduce un nombre de usuario</div>
+                <input id= "modalInput" name="nombre_usuario" type="text" class="form-control" placeholder="Nombre de usuario" [(ngModel)]="nuevoUsuario.nombre" #nombre="ngModel" 
+                [ngClass]="{ 'is-invalid': userForm.submitted && nombre.invalid }" ngModel nombre required>
+                <div class="invalid-feedback" *ngIf="userForm.submitted && nombre.invalid">
+                  <p *ngIf="nombre.errors.required">El nombre es obligatorio</p>
+                </div>
+              </div>
+
+            <div class="form-group">
+                <input id= "modalInput" name="email" type="text" class="form-control" placeholder="Email" [(ngModel)]="nuevoUsuario.email" #email="ngModel"
+                [ngClass]="{ 'is-invalid': userForm.submitted && email.invalid }" ngModel email required>
+                <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback">
+                  <div *ngIf="email.errors.required">La dirección de email es obligatoria</div>
+                  <div *ngIf="email.errors.email">Dirección email incorrecta</div>
+                </div>
+                
+            </div>
+    
+
+            <div class="form-group">  
+                <input id= "modalInput" name="contrasena1" type="password"  class="form-control" placeholder="Contraseña" [(ngModel)]="nuevoUsuario.contrasena" #contrasena="ngModel"
+                [ngClass]="{ 'is-invalid': userForm.submitted && contrasena.invalid }" minlength="8" ngModel required>
+                <div *ngIf="userForm.submitted && contrasena.invalid" class="invalid-feedback">
+                  <div *ngIf="contrasena.errors.required">La clave es obligatoria
+                    <div *ngIf="contrasena.errors.minlength">La clave debe tener al menos 8 caracteres</div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <input id= "modalInput" name="contrasena2" type="password"  class="form-control" placeholder="Confirma contraseña">
           </div>
-        </div>
-
-        <div class="form-group">
-          <input id="modalInput" name="email" type="email" class="form-control" placeholder="@email"
-            [(ngModel)]="nuevoUsuario.email" #email="ngModel" email required
-            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
-            
-            <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback"  id="err">
-            <div *ngIf="email.errors.pattern" id="err">Debes introducir un email correcto</div>
-            <div *ngIf="email.errors.required" id="err">Dirección email incorrecta</div> 
-       
-          </div>
-        </div>
-
-
-        <div class="form-group">
-          <input type="password" class="form-control" id="modalInput" name="contrasena1" placeholder="Contraseña"
-          [(ngModel)]="nuevoUsuario.contrasena" required minlength="6" #contrasena="ngModel">
-
-          <div *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)" class="alert alert-danger">
-            <div *ngIf="contrasena.errors.required" id="err">Introduce una contraseña correcta</div>
-            <div *ngIf="contrasena.errors.minlength" id="err">Debe contener minimo 6 caracteres</div>
-          
-          </div>
-        </div>
-
-
-
-        <div class="form-group">
-          <input type="password" class="form-control" id="modalInput" name="contrasena2" placeholder="Repite la contraseña" required minlength="6">
-          <div *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)" class="alert alert-danger">
-          <div *ngIf="contrasena.errors.minlength" id="err">Repite la contraseña</div>
-        </div>
-</div>
-
-        <div class="form-group">
-          <button id="modalBoton" class="btn btn-dark" type="submit" [disabled]="userForm.invalid"
-            (click)="insertarUsuario(nombre.value, email.value, contrasena.value)">Tic Tac</button>
-        </div>
-
-        <div [hidden]="!userForm.submitted">
-          <h2>¡ Enhorabuena has llegado a tiempo, ya eres miembro de OutTime !</h2>
-        </div>
-
+      
+            <div class="form-group">
+                    <button [swal]="['Registrado!', 'Revisa tu correo, has recibido un mensaje de bievenida', 'warning']" id ="modalBoton" type="button" class="btn btn-dark"  (click) = "insertarUsuario(nombre.value, email.value, contrasena.value)">Tic Tac</button>
+            </div>
       </form>
     </div>
-
+   
   </ng-template>
 
 </body>
+
