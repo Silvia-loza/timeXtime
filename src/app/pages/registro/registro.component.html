@@ -115,10 +115,6 @@
             id="modalBoton" type="submit" class="btn btn-dark" [disabled]="userForm.invalid"
             (click)="insertarUsuario(nombre.value, email.value, contrasena.value)">Tic Tac</button>
         </div>
-
-        <div [hidden]="!userForm.submitted">
-          <h2>¡ Enhorabuena has llegado a tiempo, ya eres miembro de OutTime !</h2>
-        </div>
         
       </form>
     </div>
