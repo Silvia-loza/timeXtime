@@ -10,7 +10,7 @@
             <div class="col col-lg-2"></div>
 
             <div class="col-md-auto">
-                <form action="nuevaTarea" method="post">
+                <form #peticionesForm="ngForm" (ngSubmit)="onSubmit(peticionesForm); peticionesForm.reset()">
 
 
                     <h5>¿Qué necesitas?</h5>
@@ -58,28 +58,65 @@
 
 
                     <div class="form-group">
-                        <label for="option">Título</label>
-                        <input class="form-control campos" id="titulo" type="text" placeholder="Introduce tu título"
-                            #titulo>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="option">Localización</label>
-                        <input class="form-control campos" id="localizacion" type="text"
-                            placeholder="Introduce tu localización" #localizacion>
-                    </div>
+                        <label for="titulo">Título</label>
+                        <input class="form-control campos" type="text" name="titulo" placeholder="Introduce tu título" #titulo="ngModel" 
+                          minlength="10" maxlength="60" [(ngModel)]="peticiones1.titulo" required>
+                            <div class="form-control-feedback" 
+                                *ngIf="titulo.errors && (titulo.dirty || titulo.touched)" id="err"> 
+                                <p *ngIf="titulo.errors.required" id="err">El titulo es necesario</p>
+                                <p *ngIf="titulo.errors.minlength" id="err">El titulo debe tener al menos 10 carácteres</p>
+                                  </div>
+                              </div>
+               
+                        <div class="form-row">
+                    
+                              <label for="inputState">Localización</label>
+                              <select id="inputState" class="form-control campos" [(ngModel)]="peticiones1.localizacion" #localizacion>
+                                <option selected>Selecciona una opción</option>
+                                <option>Centro</option>
+                                <option>Arganzuela</option>
+                                <option>Barajas</option>
+                                <option>Carabanchel</option>
+                                <option>Chamartin</option>
+                                <option>Chamberi</option>
+                                <option>Ciudad Lineal</option>
+                                <option>Fuencarral-El Pardo</option>
+                                <option>Hortaleza</option>
+                                <option>Latina</option>
+                                <option>Moncloa-Aravaca</option>
+                                <option>Moratalaz</option>
+                                <option>Puente de Vallecas</option>
+                                <option>Retiro</option>
+                                <option>Salamanca</option>
+                                <option>San Blas Canillejas</option>
+                                <option>Tetuan</option>
+                                <option>Usera</option>
+                                <option>Vicalcaro</option>
+                                <option>Villa de Vallecas</option>
+                                <option>Villaverde</option>
+                              </select>
+                            </div>
 
                     <div class="row">
                         <div class="col">
                             <label for="option">Precio</label>
-                            <input type="number" class="form-control campos" id="coste"
-                                placeholder="Introduce unidades de tiempo" #precio>
+                            <input type="number" class="form-control campos" id="coste" maxlength="10" [(ngModel)]="peticiones1.precio" 
+                              name="precio"  placeholder="Introduce unidades de tiempo" #precio="ngModel"required>
+                              <div class="form-control-feedback" 
+                              *ngIf="precio.errors && (precio.dirty || precio.touched)" id="precio"> 
+                            <div *ngIf="precio.errors.required" id="err">El precio es obligatorio</div>
                         </div>
+                    </div>
 
                         <div class="col">
                             <label for="option">Fecha de realización</label>
-                            <input type="date" class="form-control campos" id="fecha" placeholder="Fecha de realización"
-                                #fecha>
+                            <input type="date" class="form-control campos" id="fecha" [(ngModel)]="peticiones1.fecha_finalizacion" 
+                            name="fecha"  #fecha="ngModel" required>
+                            <div class="form-control-feedback" 
+                            *ngIf="fecha.errors && (fecha.dirty || fecha.touched)" id="fecha"> 
+                          <div *ngIf="fecha.errors.required" id="err">La fecha de finalización es obligatoria</div>
+                      </div>
+                               
                         </div>
 
                     </div>
@@ -88,19 +125,27 @@
 
                     <div class="form-group">
                         <label for="textarea">Descripción</label>
-                        <textarea class="form-control campos" id="masinfo" rows="3" #descripcion></textarea>
-                    </div>
-
+                        <textarea class="form-control campos" id="masinfo" rows="3" name="descripcion" #descripcion="ngModel" [(ngModel)]="peticiones1.descripcion" 
+                         minlength="10" maxlength="600" required></textarea>
+                         <div class="form-control-feedback" 
+                         *ngIf="descripcion.errors && (descripcion.dirty || descripcion.touched)" id="err"> 
+                         <p *ngIf="descripcion.errors.required" id="err">La descripción es necesaria</p>
+                         <p *ngIf="descripcion.errors.minlength" id="err">La descripción debe tener al menos 10 carácteres</p>
+                           </div>
+                       </div>
                     <br>
 
-                    <button type="submit"
-                        (click)="insertarTarea( foto.value, titulo.value, localizacion.value, precio.value, fecha.value, descripcion.value)"
-                        class="btn btn-default btn-circle btn-xl" id="botonxl" type="reset"
+                    <button type="submit" [disabled]="peticionesForm.invalid" (click)="insertarTarea( foto.value, titulo.value, localizacion.value, precio.value, fecha.value, descripcion.value)"
+                        class="btn btn-default btn-circle btn-xl" id="botonxl"
                         value="Borrar información"><i class="fa fa-check"></i>
 
                         <p>Confirmar</p>
+
                     </button>
 
+                    <div [hidden]="!peticionesForm.submitted">
+                        <h2>¡Gracias, tu petición se envió correctamente!</h2>
+                      </div>
 
                 </form>
             </div>

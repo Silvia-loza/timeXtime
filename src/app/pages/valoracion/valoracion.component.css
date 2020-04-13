@@ -1,0 +1,21 @@
+.checked {
+    color: rgb(75, 75, 75);
+}
+
+.fa, .far{
+
+    font-size: 35px;
+    /* color: white; */
+    color: rgb(75, 75, 75);
+}
+
+#numero{
+
+    
+    margin-left: -70%;
+}
+
+#estrellas{
+
+    margin-left: 7.5%;
+}

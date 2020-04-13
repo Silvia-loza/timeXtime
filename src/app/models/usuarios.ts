@@ -12,9 +12,12 @@ export class Usuarios {
     public biografia: String
     public foto: String
     public valoracion: number 
+    public puntuacion_total: number
+    public numero_valoraciones: number
     public tareas_publicadas: number 
     public tareas_solicitadas: number 
     public monedas: number
+    
 
     constructor(){
 

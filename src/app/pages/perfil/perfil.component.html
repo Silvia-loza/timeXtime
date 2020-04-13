@@ -31,64 +31,14 @@
   
         <div id="start">
   
-          <div class="container" *ngIf="perfil[0].valoracion === 0">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-          </div>
-  
-  
-          <div class="container" *ngIf="perfil[0].valoracion === 1">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-          </div>
-  
-          <div class="container" id="estrellas" *ngIf="perfil[0].valoracion === 2">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-          </div>
-  
-          <div class="container" id="estrellas" *ngIf="perfil[0].valoracion === 3">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-          </div>
-  
-  
-          <div class="container" id="estrellas" *ngIf="perfil[0].valoracion === 4">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            <img src="..\..\..\assets/estrellablanc.png" alt="" class="estrella">
-          </div>
-          
-  
-          <div class="container" id="estrellas" *ngIf="perfil[0].valoracion === 5">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-            <img src="..\..\..\assets\estrella.png" alt="" class="estrella">
-        
-          </div>
+          <app-valoracion></app-valoracion>
         
           <br>
   
        
   
         
-        <h5 id="tareas">{{ perfil[0].tareas_publicadas}} publicadas| {{ perfil[0].tareas_solicitadas}} solicitadas <span> </span></h5>
+        <h5 id="tareas">{{ perfil[0].tareas_publicadas}} publicadas | {{ perfil[0].tareas_solicitadas}} solicitadas <span> </span></h5>
         <br>
         
         <h3 id="tiempo"> {{ perfil[0].monedas}} <img src ="../../../assets/reloj.png" id="id_reloj"> </h3>

@@ -1,0 +1,56 @@
+#container1{
+
+    margin-top: 4%;
+}
+
+
+
+.card-text{
+
+    min-height: 350px;
+    min-width: 450px;
+    border: none;
+}
+
+textarea {
+    resize: none;
+}
+
+textarea:focus,textarea:active {
+    outline: none;
+    box-shadow: none;
+}
+
+body{
+
+    min-height: 800px;
+}
+
+#chatCompleto{
+
+    width: 480px;
+}
+
+img{
+
+    width: 45px;
+    height: 45px;
+    border-radius: 45px;
+}
+
+.red{
+
+    color: brown;
+}
+
+#enviar{
+
+    border-radius: 45px;
+    margin-left: 1%;
+}
+
+#inputEnviar{
+
+    width: 380px;
+    float: left;
+}
