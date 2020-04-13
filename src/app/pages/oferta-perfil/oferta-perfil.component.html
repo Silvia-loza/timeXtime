@@ -400,7 +400,16 @@
           </div>
 
           <h5 id="publicadas">{{usuario[0].tareas_publicadas}} Publicadas | {{usuario[0].tareas_solicitadas}} Realizadas</h5>
-          <a class="btn btn-warning solicitar" id="boton2" (click)="iniciarChat()">Contacto</a>
+          <div *ngIf="userLogin[0].id_usuario != usuario[0].id_usuario">
+            <button class="btn btn-warning solicitar" id="boton2" (click)="iniciarChat()">Contacto</button>
+
+          </div>
+
+          <div *ngIf="userLogin[0].id_usuario === usuario[0].id_usuario">
+            <button class="btn btn-warning solicitar" id="boton2" disabled>Contacto</button>
+
+          </div>
+          
         
         </div>
       </div>

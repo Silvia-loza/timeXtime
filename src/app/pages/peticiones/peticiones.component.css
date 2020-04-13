@@ -38,7 +38,7 @@
    
 }
 
-#tareas_realizadas:focus, #tareas_realizadas:hover{
+#tareas_realizadas:focus, #tareas_realizadas:active{
   background-color: #FFCC00;
   color: white;
   text-decoration: none;
@@ -46,7 +46,7 @@
 }
 
 
-#tareas_publicadas:hover, #tareas_publicadas:focus{
+#tareas_publicadas:focus-within, #tareas_publicadas:active{
   background-color: #FFCC00;
   color: white;
   text-decoration: none;
@@ -111,6 +111,7 @@ body{
 #tiempo{
 
   margin-top: 5%;
+  margin-left: 18%;
 }
 
 .card-img-top{

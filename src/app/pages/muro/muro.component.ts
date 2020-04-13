@@ -28,7 +28,7 @@ export class MuroComponent implements OnInit {
   public userLogin: object
 
 
-  constructor(private modalService: BsModalService, private apiService:MuroService, private router: Router, private apiService2:OfertaPerfilService, private apiService3:LoginService){
+  constructor(private modalService: BsModalService, private apiService:MuroService, private router: Router, private apiService2:OfertaPerfilService, private apiService3:LoginService, private apiService4:HeaderService){
 
     this.peticiones = this.apiService3.peticiones
     this.petUsu = this.apiService3.petUsu
@@ -61,6 +61,11 @@ export class MuroComponent implements OnInit {
 
   mostrarPeticionesFiltros(precio: number, localizacion: String, fecha_finalizacion: Date){
 
+    if(precio === undefined){
+
+      precio = 0
+    }
+
     this.apiService.getPeticionesFiltros(this.categoria, precio, localizacion, fecha_finalizacion).subscribe((data) =>
     {
       this.peticiones = data
@@ -91,6 +96,11 @@ export class MuroComponent implements OnInit {
     this.apiService.getPetUsu(this.elID).subscribe((data) =>
     {
       this.apiService.petUsu = data
+    })
+
+    this.apiService4.getChats(this.userLogin[0].id_usuario).subscribe((data) =>{
+
+      this.apiService4.chats = data
     })
 
     
