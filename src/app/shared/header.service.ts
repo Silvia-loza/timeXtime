@@ -7,9 +7,11 @@ import { HttpClient } from '@angular/common/http';
 export class HeaderService {
 
   private url1 = "http://localhost:3000/header/casita"
-  private url2 = "http://localhost:3000/chat"
+  private url3 = "http://localhost:3000/chat"
+  private url2= "http://localhost:3000/header/perfil"
   public peticiones: object
   public chats:object
+  public perfil: object
 
   constructor(private http: HttpClient) { }
 
@@ -20,6 +22,10 @@ export class HeaderService {
 
   getChats(id: number){
 
-    return this.http.get(this.url2 + "?id=" + id)
+    return this.http.get(this.url3 + "?id=" + id)
+  }
+
+  getPerfil(){
+    return this.http.get(this.url2)
   }
 }

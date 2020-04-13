@@ -32,7 +32,7 @@ export class NuevaTareaComponent implements OnInit {
     let peticion = new Peticiones()
 
     peticion.categoria=this.categoria
-    peticion.foto=foto
+    peticion.foto= '..\\..\\assets\\' + foto.slice(foto.lastIndexOf('\\') + 1);
     peticion.titulo=titulo
     peticion.localizacion=localizacion
     peticion.precio=precio

@@ -66,13 +66,10 @@ export class EditTareaComponent implements OnInit {
    {
     let editarPeticion = new Peticiones();
 
-    if(foto === undefined){
-
+    if(foto === "" ){
       editarPeticion.foto = this.peticion[0].foto
     } else {
-
-      editarPeticion.foto=foto
-
+      editarPeticion.foto= '..\\..\\assets\\' + foto.slice(foto.lastIndexOf('\\') + 1);
     }
 
     editarPeticion.id_peticion = this.peticion[0].id_peticion
