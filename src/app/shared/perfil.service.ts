@@ -9,8 +9,10 @@ export class PerfilService {
   private url= "http://localhost:3000/perfil/guardar"
   private url2= "http://localhost:3000/header/perfil"
   
+  public perfilS: object
+
   constructor(private http: HttpClient) { }
-  
+ 
   putPefil(newUsuario: Usuarios){
   return this.http.put(this.url, newUsuario)
 };

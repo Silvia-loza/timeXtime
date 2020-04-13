@@ -1,4 +1,9 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <body>
+
 <app-head></app-head>
   <div class="container" >
 
@@ -6,19 +11,19 @@
   
       <div class="col-lg-3" class = "perfil-left">
         <form >
-            <div class="form-group">
-
-                    <img src ="{{perfil[0].foto}}" id="foto_perfil"/>
-                    <div class="drag-drop">
-                    <label id = "anadirFoto" for="photo"> Añadir foto
-                    </label>
-                    <input id="botonMaldito" type="file" name="photo" #foto 
-                    (change)="handleFileInput($event.target.files)">
-                    </div>
-                  
-            </div>
-            <br>
-            <br>
+                <div class="form-group">
+                
+                        <img src ="{{perfil[0].foto}}" id="foto_perfil"/>
+                        <div class="drag-drop">
+                        <label id = "anadirFoto" for="photo"> Añadir foto
+                        </label>
+                        <input id="botonMaldito" type="file" name="photo" #foto 
+                        (change)="handleFileInput($event.target.files)">
+                        </div>
+                      
+                </div>
+                <br>
+                <br>
               
             <h3 id="nombre">{{perfil[0].nombre_usuario}}</h3>
             <br>
@@ -88,7 +93,7 @@
         
         <h3 id="tiempo"> {{ perfil[0].monedas}} <img src ="../../../assets/reloj.png" id="id_reloj"> </h3>
      
-        <button type="button" id= "guardar" class="btn btn-warning"id= "guardar" class="btn btn-warning" (click) = "editarPerfil(nombreUsuario.value, nombre.value, primer_apellido.value, segundo_apellido.value, contrasena.value, telefono.value, email.value, biografia.value, foto.value)">Guardar</button>
+      <button type="button" id= "guardar" class="btn btn-warning"id= "guardar" class="btn btn-warning" (click) = "editarPerfil(nombre_usuario.value, nombre.value, primer_apellido.value, segundo_apellido.value, contrasena.value, telefono.value, email.value, biografia.value, foto.value)">Guardar</button>
       </div>
     
       </form>
@@ -98,60 +103,91 @@
     
 
     <div class="col-lg-6">
+      
+      <form class="formulario" #perfilForm= "ngForm" (ngSubmit)="onSubmit(perfilForm)" >
 
-      <form class="formulario">
         
         <div class="form-row">
-        
-
           <div class="form-group col-md-6">
             <label for="formGroupExampleInput">Nombre de usuario</label>
-            <input type="text" class="form-control" id="nameUser" value = "{{perfil[0].nombre_usuario}}" placeholder="Introduce tu nombre de usuario" #nombreUsuario>
+            <input type="text" name = "nombre_usuario" class="form-control" id="nameUser"  placeholder="Introduce tu nombre de usuario" #nombre_usuario="ngModel" 
+            [(ngModel)] = "perfil[0].nombre_usuario" [ngClass] = "{'is-invalid': nombre_usuario.dirty && nombre_usuario.invalid}" required>
+                <div class = "invalid-feedback" *ngIf = " nombre_usuario.dirty && nombre_usuario.invalid"> 
+                     <p class="alert alert-danger" *ngIf ="nombre_usuario.errors.required"> El nombre de usuario es obligatorio </p>
+                </div>
           </div>
 
-        <div class="form-group col-md-6">
+          <div class="form-group col-md-6">
             <label for="formGroupExampleInput">Nombre</label>
-            <input type="text" class="form-control" id="name"value = "{{perfil[0].nombre}}"  placeholder="Introduce tu nombre" #nombre>
+            <input type="text" name ="nombre" class="form-control" id="name"  placeholder="Introduce tu nombre" #nombre  = "ngModel" [(ngModel)] = "perfil[0].nombre"
+            [(ngModel)] = "perfil[0].nombre" [ngClass] = "{'is-invalid': nombre.dirty && nombre.invalid}" required>
+                <div class = "invalid-feedback" *ngIf = " nombre.dirty && nombre.invalid"> 
+                    <p class="alert alert-danger" *ngIf ="nombre.errors.required"> El nombre es obligatorio </p>
+                </div>
           </div>
         </div>
     
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="formGroupExampleInput">Primer apellido</label>
-            <input type="text" class="form-control" id="lastname1" value = "{{perfil[0].primer_apellido}}" placeholder="Introduce tu primer apellido" #primer_apellido>
-          </div>
-          
-          <div class="form-group col-md-6">
-            <label for="formGroupExampleInput">Segundo apellido</label>
-            <input type="text" class="form-control" id="lastname2" value = "{{perfil[0].segundo_apellido}}"placeholder="Introduce tu segundo apellido" #segundo_apellido>
-          </div>
-        </div> 
-    
+              <div class="form-group col-md-6">
+                <label for="formGroupExampleInput">Primer apellido</label>
+                <input type="text"class="form-control" id="lastname1"  name="primer_apellido" placeholder="Introduce tu primer apellido" #primer_apellido = "ngModel" 
+                [(ngModel)] = "perfil[0].primer_apellido"  [ngClass] = "{'is-invalid': primer_apellido.dirty && primer_apellido.invalid}" required>
+                    <div class = "invalid-feedback" *ngIf = " primer_apellido.dirty && primer_apellido.invalid"> 
+                        <p class="alert alert-danger" *ngIf ="primer_apellido.errors.required"> El apellido es obligatorio </p>
+                    </div>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="formGroupExampleInput">Segundo apellido</label>
+                <input type="text" name= "segundo_apellido" class="form-control" id="lastname2" placeholder="Introduce tu segundo apellido" #segundo_apellido = "ngModel" [(ngModel)] = "perfil[0].segundo_apellido"[ngClass] = "{'is-invalid': segundo_apellido.dirty && segundo_apellido.invalid}" required>
+                <div class = "invalid-feedback" *ngIf = " segundo_apellido.dirty && segundo_apellido.invalid"> 
+                    <p class="alert alert-danger" *ngIf ="segundo_apellido.errors.required"> El segundo apellido es obligatorio </p>
+                </div> 
+              </div>
+        
+      </div>
+                   
         <div class="form-row">
 
           <div class="form-group col-md-12">
             <label for="formGroupExampleInput">Contraseña</label>
-            <input type="password" id="inputPassword5" value = "{{perfil[0].contrasena}}" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Introduce tu contraseña" #contrasena>
+            <input type="password" name ="contrasena" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Introduce tu contraseña" #contrasena = "ngModel" [(ngModel)] = "perfil[0].contrasena" [ngClass] = "{'is-invalid': contrasena.dirty && contrasena.invalid}" minlength ="6" required>
+            <div class = "invalid-feedback" *ngIf = " contrasena.dirty && contrasena.invalid"> 
+                <p class="alert alert-danger" *ngIf ="contrasena.errors.required"> La contraseña es obligatorio </p>
+                <p class="alert alert-danger" *ngIf ="contrasena.errors.minlength"> La contraseña debe tener al menos 6 caracteres </p>
+            </div> 
           </div>
         </div>
     
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="formGroupExampleInput">Teléfono</label>
-            <input type="tel" class="form-control" id="telf" value = "{{perfil[0].telefono}}" placeholder="Introduce tu teléfono" #telefono>
+            <input type="tel" name= "telefono" class="form-control" id="telf" placeholder="Introduce tu teléfono" #telefono = "ngModel" [(ngModel)] = "perfil[0].telefono" [(ngModel)] = "perfil[0].telefono" [ngClass] = "{'is-invalid': telefono.dirty && telefono.invalid}" required>
+            <div class = "invalid-feedback" *ngIf = " telefono.dirty && telefono.invalid"> 
+                <p class="alert alert-danger" *ngIf ="telefono.errors.required"> Un numero de telefono es obligatorio </p>
+            </div>  
           </div>
     
           <div class="form-group col-md-6">
             <label for="exampleFormControlInput1">Email</label>
-            <input type="email" class="form-control" id="mail" value = "{{perfil[0].email}}" placeholder="Introduce tu email" #email>
+            <input type="email" name = "email" class="form-control" id="mail"  placeholder="Introduce tu email" #email = "ngModel" [(ngModel)] = "perfil[0].email" [(ngModel)] = "perfil[0].email" [ngClass] = "{'is-invalid': email.dirty && email.invalid}" email required>
+            <div class = "invalid-feedback" *ngIf = " email.dirty && email.invalid"> 
+                <p class="alert alert-danger" *ngIf ="email.errors.required"> El email es obligatorio </p>
+                <p class="alert alert-danger" *ngIf ="email.errors.email"> Asegurate de que esto es un email válido </p>
+            </div> 
           </div>
         
     
           <div class="form-group col-12">
-          <label for="exampleFormControlTextarea1">Biografía</label>
-          <textarea class="form-control" maxlength="500" id="bio" value = "{{perfil[0].biografia}}" rows="10" #biografia></textarea>
+             <label for="exampleFormControlTextarea1">Biografía</label>
+             <textarea class="form-control" maxlength="495" name="biografia" id="bio"  rows="10" #biografia = "ngModel"[(ngModel)] = "perfil[0].biografia" required></textarea>
+             <div class = "invalid-feedback" *ngIf = " biografia.dirty && biografia.errors.maxlength"> 
+               <p class="alert alert-danger" *ngIf ="biografia.errors.maxlength"> La biografía no puede contener más de 500 carcteres </p>
+             </div> 
           </div>
           
+          <!--<button type="submit" id= "guardar" class="btn btn-warning" class="btn btn-warning" (click) = "editarPerfil(nombre_usuario.value, nombre.value, primer_apellido.value, segundo_apellido.value, contrasena.value, telefono.value, email.value, biografia.value, foto.value)">Guardar</button>-->
+
          </div>
     
       </form>
