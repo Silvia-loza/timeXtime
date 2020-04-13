@@ -43,23 +43,23 @@
                             <div class="card-body">
                               <img src="{{chat.foto2}}" alt="">
                               <h5 class="card-title">{{chat.nombre_usuario2}}</h5>
-                              <textarea class="card-text" readonly >{{chat.texto}}</textarea>
-                              <input type="text" class="form-control" placeholder="Escribe aquí" #texto (keyup.enter)="enviaMensaje(texto.value)" id="inputEnviar">
-                              <button type="submit" class="btn btn-outline-primary" (click)="enviaMensaje(texto.value)" id="enviar"><i class="fa fa-paper-plane"></i></button>
+                              <textarea class="card-text" readonly>{{chat.texto}}</textarea>
+                              <input type="text" class="form-control" placeholder="Escribe aquí" #texto (keyup.enter)="enviaMensaje(texto.value); texto.value=''" id="inputEnviar">
+                              <button type="submit" class="btn btn-outline-primary" (click)="enviaMensaje(texto.value); texto.value=''" id="enviar"><i class="fa fa-paper-plane"></i></button>
                             </div>
                         </div>
                         <!-- [ngClass]="chat.texto.includes('Jorgerod25') ? 'red' : ''" -->
 
 
                     </div>
-
+ 
                     <div *ngIf="userLogin.id_usuario != chat.id_usuario1">
 
                         <div class="card" id="chatCompleto">
                             <div class="card-body">
                               <img src="{{chat.foto1}}" alt="">
                               <h5 class="card-title">{{chat.nombre_usuario1}}</h5>
-                              <textarea class="card-text" readonly>{{chat.texto}}</textarea>
+                              <textarea class="card-text"  readonly>{{chat.texto}}</textarea>
                               <input type="text" class="form-control" placeholder="Escribe aquí" #texto (keyup.enter)="enviaMensaje(texto.value)" id="inputEnviar">
                               <button type="submit" class="btn btn-outline-primary" (click)="enviaMensaje(texto.value)" id="enviar"><i class="fa fa-paper-plane"></i></button>
                             </div>
@@ -92,5 +92,7 @@
 
         </div>
     </div>
+
+    
 
 </body>

@@ -72,17 +72,22 @@ export class EditTareaComponent implements OnInit {
       editarPeticion.foto= '..\\..\\assets\\' + foto.slice(foto.lastIndexOf('\\') + 1);
     }
 
-    editarPeticion.id_peticion = this.peticion[0].id_peticion
-    editarPeticion.categoria=this.categoria
-  
 
+
+    editarPeticion.id_peticion = this.peticion[0].id_peticion
+    
+   
+    
     
     editarPeticion.titulo=titulo
     editarPeticion.precio=precio
     editarPeticion.localizacion=localizacion
+    editarPeticion.localizacion=this.peticion[0].localizacion
     editarPeticion.fecha_finalizacion=fecha_finalizacion
+    editarPeticion.fecha_finalizacion=this.peticion[0].fecha_finalizacion
     editarPeticion.descripcion=descripcion
     editarPeticion.estado = this.peticion[0].estado
+    editarPeticion.categoria=this.peticion[0].categoria
     
 
 

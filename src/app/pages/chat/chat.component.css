@@ -47,10 +47,32 @@ img{
 
     border-radius: 45px;
     margin-left: 1%;
+ 
 }
+
 
 #inputEnviar{
 
     width: 380px;
     float: left;
+    border-color: #FFCC00
 }
+
+label:hover,
+label:hover ~ label {
+  color:#FFCC00;
+}
+
+input[type="radio"]:checked ~ label {
+  color:#FFCC00;
+}
+
+#inputEnviar:focus, input:focus, input[type]:focus{
+  
+  border-color:#FFCC00;
+  box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+  outline: 0 none;
+}
+
+
+
