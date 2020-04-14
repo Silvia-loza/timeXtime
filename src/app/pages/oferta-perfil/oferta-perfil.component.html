@@ -391,6 +391,18 @@
               </div>
                   
             </div>
+
+            <div id = "noValoracion" class="container-fluid">
+
+              <div class="row">
+          
+                  <div class="col">
+                      <div  *ngIf = "usuario[0].valoracion == null">
+                          <h5 > Aún sin valoraciones</h5>
+                      </div>
+                  </div>
+              </div>
+          </div>
         
           <div class="card" id="bio">
             <div class="card-body">

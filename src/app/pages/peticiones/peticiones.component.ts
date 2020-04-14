@@ -111,10 +111,14 @@ export class PeticionesComponent implements OnInit {
       this.mostrarPeticionesPub()
     })
 
-    this.apiService2.putRechazarPetUsu(peticion).subscribe((data) =>
+    this.apiService1.getPetUsu(peticion.id_peticion).subscribe((data) =>
     {
-      
+      let elUsuario = new Usuarios()
+      elUsuario.id_usuario = data[0].id_solicitante
+      this.apiService2.putRechazarResta(elUsuario).subscribe((data) =>{})
     })
+
+    this.apiService2.putRechazarPetUsu(peticion).subscribe((data) =>{})
   }
 
   realizarSolicitud(peticion:Peticiones){
@@ -148,6 +152,8 @@ export class PeticionesComponent implements OnInit {
       {
 
         this.apiService.usuarioLogin = data
+
+        this.user = data
       })
     })
 

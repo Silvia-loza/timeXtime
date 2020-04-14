@@ -8,6 +8,8 @@ import { NuevaTareaComponent } from './pages/nueva-tarea/nueva-tarea.component';
 import { PeticionesComponent } from './pages/peticiones/peticiones.component';
 import { EditTareaComponent } from './pages/edit-tarea/edit-tarea.component';
 import { ChatComponent } from './pages/chat/chat.component';
+import { CookiesComponent } from './pages/cookies/cookies.component';
+import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
 
 
 const routes: Routes = [
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path:"editar", component: EditTareaComponent},
   {path:"", component: RegistroComponent},
   {path:"chat", component: ChatComponent},
-  {path:"", redirectTo:"/registro", pathMatch:"full"}
+  {path:"cookies", component: CookiesComponent},
+  {path:"", redirectTo:"/registro", pathMatch:"full"},
+  {path:"acerca-de", component: AcercaDeComponent}
 ];
 
 @NgModule({

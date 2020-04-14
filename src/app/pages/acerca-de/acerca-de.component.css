@@ -1,0 +1,44 @@
+@font-face {
+    font-family:'Reckless';
+    src: local("Reckless"),
+    url('../../../assets/Reckless.otf');
+}
+h1 {
+    font-family:Reckless;
+    font-size: 90px;
+    size: 100px;
+    text-align: center;
+    background-color: rgb(255, 204, 0);
+    height: 120px;
+    
+}
+h2 {
+    font-family: Reckless;
+    font-size: 60px;
+   
+
+}
+#tictac{
+    font-family: Reckless;
+    margin-left: 60%;
+    font-size: 50px;
+}
+
+img{
+    border-radius: 25px;
+    height: 290px;
+    width: 280px; 
+    display: block;
+    margin: 0 auto;
+}
+span {
+    color:white;    
+}
+.textSomos{
+    font-family: sans-serif;
+    color: grey;
+    text-align: justify;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
