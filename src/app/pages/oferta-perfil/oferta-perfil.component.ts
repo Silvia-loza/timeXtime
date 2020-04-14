@@ -35,6 +35,8 @@ export class OfertaPerfilComponent implements OnInit {
     this.apiService3.putSolicitarPeticiones(this.peticion[0]).subscribe((data) =>
     {
 
+      this.apiService3.putSumaPeticionSol(this.userLogin[0]).subscribe((data) =>{})
+
       this.apiService.getPeticion(this.peticion[0].id_peticion).subscribe((data) =>
       {
 

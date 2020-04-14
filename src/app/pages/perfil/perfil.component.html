@@ -1,7 +1,3 @@
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
 <body>
 
 <app-head></app-head>
@@ -13,14 +9,14 @@
         <form #soyF= "ngForm" name ="soyF" (ngSubmit)="onSubmit(soyF)">
                 <div class="form-group">
                 
-                        <img src ="{{perfil[0].foto}}" id="foto_perfil"/>
-                        <div class="drag-drop">
-                        <label id = "anadirFoto" for="photo"> Añadir foto
-                        </label>
-                        <input id="botonMaldito" type="file" name="photo" #foto 
-                        (change)="handleFileInput($event.target.files)">
-                        </div>
-                      
+                        <img src ="{{perfil[0].foto}}" id="foto_perfil"/> 
+                        <div class="drag-drop"> 
+                        <label id = "anadirFoto" for="photo"> Añadir foto 
+                        </label> 
+                        <input id="botonMaldito" type="file" name="photo"  
+                       #foto> 
+                        </div> 
+                       
                 </div>
                 <br>
                 <br>
@@ -43,7 +39,7 @@
         
         <h3 id="tiempo"> {{ perfil[0].monedas}} <img src ="../../../assets/reloj.png" id="id_reloj"> </h3>
      
-      <button type="button" id= "guardar" class="btn btn-warning"id= "guardar" class="btn btn-warning" (click) = "editarPerfil(nombre_usuario.value, nombre.value, primer_apellido.value, segundo_apellido.value, contrasena.value, telefono.value, email.value, biografia.value, foto.value)">Guardar</button>
+      <button type="button" id= "guardar" [swal]="['Perfil guardado correctamente!']" (click) = "editarPerfil(nombre_usuario.value, nombre.value, primer_apellido.value, segundo_apellido.value, contrasena.value, telefono.value, email.value, biografia.value, foto.value)">Guardar</button>
       </div>
     
       </form>
@@ -56,6 +52,7 @@
       
       <form class="formulario" #perfilForm= "ngForm" (ngSubmit)="onSubmit(perfilForm)" >
 
+    
         
         <div class="form-row">
           <div class="form-group col-md-6">
@@ -69,7 +66,7 @@
 
           <div class="form-group col-md-6">
             <label for="formGroupExampleInput">Nombre</label>
-            <input type="text" name ="nombre" class="form-control" id="name"  placeholder="Introduce tu nombre" #nombre  = "ngModel" [(ngModel)] = "perfil[0].nombre"
+            <input type="text" name ="nombre" class="form-control" id="name"  placeholder="Introduce tu nombre" #nombre  = "ngModel" [ngModel] = "perfil[0].nombre"
             [(ngModel)] = "perfil[0].nombre" [ngClass] = "{'is-invalid': nombre.invalid}" required>
                 <div class = "invalid-feedback" *ngIf = " nombre.invalid"> 
                     <p class = "mensajeError" *ngIf ="nombre.errors.required"> El nombre es obligatorio </p>
@@ -81,7 +78,7 @@
               <div class="form-group col-md-6">
                 <label for="formGroupExampleInput">Primer apellido</label>
                 <input type="text"class="form-control" id="lastname1"  name="primer_apellido" placeholder="Introduce tu primer apellido" #primer_apellido = "ngModel" 
-                [(ngModel)] = "perfil[0].primer_apellido"  [ngClass] = "{'is-invalid': primer_apellido.invalid}" required>
+                [ngModel] = "perfil[0].primer_apellido"  [ngClass] = "{'is-invalid': primer_apellido.invalid}" required>
                     <div class = "invalid-feedback" *ngIf = " primer_apellido.invalid"> 
                         <p class = "mensajeError" *ngIf ="primer_apellido.errors.required"> El apellido es obligatorio </p>
                     </div>
@@ -89,7 +86,7 @@
 
               <div class="form-group col-md-6">
                 <label for="formGroupExampleInput">Segundo apellido</label>
-                <input type="text" name= "segundo_apellido" class="form-control" id="lastname2" placeholder="Introduce tu segundo apellido" #segundo_apellido = "ngModel" [(ngModel)] = "perfil[0].segundo_apellido"[ngClass] = "{'is-invalid': segundo_apellido.invalid}" required>
+                <input type="text" name= "segundo_apellido" class="form-control" id="lastname2" placeholder="Introduce tu segundo apellido" #segundo_apellido = "ngModel" [ngModel] = "perfil[0].segundo_apellido"[ngClass] = "{'is-invalid': segundo_apellido.invalid}" required>
                 <div class = "invalid-feedback" *ngIf = "segundo_apellido.invalid"> 
                     <p class = "mensajeError" *ngIf ="segundo_apellido.errors.required"> El segundo apellido es obligatorio </p>
                 </div> 
@@ -101,7 +98,7 @@
 
           <div class="form-group col-md-12">
             <label for="formGroupExampleInput">Contraseña</label>
-            <input type="password" name ="contrasena" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Introduce tu contraseña" #contrasena = "ngModel" [(ngModel)] = "perfil[0].contrasena" [ngClass] = "{'is-invalid': contrasena.invalid}" minlength ="6" required>
+            <input type="password" name ="contrasena" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Introduce tu contraseña" #contrasena = "ngModel" [ngModel] = "perfil[0].contrasena" [ngClass] = "{'is-invalid': contrasena.invalid}" minlength ="6" required>
             <div class = "invalid-feedback" *ngIf = "contrasena.invalid"> 
                 <p class = "mensajeError" *ngIf ="contrasena.errors.required"> La contraseña es obligatoria </p>
                 <p class = "mensajeError" *ngIf ="contrasena.errors.minlength"> La contraseña debe tener al menos 6 caracteres </p>
@@ -112,7 +109,7 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="formGroupExampleInput">Teléfono</label>
-            <input type="tel" pattern="\d*" name= "telefono" maxlength="10" class="form-control" id="telf" placeholder="Introduce tu teléfono" #telefono = "ngModel" [(ngModel)] = "perfil[0].telefono" [ngClass] = "{'is-invalid': telefono.invalid}" required>
+            <input type="tel" pattern="\d*" name= "telefono" maxlength="10" class="form-control" id="telf" placeholder="Introduce tu teléfono" #telefono = "ngModel" [ngModel] = "perfil[0].telefono" [ngClass] = "{'is-invalid': telefono.invalid}" required>
             <div class = "invalid-feedback" *ngIf = "telefono.invalid"> 
                 <p class = "mensajeError" *ngIf ="telefono.errors.required"> Un numero de telefono es obligatorio </p>
                 <p class = "mensajeError" *ngIf ="telefono.errors.maxlength"> El telefono puede tener como máximo 9 numeros </p>
@@ -121,7 +118,7 @@
     
           <div class="form-group col-md-6">
             <label for="exampleFormControlInput1">Email</label>
-            <input type="email" name = "email" class="form-control" id="mail"  placeholder="Introduce tu email" #email = "ngModel" [(ngModel)] = "perfil[0].email" [(ngModel)] = "perfil[0].email" [ngClass] = "{'is-invalid': email.invalid}" email required>
+            <input type="email" name = "email" class="form-control" id="mail"  placeholder="Introduce tu email" #email = "ngModel" [ngModel] = "perfil[0].email" [ngClass] = "{'is-invalid': email.invalid}" email required>
             <div class = "invalid-feedback" *ngIf = " email.invalid"> 
                 <p class = "mensajeError" *ngIf ="email.errors.required"> El email es obligatorio </p>
                 <p class = "mensajeError" *ngIf ="email.errors.email"> Asegurate de que esto es un email válido </p>
@@ -131,17 +128,19 @@
     
           <div class="form-group col-12">
              <label for="exampleFormControlTextarea1">Biografía</label>
-             <textarea class="form-control" maxlength="495" name="biografia" id="bio"  rows="10" #biografia = "ngModel"[(ngModel)] = "perfil[0].biografia" [ngClass] = "{'is-invalid': biografia.invalid}"  required></textarea>
+             <textarea class="form-control" maxlength="495" name="biografia" id="bio"  rows="10" #biografia = "ngModel"[ngModel] = "perfil[0].biografia" [ngClass] = "{'is-invalid': biografia.invalid}"  required></textarea>
              <div class = "invalid-feedback" *ngIf = " biografia.invalid"> 
                 <p class = "mensajeError" *ngIf ="biografia.invalid"> Cuentale a la comunidad algo sobre ti, es un campo obligatorio </p>
                 <p class = "mensajeError" *ngIf ="biografia.errors.maxlength"> La biografía no puede contener más de 500 carcteres </p>
              </div> 
           </div>
           
-          <!--<button type="submit" id= "guardar" class="btn btn-warning" class="btn btn-warning" (click) = "editarPerfil(nombre_usuario.value, nombre.value, primer_apellido.value, segundo_apellido.value, contrasena.value, telefono.value, email.value, biografia.value, foto.value)">Guardar</button>-->
+         
 
-         </div>
+
     
+        </div>
+
       </form>
       
     </div>

@@ -14,14 +14,14 @@ h1 {
 }
 h2 {
     font-family: Reckless;
-    size: 40px;
+    font-size: 60px;
    
 
 }
 #tictac{
     font-family: Reckless;
-    size: 60px;
-    margin-left: 80%;
+    margin-left: 60%;
+    font-size: 50px;
 }
 
 img{

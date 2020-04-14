@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Peticiones } from '../models/peticiones';
 import { Petusu } from '../models/petusu';
 import { Chat } from '../models/chat';
+import { Usuarios } from '../models/usuarios';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,11 @@ export class OfertaPerfilService {
   putSolicitarPeticiones(peticion:Peticiones){
 
     return this.http.put(this.url + "/solicitar-peticiones", peticion)
+  }
+
+  putSumaPeticionSol(usuario:Usuarios){
+
+    return this.http.put(this.url + "/solicitar/suma", usuario)
   }
 
   putSolicitarPetUsu(id: number, petUsu:Petusu){

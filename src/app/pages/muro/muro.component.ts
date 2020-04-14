@@ -111,6 +111,8 @@ export class MuroComponent implements OnInit {
     this.apiService2.putSolicitarPeticiones(this.peticiones[indice]).subscribe((data) =>
     {
 
+      this.apiService2.putSumaPeticionSol(this.userLogin[0]).subscribe((data) =>{})
+
       this.apiService3.getPeticiones().subscribe((data) =>
       {
 
