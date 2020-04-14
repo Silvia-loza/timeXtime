@@ -67,19 +67,20 @@
         <div class="form-group">
           <label class="blanco">Crea tu cuenta:</label>
 
-          <input type="text" class="form-control" id="modalInput" name="nombre_usuario" required placeholder="Nombre de usuario"
+          <input type="text" class="form-control" id="modalInput" name="nombre_usuario" required placeholder="Nombre de usuario" required minlength="5"
             [(ngModel)]="nuevoUsuario.nombre" #nombre="ngModel">
           <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
             <div *ngIf="nombre.errors.required" id="err">Introduce un nombre de usuario</div>
+            <div *ngIf="nombre.errors.minlength" id="err">Debe contener minimo 5 caracteres</div>
           </div>
         </div>
 
         <div class="form-group">
-          <input id="modalInput" name="email" type="email" class="form-control" placeholder="@email"
-            [(ngModel)]="nuevoUsuario.email" #email="ngModel" email required
+          <input id="modalInput" name="email" type="email" class="form-control" placeholder="Email"
+            [(ngModel)]="nuevoUsuario.email" #email="ngModel" required
             pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
 
-          <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback" id="err">
+          <div *ngIf="userForm.submitted && email.invalid" class="alert alert-danger">
             <div *ngIf="email.errors.pattern" id="err">Debes introducir un email correcto</div>
             <div *ngIf="email.errors.required" id="err">Dirección email incorrecta</div>
 
@@ -102,18 +103,19 @@
 
         <div class="form-group">
           <input type="password" class="form-control" id="modalInput" name="contrasena2"
-            placeholder="Repite la contraseña" required minlength="6">
+            placeholder="Repite la contraseña" required minlength="6" >
           <div *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)" class="alert alert-danger">
-            <div *ngIf="contrasena.errors.minlength" id="err">Repite la contraseña</div>
+            <div *ngIf="contrasena.errors.required" id="err">Confirmar contraseña</div>
+            <div *ngIf="contrasena.errors.minlength" id="err">Debe contener minimo 6 caracteres</div>
           </div>
         </div>
 
 
 
         <div class="form-group">
-          <button [swal]="['Registrado!', 'Revisa tu correo, has recibido un mensaje de bievenida', 'warning']"
+          <button [swal]="['Registrado, ya puedes iniciar sesión!', 'Revisa tu correo, has recibido un mensaje de bievenida', 'warning'  ]  " 
             id="modalBoton" type="submit" class="btn btn-dark" [disabled]="userForm.invalid"
-            (click)="insertarUsuario(nombre.value, email.value, contrasena.value)">Tic Tac</button>
+            (click)="insertarUsuario(nombre.value, email.value, contrasena.value)" (click)="modalRef.hide()">Tic Tac</button>
         </div>
         
       </form>

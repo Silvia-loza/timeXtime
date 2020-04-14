@@ -81,15 +81,15 @@ export class RegistroComponent implements OnInit {
     usuario.contrasena = contrasena
 
     this.apiService.postUsuario(usuario).subscribe((data)=>
+    
     {
+    
       console.log(data)
     });
   
   }
 
 
-  
-  
 
   ngOnInit(): void {
   }
