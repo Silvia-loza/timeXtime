@@ -71,17 +71,13 @@ export class PerfilComponent implements OnInit {
 
       this.mostrarPerfil()
 
-       /*if(foto !== undefined)
-           {
-               this.apiService.getPerfil(this.apiService2.usuarioLogin[0].id_usuario).subscribe((data) => {
-                this.apiService2.usuarioLogin = data[0].foto
-                console.log(data)
-      })}*/
   }
 
 mostrarPerfil() {
     this.apiService.getPerfil(this.apiService2.usuarioLogin[0].id_usuario).subscribe((data) => {
-      this.apiService2.usuarioLogin = data
+        this.apiService.perfilS = data
+        
+      //this.apiService2.usuarioLogin = data (este es el que está en git)
 
       console.log(data)
     })}
