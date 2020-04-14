@@ -22,6 +22,7 @@ import { MessageServiceService } from "./shared/message-service.service";
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { CookiesComponent } from './pages/cookies/cookies.component';
 import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
     ChatPipe,
     CookiesComponent,
     AcercaDeComponent,
+    ContactoComponent,
     
   ],
   imports: [

@@ -10,6 +10,7 @@ import { EditTareaComponent } from './pages/edit-tarea/edit-tarea.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { CookiesComponent } from './pages/cookies/cookies.component';
 import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path:"chat", component: ChatComponent},
   {path:"cookies", component: CookiesComponent},
   {path:"", redirectTo:"/registro", pathMatch:"full"},
-  {path:"acerca-de", component: AcercaDeComponent}
+  {path:"acerca-de", component: AcercaDeComponent},
+  {path:"contacto", component: ContactoComponent },
 ];
 
 @NgModule({
