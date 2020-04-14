@@ -42,7 +42,7 @@ export class PerfilComponent implements OnInit {
       
        var nuevoPerfil = new Usuarios();
       
-       if( foto === "")
+       if(foto === undefined)
            {
 
             nuevoPerfil.foto = this.perfil[0].foto
