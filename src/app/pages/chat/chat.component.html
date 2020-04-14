@@ -61,7 +61,7 @@
                               <h5 class="card-title">{{chat.nombre_usuario1}}</h5>
                               <textarea class="card-text"  readonly>{{chat.texto}}</textarea>
                               <input type="text" class="form-control" placeholder="Escribe aquí" #texto (keyup.enter)="enviaMensaje(texto.value)" id="inputEnviar">
-                              <button type="submit" class="btn btn-outline-primary" (click)="enviaMensaje(texto.value)" id="enviar"><i class="fa fa-paper-plane"></i></button>
+                              <button type="submit" class="btn btn-outline-primary" (click)="enviaMensaje(texto.value); texto.value=''" id="enviar"><i class="fa fa-paper-plane"></i></button>
                             </div>
                         </div>
 
