@@ -31,8 +31,33 @@ export class NuevaTareaComponent implements OnInit {
   { 
     let peticion = new Peticiones()
 
-    peticion.categoria=this.categoria
-    peticion.foto= '..\\..\\assets\\' + foto.slice(foto.lastIndexOf('\\') + 1);
+    if(this.categoria === undefined){
+
+      peticion.categoria = "servicios"
+    } else {
+
+      peticion.categoria=this.categoria
+
+    }
+    
+    if(foto === "" && peticion.categoria === "mascotas"){
+
+      peticion.foto = "../../../assets/Mascotas.jpg"
+
+    } else if(foto === "" && peticion.categoria === "clases"){
+
+      peticion.foto = "../../../assets/Professor.jpg"
+    } else if (foto === "" && peticion.categoria === "servicios"){
+
+      peticion.foto = "../../../assets/servicios.jpg"
+    } else if (foto === "" && peticion.categoria === "recados"){
+
+      peticion.foto = "../../../assets/recadosIIIII.jpg"
+    } else {
+
+      peticion.foto= '..\\..\\assets\\' + foto.slice(foto.lastIndexOf('\\') + 1);
+    }
+
     peticion.titulo=titulo
     peticion.localizacion=localizacion
     peticion.precio=precio

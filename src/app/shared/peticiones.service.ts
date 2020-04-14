@@ -93,7 +93,10 @@ export class PeticionesService {
     return this.http.put(this.url4 + "peticionSol", peticion)
   }
 
-  // 
+  putRechazarResta(usuario:Usuarios){
+
+    return this.http.put(this.url3 + "/rechazar-resta", usuario)
+  }
 
   getUsuarios(id:number){
 
