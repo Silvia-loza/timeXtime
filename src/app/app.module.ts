@@ -39,6 +39,7 @@ import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
     ChatComponent,
     ChatPipe,
     CookiesComponent,
+    AcercaDeComponent,
     
   ],
   imports: [
@@ -49,7 +50,6 @@ import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
     FormsModule,
     ReactiveFormsModule,
     SweetAlert2Module.forRoot()
-    AcercaDeComponent,
 
   ],
   providers: [MessageServiceService],
