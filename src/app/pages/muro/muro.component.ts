@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { HeaderService } from 'src/app/shared/header.service';
 import { LoginService } from 'src/app/shared/login.service';
 import { OfertaPerfilService } from 'src/app/shared/oferta-perfil.service';
+import { Peticiones } from 'src/app/models/peticiones';
 
 @Component({
   selector: 'app-muro',
@@ -66,11 +67,28 @@ export class MuroComponent implements OnInit {
       precio = 0
     }
 
+    if(this.categoria === undefined){
+
+      this.categoria = "nocategoria"
+    }
+
+    if(fecha_finalizacion.toString() === ""){
+
+      let newFecha = new Date("2099-12-12")
+
+      fecha_finalizacion = newFecha
+      console.log(newFecha)
+    }
+
+    
     this.apiService.getPeticionesFiltros(this.categoria, precio, localizacion, fecha_finalizacion).subscribe((data) =>
     {
+
+      this.categoria = "nocategoria"
       this.peticiones = data
 
     })
+    
   }
 
   mostrarPeticion(indice){
