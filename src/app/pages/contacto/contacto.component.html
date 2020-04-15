@@ -6,33 +6,41 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-3" id="div1">
-                
+            <div class="col-1" id="div1">
+                <ul class="social_footer_ul">
+                    <li><a href=""><i class="fas fa-envelope pr-1"></i></a></li>
+                    <li><a href="http://facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="http://twitter.com"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="http://instagram.com"><i class="fab fa-instagram"></i></a></li>
+                </ul>
             </div>
-            <div class="col-9" id="div2">
-                <form action="">
+            <div class="col-10" id="div2">
+                <form>
                     <br>
                     <h2>CONTACTO</h2>
                     <br>
                     <div class="form-group">
-                        <label>Nombre</label>
-                        <input class="form-control" type="text" placeholder="Nombre">
+                        <label> ~ Nombre y apellidos ~</label>
+                        <input class="form-control" type="text"  placeholder="Introduce tu nombre y apellido" name="nombreYapellidos"  id="nombreYapellidos">
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
-                        <input class="form-control" type="text" placeholder="Email">
+                        <label>~ Email ~</label>
+                        <input class="form-control" type="text" placeholder="Introduce tu email" name="email" ngModel id="email">
                     </div>
                     <div class="form-group">
-                        <label>Asunto</label>
-                        <input class="form-control" type="text" placeholder="Asunto">
+                        <label>~ Asunto ~</label>
+                        <input class="form-control" type="text" placeholder="Asunto" name="asunto" ngModel id="asunto">
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Mensaje</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="exampleFormControlTextarea1">~ Mensaje ~</label>
+                        <textarea class="form-control" id="masinfo" rows="8" placeholder="En qué podemos ayudarte..." name="mensaje" ngModel></textarea>
                     </div>
 
-                    <button type="button" class="btn btn-warning btn-lg">  Enviar  </button>
+                    <br>
+                    <br>
+
+                    <button type="submit" id="botonEnviar" class="btn btn-default btn-circle btn-xl"> Enviar </button>
 
                 </form>
                 <br>
