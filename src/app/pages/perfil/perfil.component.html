@@ -7,7 +7,7 @@
   
       <div class="col-lg-3" class = "perfil-left">
         <form #soyF= "ngForm" name ="soyF" (ngSubmit)="onSubmit(soyF)">
-                <div class="form-group">
+                <div id="perfilSoy" class="form-group">
                 
                         <img src ="{{perfil[0].foto}}" id="foto_perfil"/> 
                         <div class="drag-drop"> 
@@ -16,29 +16,21 @@
                         <input id="botonMaldito" type="file" name="photo"  
                        #foto> 
                         </div> 
-                       
-                </div>
-                <br>
-                <br>
-              
-            <h3 id="nombre"> <strong>{{perfil[0].nombre_usuario}} </strong></h3>
-            <br>
+                      <br>
+                      <br>
+                        <h3 id="nombre"> <strong>{{perfil[0].nombre_usuario}} </strong></h3>
+                        <app-valoracion></app-valoracion>
+                        <h5 id="tareas">{{ perfil[0].tareas_publicadas}} publicadas | {{ perfil[0].tareas_solicitadas}} solicitadas <span> </span></h5>
+                        <br>
         
-  
-        <div id="start">
-  
-          <app-valoracion></app-valoracion>
-        
-          <br>
-  
-       
-  
-        
-        <h5 id="tareas">{{ perfil[0].tareas_publicadas}} publicadas | {{ perfil[0].tareas_solicitadas}} solicitadas <span> </span></h5>
-        <br>
-        
-        <h3 id="tiempo"> {{ perfil[0].monedas}} <img src ="../../../assets/reloj.png" id="id_reloj"> </h3>
+                        <h3 id="tiempo"> {{ perfil[0].monedas}} <img src ="../../../assets/reloj.png" id="id_reloj"> </h3>
      
+                </div>
+              
+              
+        <div id="start">
+        
+        
       <button type="button" id= "guardar" [swal]="['Perfil guardado correctamente!']" (click) = "editarPerfil(nombre_usuario.value, nombre.value, primer_apellido.value, segundo_apellido.value, contrasena.value, telefono.value, email.value, biografia.value, foto.value)">Guardar</button>
       </div>
     
