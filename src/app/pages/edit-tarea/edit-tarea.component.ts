@@ -72,28 +72,38 @@ export class EditTareaComponent implements OnInit {
       editarPeticion.foto= '..\\..\\assets\\' + foto.slice(foto.lastIndexOf('\\') + 1);
     }
 
+    
+    if(localizacion === "Selecciona una opción"){
+      editarPeticion.localizacion = this.peticion[0].localizacion
+    } else {
+      editarPeticion.localizacion = localizacion
+    }
+
+    
+    if(fecha_finalizacion === fecha_finalizacion){
+      editarPeticion.fecha_finalizacion = this.peticion[0].fecha_finalizacion
+    } else {
+      editarPeticion.fecha_finalizacion = fecha_finalizacion
+    }
+
+    
+
+
 
 
     editarPeticion.id_peticion = this.peticion[0].id_peticion
     
-   
-    
-    
+
     editarPeticion.titulo=titulo
     editarPeticion.precio=precio
-    editarPeticion.localizacion=localizacion
-    editarPeticion.localizacion=this.peticion[0].localizacion
-    editarPeticion.fecha_finalizacion=fecha_finalizacion
-    editarPeticion.fecha_finalizacion=this.peticion[0].fecha_finalizacion
+    // editarPeticion.fecha_finalizacion=fecha_finalizacion
+    // editarPeticion.fecha_finalizacion=this.peticion[0].fecha_finalizacion
     editarPeticion.descripcion=descripcion
+    
     editarPeticion.estado = this.peticion[0].estado
+
     editarPeticion.categoria=this.peticion[0].categoria
     
-
-
-    
-
-
     this.apiService.putTarea(editarPeticion).subscribe((data) =>
     {
       console.log(data)

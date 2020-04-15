@@ -13,13 +13,15 @@
         <button routerLink="/nueva-tarea" type="button" id= "nueva_peticion"class="btn btn-light"><i class="fa fa-plus-circle" id="plus"></i> Nueva petición</button>
       </div>
       <div class="col-lg-8">
-        <button type="button" id="tareas_realizadas" class="btn btn-light" (click) = "mostrarPeticionesPub()">Peticiones publicadas</button>
-        <button type="button" id="tareas_publicadas" class="btn btn-light" (click) = "mostrarPeticionesSol()">Peticiones solicitadas</button>
-
+        <div [class.active]="classApplied">
+        <button class="button" id="tareas_realizadas"  (click) = "mostrarPeticionesPub(); toggleClass()">Peticiones publicadas</button>
+  
+        <button class="button" id="tareas_publicadas" (click) = "mostrarPeticionesSol(); toggleClass()">Peticiones solicitadas</button>
+      </div>
         <div class="container" id="container2">
 
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-      
+    
       
             <div *ngIf="peticiones!=null">
       

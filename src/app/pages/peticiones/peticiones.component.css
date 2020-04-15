@@ -20,9 +20,7 @@
   border-radius: 0px;
   font-family: principal;
   font-size: 300%;
-  background-color: transparent;
-  border-color:#FFCC00 ;
-  color:#FFCC00 ;
+
 }
 #tareas_publicadas{
   width: 365px;
@@ -32,21 +30,26 @@
   font-family: principal;
   font-size: 300%;
   background-color: transparent;
-  border-color:#FFCC00 ;
+  border-color:#FFCC00;
   color:#FFCC00 ;
   justify-content: center;
    
 }
 
-#tareas_realizadas:focus, #tareas_realizadas:active{
-  background-color: #FFCC00;
-  color: white;
-  text-decoration: none;
-  box-shadow: none;
+.button{
+  background-color: transparent;
+  border-color:#FFCC00;
+  color:#FFCC00
+
+
 }
 
+.active .button{
 
-#tareas_publicadas:focus-within, #tareas_publicadas:active{
+  background-color: #FFCC00;
+  color:white;
+} 
+#tareas_publicadas:focus, #tareas_publicadas:active{
   background-color: #FFCC00;
   color: white;
   text-decoration: none;

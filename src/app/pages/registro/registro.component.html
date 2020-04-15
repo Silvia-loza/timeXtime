@@ -63,64 +63,50 @@
     </div>
 
     <div id="elmodal" class="modal-body">
-      <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
         <div class="form-group">
           <label class="blanco">Crea tu cuenta:</label>
 
-          <input type="text" class="form-control" id="modalInput" name="nombre_usuario" required placeholder="Nombre de usuario" required minlength="5"
-            [(ngModel)]="nuevoUsuario.nombre" #nombre="ngModel">
-          <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
-            <div *ngIf="nombre.errors.required" id="err">Introduce un nombre de usuario</div>
-            <div *ngIf="nombre.errors.minlength" id="err">Debe contener minimo 5 caracteres</div>
-          </div>
+          <input type="text" [ngClass]="{ 'is-invalid': submitted && f.nombre_usuario.errors }" formControlName="nombre_usuario" class="form-control" id="modalInput" placeholder="Nombre de usuario"
+            #nombre/>
+            <div *ngIf="((submitted ||f.nombre_usuario.touched) && f.nombre_usuario.errors)" class="invalid-input">
+              <div *ngIf="f.nombre_usuario.errors.required"id="formato">El nombre es obligatorio</div>
+          </div>  
         </div>
 
-        <div class="form-group">
-          <input id="modalInput" name="email" type="email" class="form-control" placeholder="Email"
-            [(ngModel)]="nuevoUsuario.email" #email="ngModel" required
-            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-
-          <div *ngIf="userForm.submitted && email.invalid" class="alert alert-danger">
-            <div *ngIf="email.errors.pattern" id="err">Debes introducir un email correcto</div>
-            <div *ngIf="email.errors.required" id="err">Dirección email incorrecta</div>
-
+        <div class="form-group">  
+          <input type="text" formControlName="email" class="form-control" type="email"  id="modalInput1" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"placeholder="Introduce tu email" #email />
+          <div *ngIf="((submitted ||f.email.touched) && f.email.errors)" class="invalid-input">
+              <div *ngIf="f.email.errors.required"id="formato">El email es obligatorio</div>
+              <div *ngIf="f.email.errors.email"id="formato">Debe ingresar un email válido</div>
           </div>
+      </div>
+
+   
+      <div class="form-group">
+        <input type="password" formControlName="password" class="form-control" id="modalInput2"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Contraseña" #contrasena/>
+        <div *ngIf="((submitted ||f.password.touched) && f.password.errors)" class="invalid-input">
+            <div *ngIf="f.password.errors.required"id="formato">La contraseña en obligatoria</div>
+            <div *ngIf="f.password.errors.minlength"id="formato">La contraseña debe contener al menos 6 carácteres</div>
         </div>
-
-
-        <div class="form-group">
-          <input type="password" class="form-control" id="modalInput" name="contrasena1" placeholder="Contraseña"
-            [(ngModel)]="nuevoUsuario.contrasena" required minlength="6" #contrasena="ngModel">
-
-          <div *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)" class="alert alert-danger">
-            <div *ngIf="contrasena.errors.required" id="err">Introduce una contraseña correcta</div>
-            <div *ngIf="contrasena.errors.minlength" id="err">Debe contener minimo 6 caracteres</div>
-
-          </div>
+    </div>
+    <div class="form-group">
+        <input type="password" formControlName="confirmPassword" class="form-control"  id="modalInput3" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" placeholder="Confirma tu contraseña" />
+          <div *ngIf="((submitted ||f.confirmPassword.touched) && f.confirmPassword.errors)" class="invalid-input">
+            <div *ngIf="f.confirmPassword.errors.required" id="formato">Debe confirmar la contraseña</div>
+            <div *ngIf="f.confirmPassword.errors.mustMatch"id="formato">Las contraseñas deben de coincidir</div>
         </div>
-
+    </div>
 
 
         <div class="form-group">
-          <input type="password" class="form-control" id="modalInput" name="contrasena2"
-            placeholder="Repite la contraseña" required minlength="6" >
-          <div *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)" class="alert alert-danger">
-            <div *ngIf="contrasena.errors.required" id="err">Confirmar contraseña</div>
-            <div *ngIf="contrasena.errors.minlength" id="err">Debe contener minimo 6 caracteres</div>
-          </div>
-        </div>
-
-
-
-        <div class="form-group">
-          <button [swal]="['Registrado, ya puedes iniciar sesión!', 'Revisa tu correo, has recibido un mensaje de bievenida', 'warning'  ]  " 
-            id="modalBoton" type="submit" class="btn btn-dark" [disabled]="userForm.invalid"
-            (click)="insertarUsuario(nombre.value, email.value, contrasena.value)" (click)="modalRef.hide()">Tic Tac</button>
+          <button
+            id="modalBoton"  class="btn btn-dark"
+            (click)="insertarUsuario(nombre.value, email.value, contrasena.value)" [disabled]="!registerForm.valid">Tic Tac</button>
         </div>
         
       </form>
-    </div>
-
+  </div>
   </ng-template>
 
 </body>

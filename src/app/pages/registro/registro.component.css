@@ -52,6 +52,27 @@ input{
     margin-left: auto;
     
 }
+#modalInput1 {
+    border-radius: 8px;
+    height: 65px;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+#modalInput2 {
+    border-radius: 8px;
+    height: 65px;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+#modalInput3 {
+    border-radius: 8px;
+    height: 65px;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
 
 #email {
     background-position: 5%;
@@ -146,6 +167,21 @@ h2 {
     box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
     border-color:#FFCC00;
 }
+#modalInput1:focus{
+
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+    border-color:#FFCC00;
+}
+#modalInput2:focus{
+
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+    border-color:#FFCC00;
+}
+#modalInput3:focus{
+
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+    border-color:#FFCC00;
+}
 
 
 #elmodal {
@@ -190,4 +226,9 @@ h2 {
 #loginBoton:focus,#loginBoton:active {
     outline: none;
     box-shadow: none;
+}
+#formato{
+
+    color:red;
+    font-size:small;
 }

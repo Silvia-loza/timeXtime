@@ -8,6 +8,8 @@ import { Peticiones } from 'src/app/models/peticiones';
 import { Usuarios } from 'src/app/models/usuarios';
 import { Petusu } from 'src/app/models/petusu';
 
+import * as jQuery from 'jquery';
+
 
 @Component({
   selector: 'app-peticiones',
@@ -210,6 +212,16 @@ export class PeticionesComponent implements OnInit {
     })
 
     this.apiService2.putCambiosPeticionSol(peticion).subscribe((data) =>{})
+  }
+
+  classApplied = false;
+
+  toggleClass() {
+    this.classApplied = !this.classApplied;
+  }
+  classApplied1 = false;
+  toggleClass1() {
+    this.classApplied1 = !this.classApplied1;
   }
 
   ngOnInit(): void {

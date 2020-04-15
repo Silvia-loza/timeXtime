@@ -4,6 +4,9 @@ import { LoginService } from 'src/app/shared/login.service';
 import { Router } from '@angular/router';
 import { Usuarios } from 'src/app/models/usuarios';
 import { MessageServiceService } from './../../shared/message-service.service';
+import { FormGroup,Validators,FormBuilder} from "@angular/forms"
+
+import { MustMatch } from './_helpers/must-match.validator';
 
 @Component({
   selector: 'app-registro',
@@ -12,16 +15,15 @@ import { MessageServiceService } from './../../shared/message-service.service';
 
 })
 
-
-
 export class RegistroComponent implements OnInit {
 
   modalRef: BsModalRef;
   public nuevoUsuario = new Usuarios()
+  registerForm:FormGroup; 
+  submitted = false;
+  constructor(private modalService: BsModalService, private apiService:LoginService, private router:Router, public _MessageService: MessageServiceService, private formBuilder: FormBuilder) {
 
-  constructor(private modalService: BsModalService, private apiService:LoginService, private router:Router, public _MessageService: MessageServiceService) {
-
-     this.nuevoUsuario
+    this.nuevoUsuario
   }
 
   contactForm(form) {
@@ -29,12 +31,7 @@ export class RegistroComponent implements OnInit {
 
       })
     }
-  
 
-  onSubmit(form){
-    
-    console.log(form.value)
-  }
 
   openModal(template: TemplateRef<any>){
     this.modalRef = this.modalService.show(template)
@@ -79,19 +76,34 @@ export class RegistroComponent implements OnInit {
     usuario.nombre_usuario = nombre_usuario
     usuario.email = email
     usuario.contrasena = contrasena
-
+  
     this.apiService.postUsuario(usuario).subscribe((data)=>
     
     {
-    
-      console.log(data)
+        console.log(data)
     });
-  
   }
-
 
 
   ngOnInit(): void {
-  }
 
+    this.registerForm = this.formBuilder.group({
+      nombre_usuario: [, Validators.required],
+        email: [, [ Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        confirmPassword: ['', Validators.required]
+      }, {
+        validator: MustMatch('password', 'confirmPassword')
+    });
+}
+get f() { return this.registerForm.controls; }
+
+onSubmit() {
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+        return;
+    }
+
+    console.log('Registrado')
+}
 }
