@@ -47,9 +47,6 @@ export class EditTareaComponent implements OnInit {
 
   }
 
-
-
-
   private buildForm(){
 
     this.formGroup = this.formBuilder.group({
@@ -72,37 +69,37 @@ export class EditTareaComponent implements OnInit {
       editarPeticion.foto= '..\\..\\assets\\' + foto.slice(foto.lastIndexOf('\\') + 1);
     }
 
-    
     if(localizacion === "Selecciona una opción"){
       editarPeticion.localizacion = this.peticion[0].localizacion
     } else {
       editarPeticion.localizacion = localizacion
     }
 
-    
-    if(fecha_finalizacion === fecha_finalizacion){
-      editarPeticion.fecha_finalizacion = this.peticion[0].fecha_finalizacion
+    if(this.categoria === undefined){
+
+      editarPeticion.categoria = this.peticion[0].categoria
     } else {
+
+      editarPeticion.categoria = this.categoria
+    }
+    console.log(fecha_finalizacion)
+    console.log(this.peticion[0].fecha_finalizacion)
+    if(fecha_finalizacion === this.peticion[0].fecha_finalizacion){
+
+      editarPeticion.fecha_finalizacion = this.peticion[0].fecha_finalizacion + 1
+    } else {
+
       editarPeticion.fecha_finalizacion = fecha_finalizacion
     }
 
     
 
-
-
-
     editarPeticion.id_peticion = this.peticion[0].id_peticion
-    
-
     editarPeticion.titulo=titulo
     editarPeticion.precio=precio
-    // editarPeticion.fecha_finalizacion=fecha_finalizacion
-    // editarPeticion.fecha_finalizacion=this.peticion[0].fecha_finalizacion
     editarPeticion.descripcion=descripcion
-    
+    editarPeticion.fecha_finalizacion = fecha_finalizacion
     editarPeticion.estado = this.peticion[0].estado
-
-    editarPeticion.categoria=this.peticion[0].categoria
     
     this.apiService.putTarea(editarPeticion).subscribe((data) =>
     {
