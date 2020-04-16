@@ -11,6 +11,8 @@ export class Peticiones {
     public estado: String
     public valorada_creador:boolean
     public valorada_solicitante: boolean
+    public id_creador: number
+    public id_solicitante: number
 
     constructor(){
 

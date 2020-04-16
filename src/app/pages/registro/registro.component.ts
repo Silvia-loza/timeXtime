@@ -59,11 +59,6 @@ showToaster2(){
       this.apiService.peticiones = data
     })
 
-    this.apiService.getPetUsu().subscribe((data) =>
-    {
-      this.apiService.petUsu = data
-
-    })
 
     this.apiService.getUsuario(email, contrasena).subscribe((data) =>
     {

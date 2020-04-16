@@ -6,8 +6,6 @@ import { Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Peticiones } from 'src/app/models/peticiones';
 import { Usuarios } from 'src/app/models/usuarios';
-import { Petusu } from 'src/app/models/petusu';
-
 import * as jQuery from 'jquery';
 
 
@@ -26,9 +24,6 @@ export class PeticionesComponent implements OnInit {
   public usuarioSolicitante: object
 
   public estrellas: number
-  
-
-  public indice: number
 
   public elID:number
 
@@ -46,16 +41,7 @@ export class PeticionesComponent implements OnInit {
     this.apiService2.getPeticionesPub(this.user[0].id_usuario).subscribe((data) =>
     {
       this.peticiones = data
-
-      this.apiService2.getPetUsuPub(this.user[0].id_usuario).subscribe((data) =>
-      {
-
-        this.petUsu = data
-      })
-
     })
-
-    
   }
 
   mostrarPeticionesSol(){
@@ -64,22 +50,13 @@ export class PeticionesComponent implements OnInit {
     {
 
       this.peticiones = data
-
-      this.apiService2.getPetUsuSol(this.user[0].id_usuario).subscribe((data) =>
-      {
-
-        this.petUsu = data
-      })
     })
-
-    
   }
+
 
   mostrarPeticion(indice){
 
-    this.indice = indice
-
-    this.elID = this.peticiones[this.indice].id_peticion
+    this.elID = this.peticiones[indice].id_peticion
 
     this.apiService1.getPeticion(this.elID).subscribe((data) =>
     {
@@ -113,14 +90,11 @@ export class PeticionesComponent implements OnInit {
       this.mostrarPeticionesPub()
     })
 
-    this.apiService1.getPetUsu(peticion.id_peticion).subscribe((data) =>
-    {
-      let elUsuario = new Usuarios()
-      elUsuario.id_usuario = data[0].id_solicitante
-      this.apiService2.putRechazarResta(elUsuario).subscribe((data) =>{})
-    })
-
-    this.apiService2.putRechazarPetUsu(peticion).subscribe((data) =>{})
+    let elUsuario = new Usuarios()
+    elUsuario.id_usuario = peticion.id_solicitante
+    
+    this.apiService2.putRechazarResta(elUsuario).subscribe((data) =>{})
+    
   }
 
   realizarSolicitud(peticion:Peticiones){
@@ -132,7 +106,7 @@ export class PeticionesComponent implements OnInit {
     })
   }
 
-  completarSolicitud(peticion:Peticiones, petUsu:Petusu){
+  completarSolicitud(peticion:Peticiones){
 
     this.apiService2.putCompletada(peticion).subscribe((data) =>
     {
@@ -161,7 +135,7 @@ export class PeticionesComponent implements OnInit {
 
     let usuarioSolicitante = new Usuarios()
 
-    usuarioSolicitante.id_usuario = petUsu.id_solicitante
+    usuarioSolicitante.id_usuario = peticion.id_solicitante
     usuarioSolicitante.monedas = peticion.precio
 
     this.apiService2.putCompletadaSumaSolicitante(usuarioSolicitante).subscribe((data) =>{})

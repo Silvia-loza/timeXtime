@@ -45,7 +45,7 @@
                         <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
                         <h6 class="monedas">{{peticion.precio}}</h6>
               
-                        <div *ngIf="petUsu[i].id_creador === user[0].id_usuario">
+                        <div *ngIf="peticiones[i].id_creador === user[0].id_usuario">
 
                           <div *ngIf="peticiones[i].estado === 'sin solicitar'">
 
@@ -56,7 +56,7 @@
 
                           <div *ngIf="peticiones[i].estado === 'solicitada'">
 
-                            <button class="btn btn-success solicitar" id="botonx" (click)="datosSolicitante(petUsu[i].id_solicitante)" (click)="openModal(template)">{{peticiones[i].estado}}</button>
+                            <button class="btn btn-success solicitar" id="botonx" (click)="datosSolicitante(peticiones[i].id_solicitante)" (click)="openModal(template)">{{peticiones[i].estado}}</button>
                           </div>
 
                           <div *ngIf="peticiones[i].estado === 'aceptada'">
@@ -66,7 +66,7 @@
 
                           <div *ngIf="peticiones[i].estado === 'realizada'">
 
-                            <button class="btn btn-primary solicitar" id="botonx" (click)="datosSolicitante(petUsu[i].id_solicitante)" (click)="openModal(template2)">{{peticiones[i].estado}}</button>
+                            <button class="btn btn-primary solicitar" id="botonx" (click)="datosSolicitante(peticiones[i].id_solicitante)" (click)="openModal(template2)">{{peticiones[i].estado}}</button>
                           </div>
 
                           <div *ngIf="peticiones[i].estado === 'expirada'">
@@ -81,7 +81,7 @@
 
                             <div *ngIf="peticiones[i].valorada_creador === 0">
 
-                              <label id = "anadirFoto" (click)="datosSolicitante(petUsu[i].id_solicitante)" (click)="openModal(template3a)">Pendiente de valoración</label>
+                              <label id = "anadirFoto" (click)="datosSolicitante(peticiones[i].id_solicitante)" (click)="openModal(template3a)">Pendiente de valoración</label>
 
                             </div>
 
@@ -90,7 +90,7 @@
                           
                         </div>
 
-                        <div *ngIf="petUsu[i].id_creador != user[0].id_usuario">
+                        <div *ngIf="peticiones[i].id_creador != user[0].id_usuario">
 
                           <div *ngIf="peticiones[i].estado === 'solicitada'">
 
@@ -116,7 +116,7 @@
                             <br>
                             <div *ngIf="peticiones[i].valorada_solicitante === 0">
 
-                              <label id = "anadirFoto" (click)="datosCreador(petUsu[i].id_creador)" (click)="openModal(template3b)">Pendiente de valoración</label>
+                              <label id = "anadirFoto" (click)="datosCreador(peticiones[i].id_creador)" (click)="openModal(template3b)">Pendiente de valoración</label>
 
                             </div>
                             
@@ -192,7 +192,7 @@
                                                                                 
                             </div>
 
-                            <button class="btn btn-outline-success" (click)="completarSolicitud(peticiones[i], petUsu[i])" (click)="modalRef.hide()"> <i class="fa fa-check-circle"></i> Continuar</button>
+                            <button class="btn btn-outline-success" (click)="completarSolicitud(peticiones[i])" (click)="modalRef.hide()"> <i class="fa fa-check-circle"></i> Continuar</button>
                             <button class="btn btn-outline-danger" id="rechazar" (click)="modalRef.hide()"> <i class="fa fa-times-circle"></i> Volver</button>
                             
                           </div>

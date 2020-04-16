@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Peticiones } from '../models/peticiones';
 import { Usuarios } from '../models/usuarios';
-import { Petusu } from '../models/petusu';
 
 @Injectable({
   providedIn: 'root'
@@ -22,19 +21,9 @@ export class PeticionesService {
     return this.http.get(this.url + "?id=" + id)
   }
 
-  getPetUsuPub(id: number){
-
-    return this.http.get(this.url + "/petusu?id=" + id)
-  }
-
   getPeticionesSol(id: number){
 
     return this.http.get(this.url2 + "?id=" + id)
-  }
-
-  getPetUsuSol(id: number){
-
-    return this.http.get(this.url2 + "/petusu?id=" + id)
   }
 
   putAceptar(peticion:Peticiones){
@@ -45,11 +34,6 @@ export class PeticionesService {
   putRechazar(peticion:Peticiones){
 
     return this.http.put(this.url3 + "/rechazar", peticion)
-  }
-
-  putRechazarPetUsu(peticion: Peticiones){
-
-    return this.http.put(this.url3 + "/rechazar-petusu", peticion)
   }
 
   putRealizada(peticion:Peticiones){
@@ -71,7 +55,6 @@ export class PeticionesService {
 
     return this.http.put(this.url3 + "/completar-suma-solicitante", usuario)
   }
-  // 
 
   putCambiosUsuario(usuario:Usuarios){
 

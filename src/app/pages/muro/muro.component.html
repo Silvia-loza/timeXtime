@@ -70,17 +70,16 @@
                   <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
                   <h6 class="monedas">{{peticion.precio}}</h6>
         
-                  <div *ngIf="petUsu[i].id_creador === userLogin[0].id_usuario">
+                  <div *ngIf="peticiones[i].id_creador === userLogin[0].id_usuario">
 
                     <button class="btn btn-warning solicitar" id="botonx" disabled>{{peticiones[i].estado}}</button>
                   </div>
-                  <div *ngIf="petUsu[i].id_creador != userLogin[0].id_usuario">
+                  <div *ngIf="peticiones[i].id_creador != userLogin[0].id_usuario">
 
                     <button class="btn btn-warning solicitar" id="botonx" (click)="solicitar(i)">Solicitar</button>
 
                   </div>
 
-                  <!-- {{petUsu[peticiones[i].id_peticion].id_creador}} -->
                   
                 </div>
               </div>

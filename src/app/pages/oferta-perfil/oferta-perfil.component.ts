@@ -16,7 +16,6 @@ export class OfertaPerfilComponent implements OnInit {
 
   public peticion:object
   public usuario: object
-  public petUsu: object
   public userLogin: object
   public chats: any
   public yaExisteChat: boolean = false
@@ -24,7 +23,6 @@ export class OfertaPerfilComponent implements OnInit {
 
     this.peticion = this.apiService.peticion
     this.usuario = this.apiService.usuario
-    this.petUsu = this.apiService.petUsu
     this.userLogin = this.apiService2.usuarioLogin
     this.chats = this.apiService4.chats
     
@@ -32,7 +30,9 @@ export class OfertaPerfilComponent implements OnInit {
 
   solicitar(){
 
-    this.apiService3.putSolicitarPeticiones(this.peticion[0]).subscribe((data) =>
+    this.peticion[0].id_solicitante = this.userLogin[0].id_usuario
+
+    this.apiService3.putSolicitarPeticion(this.peticion[0]).subscribe((data) =>
     {
 
       this.apiService3.putSumaPeticionSol(this.userLogin[0]).subscribe((data) =>{})
@@ -42,12 +42,6 @@ export class OfertaPerfilComponent implements OnInit {
 
         this.peticion = data
       })
-    })
-
-    this.apiService3.putSolicitarPetUsu(this.userLogin[0].id_usuario, this.petUsu[0]).subscribe((data) =>
-    {
-
-      console.log(data)
     })
 
   }

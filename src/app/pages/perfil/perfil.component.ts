@@ -25,7 +25,7 @@ export class PerfilComponent implements OnInit {
   public mostrarP : Object
   public perfilForm = new Usuarios ()
   
-  constructor(private apiService: PerfilService, private apiService2: LoginService, private router: Router, private apiService3: HeaderService) { 
+  constructor(private apiService: PerfilService, private apiService2: LoginService) { 
     this.perfil = this.apiService2.usuarioLogin
     this.perfilForm
   }

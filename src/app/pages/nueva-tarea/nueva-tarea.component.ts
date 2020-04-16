@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NuevatareaService } from 'src/app/shared/nuevatarea.service';
 import { Peticiones } from 'src/app/models/peticiones';
 import { LoginService } from 'src/app/shared/login.service';
-import { Petusu } from 'src/app/models/petusu';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms'
 
 @Component({
@@ -12,7 +11,8 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms'
 })
 export class NuevaTareaComponent implements OnInit {
   public categoria: String
-  public peticiones1= new Peticiones()
+
+  public peticiones1 = new Peticiones()
 
   constructor(private apiService: NuevatareaService, private apiService2: LoginService) {
 
@@ -63,31 +63,13 @@ export class NuevaTareaComponent implements OnInit {
     peticion.precio=precio
     peticion.fecha_finalizacion=fecha_finalizacion
     peticion.descripcion=descripcion
+    peticion.id_creador = this.apiService2.usuarioLogin[0].id_usuario
 
     this.apiService.postTarea(peticion).subscribe((data) =>
     {
-      
-      
-      this.apiService.getUltimaPeticion().subscribe((data) =>
-      {
-      
-        let newPetUsu = new Petusu()
-
-        newPetUsu.id_peticion = data[0].id_peticion
-        newPetUsu.id_creador = this.apiService2.usuarioLogin[0].id_usuario
-
-        this.apiService.postPetUsu(newPetUsu).subscribe((data)=>
-        {
-
-          console.log(data)
-        })
-
-      })
-
       this.apiService.putSumaPub(this.apiService2.usuarioLogin[0]).subscribe((data) =>{})
     })
 
-    
   }
 
 

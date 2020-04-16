@@ -116,13 +116,13 @@
                 <h6 class="monedas">{{peticion[0].precio}}</h6>
             
 
-                <div *ngIf="petUsu[0].id_creador === userLogin[0].id_usuario">
+                <div *ngIf="peticion[0].id_creador === userLogin[0].id_usuario">
                   <button class="btn btn-warning solicitar" id="boton1" disabled>{{peticion[0].estado}}</button>
 
                 </div>
 
                 <div *ngIf="peticion[0].estado === 'sin solicitar'">
-                  <div *ngIf="petUsu[0].id_creador != userLogin[0].id_usuario">
+                  <div *ngIf="peticion[0].id_creador != userLogin[0].id_usuario">
 
                     <button type="button" class="btn btn-warning solicitar" id="boton1" (click)="solicitar()">Solicitar</button>
   
@@ -131,7 +131,7 @@
 
                 </div>
                 
-                <div *ngIf="petUsu[0].id_creador != userLogin[0].id_usuario && peticion[0].estado === 'solicitada'">
+                <div *ngIf="peticion[0].id_creador != userLogin[0].id_usuario && peticion[0].estado === 'solicitada'">
 
                   <button class="btn btn-warning solicitar" id="boton1" disabled>{{peticion[0].estado}}</button>
 
@@ -145,7 +145,7 @@
           <div class="bloque" id="div4">
           <img src="{{usuario[0].foto}}" id="avatar">
 
-          <h3 id="nombre">{{usuario[0].nombre}} {{usuario[0].primer_apellido}} {{usuario[0].segundo_apellido}}</h3>
+          <h3 id="nombre">{{usuario[0].nombre_usuario}}</h3>
 
           <div id="start">
   

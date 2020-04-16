@@ -11,7 +11,6 @@ export class MuroService {
   private url2 = "http://localhost:3000/muro/titulo-tarjeta"
   private url3 = "http://localhost:3000/muro/titulo-tarjeta/usuario"
   private url4 = "http://localhost:3000/muro/modal/buscar"
-  private url5 = "http://localhost:3000/muro/titulo-tarjeta/petusu"
 
   public peticion: object
   public usuario: object
@@ -39,10 +38,5 @@ export class MuroService {
   getUsuario(id:number){
 
     return this.http.get(this.url3 + '?id_peticion=' + id)
-  }
-
-  getPetUsu(id:number){
-
-    return this.http.get(this.url5 + '?id_peticion=' + id)
   }
 }

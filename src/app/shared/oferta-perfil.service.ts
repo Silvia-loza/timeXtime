@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Peticiones } from '../models/peticiones';
-import { Petusu } from '../models/petusu';
 import { Chat } from '../models/chat';
 import { Usuarios } from '../models/usuarios';
 
@@ -15,19 +14,14 @@ export class OfertaPerfilService {
 
   constructor(private http:HttpClient) { }
 
-  putSolicitarPeticiones(peticion:Peticiones){
-
-    return this.http.put(this.url + "/solicitar-peticiones", peticion)
-  }
-
   putSumaPeticionSol(usuario:Usuarios){
 
     return this.http.put(this.url + "/solicitar/suma", usuario)
   }
 
-  putSolicitarPetUsu(id: number, petUsu:Petusu){
+  putSolicitarPeticion(peticion:Peticiones){
 
-    return this.http.put(this.url + "/solicitar-petusu?id=" + id, petUsu)
+    return this.http.put(this.url + "/solicitar-peticion", peticion)
   }
 
   postIniciarChat(chat:Chat){

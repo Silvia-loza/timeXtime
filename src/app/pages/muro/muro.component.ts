@@ -18,13 +18,10 @@ export class MuroComponent implements OnInit {
   modalRef: BsModalRef
 
   public peticiones: object
-  public indice: number
 
   public elID:number
 
   public categoria: String
-
-  public petUsu: object
 
   public userLogin: object
 
@@ -32,7 +29,6 @@ export class MuroComponent implements OnInit {
   constructor(private modalService: BsModalService, private apiService:MuroService, private router: Router, private apiService2:OfertaPerfilService, private apiService3:LoginService, private apiService4:HeaderService){
 
     this.peticiones = this.apiService3.peticiones
-    this.petUsu = this.apiService3.petUsu
     this.userLogin = this.apiService3.usuarioLogin
   }
 
@@ -93,9 +89,7 @@ export class MuroComponent implements OnInit {
 
   mostrarPeticion(indice){
 
-    this.indice = indice
-
-    this.elID = this.peticiones[this.indice].id_peticion
+    this.elID = this.peticiones[indice].id_peticion
 
     this.apiService.getPeticion(this.elID).subscribe((data) =>
     {
@@ -111,22 +105,18 @@ export class MuroComponent implements OnInit {
       })
     })
 
-    this.apiService.getPetUsu(this.elID).subscribe((data) =>
-    {
-      this.apiService.petUsu = data
-    })
-
     this.apiService4.getChats(this.userLogin[0].id_usuario).subscribe((data) =>{
 
       this.apiService4.chats = data
     })
 
-    
   }
 
   solicitar(indice:number){
 
-    this.apiService2.putSolicitarPeticiones(this.peticiones[indice]).subscribe((data) =>
+    this.peticiones[indice].id_solicitante = this.userLogin[0].id_usuario
+
+    this.apiService2.putSolicitarPeticion(this.peticiones[indice]).subscribe((data) =>
     {
 
       this.apiService2.putSumaPeticionSol(this.userLogin[0]).subscribe((data) =>{})
@@ -136,24 +126,10 @@ export class MuroComponent implements OnInit {
 
         this.peticiones = data
 
-        this.apiService3.getPetUsu().subscribe((data) =>
-        {
-
-          this.petUsu = data
-        })
       })
     })
 
-    this.apiService2.putSolicitarPetUsu(this.userLogin[0].id_usuario, this.petUsu[indice]).subscribe((data) =>
-    {
-
-      console.log(data)
-    })
-
   }
-
-
-  
 
 
   ngOnInit(): void {
