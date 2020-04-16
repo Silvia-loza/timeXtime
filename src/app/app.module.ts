@@ -23,6 +23,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { CookiesComponent } from './pages/cookies/cookies.component';
 import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
 
   ],
   providers: [MessageServiceService],

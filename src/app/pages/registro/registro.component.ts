@@ -1,10 +1,12 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { LoginService } from 'src/app/shared/login.service';
 import { Router } from '@angular/router';
 import { Usuarios } from 'src/app/models/usuarios';
 import { MessageServiceService } from './../../shared/message-service.service';
 import { FormGroup,Validators,FormBuilder} from "@angular/forms"
+import { ToastrService } from 'ngx-toastr';
+
 
 import { MustMatch } from './_helpers/must-match.validator';
 
@@ -21,10 +23,22 @@ export class RegistroComponent implements OnInit {
   public nuevoUsuario = new Usuarios()
   registerForm:FormGroup; 
   submitted = false;
-  constructor(private modalService: BsModalService, private apiService:LoginService, private router:Router, public _MessageService: MessageServiceService, private formBuilder: FormBuilder) {
-
+  constructor(private modalService: BsModalService, private apiService:LoginService, private router:Router, public _MessageService: MessageServiceService, private formBuilder: FormBuilder, private toastr: ToastrService) {
+    
     this.nuevoUsuario
   }
+
+showToaster(){
+    this.toastr.success("Hola, te has registrado satisfactoriamente.")
+}
+
+showToaster1(){
+  this.toastr.error("Tu email o tu contraseña son incorrectos")
+}
+
+showToaster2(){
+  this.toastr.success("¡Bien, comenzamos!")
+}
 
   contactForm(form) {
     this._MessageService.sendMessage(form).subscribe(() => {
@@ -58,11 +72,13 @@ export class RegistroComponent implements OnInit {
 
       if(this.apiService.usuarioLogin[0] != undefined){
 
+        this.showToaster2()
         this.router.navigate(['/', 'muro'])
+
         
       } else {
 
-        console.log("Datos incorrectos")
+        this.showToaster1()
       }
 
     })
@@ -80,11 +96,11 @@ export class RegistroComponent implements OnInit {
     this.apiService.postUsuario(usuario).subscribe((data)=>
     
     {
+      
         console.log(data)
     });
   }
-
-
+  
   ngOnInit(): void {
 
     this.registerForm = this.formBuilder.group({
@@ -107,3 +123,4 @@ onSubmit() {
     console.log('Registrado')
 }
 }
+
