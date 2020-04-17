@@ -70,10 +70,12 @@ export class MuroComponent implements OnInit {
 
     if(fecha_finalizacion.toString() === ""){
 
-      let newFecha = new Date("2099-12-12")
+      let newFecha: Date = new Date()
+
+      newFecha.setFullYear(2099,11,30)
 
       fecha_finalizacion = newFecha
-      console.log(newFecha)
+      
     }
 
     

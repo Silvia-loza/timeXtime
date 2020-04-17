@@ -23,6 +23,10 @@ export class RegistroComponent implements OnInit {
   public nuevoUsuario = new Usuarios()
   registerForm:FormGroup; 
   submitted = false;
+
+  public nombreRepetido: boolean = false
+  public emailRepetido: boolean = false
+
   constructor(private modalService: BsModalService, private apiService:LoginService, private router:Router, public _MessageService: MessageServiceService, private formBuilder: FormBuilder, private toastr: ToastrService) {
     
     this.nuevoUsuario
@@ -89,10 +93,23 @@ showToaster2(){
     usuario.contrasena = contrasena
   
     this.apiService.postUsuario(usuario).subscribe((data)=>
-    
     {
       
-        console.log(data)
+      let texto: String
+
+      texto = Object.values(data).toString()
+
+      
+
+      if(texto.search("'nombre_usuario'") === 56){
+
+        this.nombreRepetido = true
+
+        
+      } else if(texto.search("'email'") === 69){
+
+        this.emailRepetido = true
+      }   
     });
   }
   

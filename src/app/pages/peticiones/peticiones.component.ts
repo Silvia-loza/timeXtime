@@ -20,6 +20,8 @@ export class PeticionesComponent implements OnInit {
   public peticiones: object
   public petUsu: object
 
+  public peticionError: Peticiones 
+
   public usuarioCreador: object
   public usuarioSolicitante: object
 
@@ -34,6 +36,12 @@ export class PeticionesComponent implements OnInit {
   constructor(private apiService:LoginService, private apiService2:PeticionesService, private apiService1:MuroService, private router: Router, private modalService: BsModalService) { 
 
     this.user = this.apiService.usuarioLogin
+
+    this.peticiones = this.apiService2.peticiones
+
+    this.peticionError = new Peticiones()
+
+    this.peticionError = this.apiService2.peticionError
   }
 
   mostrarPeticionesPub(){
@@ -41,15 +49,24 @@ export class PeticionesComponent implements OnInit {
     this.apiService2.getPeticionesPub(this.user[0].id_usuario).subscribe((data) =>
     {
       this.peticiones = data
+
+      this.peticionError.descripcion = "No hay peticiones publicadas, haz click abajo para publicar una petición"
+      this.peticionError.estado = "Publicar"
     })
   }
 
   mostrarPeticionesSol(){
 
+    
+    
+
     this.apiService2.getPeticionesSol(this.user[0].id_usuario).subscribe((data) =>
     {
 
       this.peticiones = data
+
+      this.peticionError.descripcion = "No hay peticiones solicitadas, haz click abajo para ir al muro y solicitar alguna"
+      this.peticionError.estado = "Muro"
     })
   }
 

@@ -197,6 +197,7 @@ body{
   /* margin-left: 6%; */
   background-color: rgb(255, 204, 0);
   margin-bottom: 5%;
+  min-height: 550px;
 }
 
 #anadirFoto{

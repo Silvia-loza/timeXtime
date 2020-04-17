@@ -18,10 +18,48 @@
   
         <button class="button" id="tareas_publicadas" (click) = "mostrarPeticionesSol(); toggleClass()">Peticiones solicitadas</button>
       </div>
+
         <div class="container" id="container2">
 
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
     
+            
+
+            <div *ngIf="peticiones[0] == null">
+
+              <div class="card " id="card1">
+                <img class="card-img-top" src="..\..\..\assets\oops.jpg" alt="Card image cap">
+                
+                <div class="card-body">
+                  <h6 class="zona">Sin localizacion</h6>
+                  <h6 class="fecha">00/00/0000</h6>
+                  <br>
+                  <br>
+                  <h5 class="card-title">¡No hay peticiones!</h5>
+                  <p class="card-text">{{peticionError.descripcion}}</p>
+                  
+                  <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
+                  <h6 class="monedas"></h6>
+        
+
+                  <div *ngIf="peticionError.estado === 'Muro'">
+
+                    <button class="btn btn-warning solicitar" id="botonx" routerLink="/muro">{{peticionError.estado}}</button>
+
+                  </div>
+
+                  <div *ngIf="peticionError.estado === 'Publicar'">
+
+                    <button class="btn btn-warning solicitar" id="botonx" routerLink="/nueva-tarea">{{peticionError.estado}}</button>
+
+                  </div>
+                  
+                  
+                    
+                   
+                </div> 
+              </div>   
+            </div>
       
             <div *ngIf="peticiones!=null">
       

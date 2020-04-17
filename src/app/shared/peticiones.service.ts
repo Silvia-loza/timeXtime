@@ -13,6 +13,10 @@ export class PeticionesService {
   private url3 = "http://localhost:3000/boton/solicitar"
   private url4 = "http://localhost:3000/boton/valorar/cambios-"
   private url5 = "http://localhost:3000/header/perfil"
+
+  public peticiones: object
+
+  public peticionError: Peticiones
   
   constructor(private http:HttpClient) { }
 
