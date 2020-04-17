@@ -3,6 +3,8 @@ import { NuevatareaService } from 'src/app/shared/nuevatarea.service';
 import { Peticiones } from 'src/app/models/peticiones';
 import { LoginService } from 'src/app/shared/login.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms'
+import Swal from 'sweetalert2';
+import { Usuarios} from '../../models/usuarios';
 
 @Component({
   selector: 'app-nueva-tarea',
@@ -11,12 +13,14 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms'
 })
 export class NuevaTareaComponent implements OnInit {
   public categoria: String
+  public usuario: Usuarios
 
   public peticiones1 = new Peticiones()
 
   constructor(private apiService: NuevatareaService, private apiService2: LoginService) {
 
     this.peticiones1
+    this.usuario= this.apiService2.usuarioLogin[0]
   }
 
   onSubmit(form){
@@ -58,9 +62,24 @@ export class NuevaTareaComponent implements OnInit {
       peticion.foto= '..\\..\\assets\\' + foto.slice(foto.lastIndexOf('\\') + 1);
     }
 
+    if (precio <= this.apiService2.usuarioLogin[0].monedas){
+      peticion.precio=precio
+
+      Swal.fire({
+        icon: 'success',
+        text: '"Petición subida correctamente"'
+      }) 
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '"No tienes suficiente dinero para publicar esta petición"'
+      })
+      console.log(peticion.precio)
+    }
+
     peticion.titulo=titulo
     peticion.localizacion=localizacion
-    peticion.precio=precio
     peticion.fecha_finalizacion=fecha_finalizacion
     peticion.descripcion=descripcion
     peticion.id_creador = this.apiService2.usuarioLogin[0].id_usuario
