@@ -48,8 +48,11 @@
 
 
 #id_logo{
-    height: 90px;
-    width: 230px;
+    height: 200px;
+    width: 280px;
+    margin-left:5%;
+    margin-bottom: -8%;
+    margin-top: -3%;
 }
 
 .cabecera{
