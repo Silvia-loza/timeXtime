@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 
 
 import { MustMatch } from './_helpers/must-match.validator';
+import { Peticiones } from 'src/app/models/peticiones';
 
 @Component({
   selector: 'app-registro',
@@ -43,7 +44,7 @@ showToaster1(){
 }
 
 showToaster2(){
-  this.toastr.success("¡Bien, comenzamos!")
+  this.toastr.error("Email o contraseña incorrectos")
 }
 
 showToaster3(){
@@ -67,26 +68,32 @@ showToaster3(){
     this.apiService.getPeticiones().subscribe((data) =>
     {
       this.apiService.peticiones = data
-    })
 
-
-    this.apiService.getUsuario(email, contrasena).subscribe((data) =>
-    {
-
-      this.apiService.usuarioLogin = data
-
-      if(this.apiService.usuarioLogin[0] != undefined){
-
-        this.showToaster2()
-        this.router.navigate(['/', 'muro'])
-
+      this.apiService.getUsuario(email, contrasena).subscribe((data) =>
+      {
+      
+        this.apiService.usuarioLogin = data
+      
+        if(this.apiService.usuarioLogin[0] != undefined){
         
-      } else {
-
-        console.log(data)
-      }
-
+          this.router.navigate(['/', 'muro'])
+        
+          
+        } else {
+        
+          this.showToaster2()
+        }
+      
+      })
     })
+
+
+    
+
+    let expirada = new Peticiones()
+
+    expirada.estado = "expirada"
+    this.apiService.putExpirada(expirada).subscribe((data) =>{})
 
   }
 

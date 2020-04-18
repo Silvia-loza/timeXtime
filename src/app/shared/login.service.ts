@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Usuarios } from '../models/usuarios';
+import { Peticiones } from '../models/peticiones';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,11 @@ export class LoginService {
   getUsuario(email:String, contrasena: String){
 
     return this.http.get(this.url + "?email=" + email + "&contrasena=" + contrasena)
+  }
+
+  putExpirada(peticion:Peticiones){
+
+    return this.http.put(this.url + "/expirada", peticion)
   }
 
   postUsuario(newUser: Usuarios){
