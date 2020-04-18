@@ -33,15 +33,21 @@ export class RegistroComponent implements OnInit {
   }
 
 showToaster(){
-    this.toastr.success("Hola, te has registrado satisfactoriamente.")
+ 
+    this.toastr.error("Nombre de usuario ya registrado, por favor introduce otro nombre")
+
 }
 
 showToaster1(){
-  this.toastr.error("Tu email o tu contraseña son incorrectos")
+  this.toastr.error("Email ya registrado, por favor, introduce otro email")
 }
 
 showToaster2(){
   this.toastr.success("¡Bien, comenzamos!")
+}
+
+showToaster3(){
+  this.toastr.success("¡Te has registrado satisfactoriamente!")
 }
 
   contactForm(form) {
@@ -77,7 +83,7 @@ showToaster2(){
         
       } else {
 
-        this.showToaster1()
+        console.log(data)
       }
 
     })
@@ -102,11 +108,18 @@ showToaster2(){
       if(texto.includes("'nombre_usuario'")){
 
         this.nombreRepetido = true
-
+        this.showToaster()
         
       } else if(texto.includes("'email'")){
 
         this.emailRepetido = true
+        this.showToaster1()
+
+      } else if(this.emailRepetido === false && this.nombreRepetido === false){
+
+        this.showToaster3()
+        this.modalRef.hide()
+
       }   
 
       console.log(this.nombreRepetido)
