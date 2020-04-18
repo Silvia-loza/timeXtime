@@ -152,7 +152,7 @@
 
                           <div *ngIf="peticiones[i].estado === 'completada'">
 
-                            <button class="btn btn-secondary solicitar" id="botonx" disabled>{{peticiones[i].estado}}</button>
+                            <button class="btn btn-secondary solicitar" id="botonx" (click)="openModal(completada)">{{peticiones[i].estado}}</button>
                             <br>
                             <div *ngIf="peticiones[i].valorada_solicitante === 0">
 
@@ -235,6 +235,24 @@
                             <button class="btn btn-outline-success" (click)="completarSolicitud(peticiones[i])" (click)="modalRef.hide()"> <i class="fa fa-check-circle"></i> Continuar</button>
                             <button class="btn btn-outline-danger" id="rechazar" (click)="modalRef.hide()"> <i class="fa fa-times-circle"></i> Volver</button>
                             
+                          </div>
+                        </ng-template>
+
+                        <ng-template #completada class="elmodal">
+                          <div class="modal-header">
+                            <h4 class="modal-title pull-center" id="h4filtro">¡Enhorabuena!</h4>
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                              <span aria-hidden="true">&times;</span>
+                        
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                      
+                            <div> 
+                                                 
+                              <p>Esta tarea ya ha sido completada y has recibido {{peticiones[i].precio}} monedas por ella.</p>        
+                                                          
+                            </div>
                           </div>
                         </ng-template>
 

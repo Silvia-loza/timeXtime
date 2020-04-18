@@ -101,11 +101,11 @@
 
             <div class="form-group col-md-6">
                 <label for="fecha">Fecha</label>
-                <input [ngModel]="peticion[0].fecha_finalizacion" name="fecha" type="date" class="form-control campos" id="fecha" #fecha="ngModel"
-                [ngClass]="{ 'is-invalid': peticionesForm.submitted && fecha.invalid }" required>
-                <div class="invalid-feedback" *ngIf="peticionesForm.submitted && fecha.invalid">
+                <input [ngModel]="peticion[0].fecha_finalizacion" name="fecha" type="date" class="form-control campos" id="fecha" #fecha="ngModel">
+                <!-- [ngClass]="{ 'is-invalid': peticionesForm.submitted && fecha.invalid }" required> -->
+                <!-- <div class="invalid-feedback" *ngIf="peticionesForm.submitted && fecha.invalid">
                   <div *ngIf="fecha.errors.required" id="fecha">La fecha de finalización es obligatoria</div>
-              </div>
+              </div> -->
             </div>
           </div>
           
