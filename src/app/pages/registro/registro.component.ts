@@ -99,18 +99,23 @@ showToaster2(){
 
       texto = Object.values(data).toString()
 
-      
-
-      if(texto.search("'nombre_usuario'") === 56){
+      if(texto.includes("'nombre_usuario'")){
 
         this.nombreRepetido = true
 
         
-      } else if(texto.search("'email'") === 69){
+      } else if(texto.includes("'email'")){
 
         this.emailRepetido = true
       }   
+
+      console.log(this.nombreRepetido)
+      console.log(this.emailRepetido)
+
     });
+
+    this.nombreRepetido = false
+    this.emailRepetido = false
   }
   
   ngOnInit(): void {
