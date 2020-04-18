@@ -116,7 +116,7 @@
           <div class="form-group col-md-12">
             <label for="descripcion">Descripcion</label>
             <textarea [ngModel]= peticion[0].descripcion class="form-control" name="descripcion" class="form-control campos " id="descripcion" rows="6"  #descripcion="ngModel"
-             minlength="20"required>
+             minlength="40" maxlength="600" required>
           </textarea>
           <div class="form-control-feedback" 
           *ngIf="descripcion.errors && (descripcion.dirty || descripcion.touched)" id="err"> 
