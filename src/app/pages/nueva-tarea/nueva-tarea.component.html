@@ -126,7 +126,7 @@
                     <div class="form-group">
                         <label for="textarea">Descripción</label>
                         <textarea class="form-control campos" id="masinfo" rows="3" name="descripcion" #descripcion="ngModel" [(ngModel)]="peticiones1.descripcion" 
-                         minlength="10" maxlength="600" required></textarea>
+                         minlength="40" maxlength="600" required></textarea>
                          <div class="form-control-feedback" 
                          *ngIf="descripcion.errors && (descripcion.dirty || descripcion.touched)" id="err"> 
                          <p *ngIf="descripcion.errors.required" id="err">La descripción es necesaria</p>
