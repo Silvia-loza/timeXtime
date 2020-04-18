@@ -3,7 +3,7 @@
   
   <div class="container" id="container1">
     <div class="row">
-      <div class="col-lg-4">
+      <div id ="perfil_izq" class="col-lg-4">
         <img src ="{{user[0].foto}}" id="id_perfil">
         <h2 id="nombre">{{user[0].nombre_usuario}}</h2>
         
@@ -12,6 +12,8 @@
         <h1 id="tiempo">{{user[0].monedas}} <img src ="../../../assets/reloj-de-arena.png" id="id_tiempo"></h1>
         <button routerLink="/nueva-tarea" type="button" id= "nueva_peticion"class="btn btn-light"><i class="fa fa-plus-circle" id="plus"></i> Nueva petición</button>
       </div>
+
+
       <div class="col-lg-8">
         <div [class.active]="classApplied">
         <button class="button" id="tareas_realizadas"  (click) = "mostrarPeticionesPub(); toggleClass()">Peticiones publicadas</button>

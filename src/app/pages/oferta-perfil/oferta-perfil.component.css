@@ -15,7 +15,7 @@ h3 {
 }
 
 .card-text{
-    min-height: 220px;
+    min-height: 200px;
 }
 
 .container{
@@ -23,16 +23,6 @@ h3 {
     margin: 25px;
 }
 
-
-#avatar{
-
-    width: 200px;
-    height: 200px;
-    border-radius: 200px;
-    margin-left: 10px
-    
-
-}
 
 #start {
     margin-left: -20px
@@ -62,21 +52,28 @@ h3 {
 
 #div2{
 
-    float: left;
+   align-content:center
+  
 }
 
 
 #div3{
-
     padding-top: 30px;
-    padding-left: 150px;
+    margin-left: -3%;
+    
+}
+
+
+#div4{
+    align-items: center;
+    text-align: center;
 }
  
 .card-img-top{
 
-    width: 250px;
-    height: 250px;
-    margin-left: 25%;
+    width: 350px;
+    height: 350px;
+    margin-left: 23%;
 }
 
 .zona{
@@ -89,11 +86,13 @@ h3 {
 
 .card{
 
-    width: 500px;
-    margin: 30px;
-    height: 650px;
+    width: 650px;
+    height: 750px;
     box-shadow: 3px 3px #e9e8e8;
-    margin-left: 10%;
+   margin-left: 10%;
+   margin-top: 5%;
+   margin-bottom: 5%;
+    
     
 }
 
@@ -141,16 +140,7 @@ h3 {
 
     color: white;
     font-weight: bold;
-
-
-}
-
-#boton2{
-
-    color: white;
-    font-weight: bold;
-    margin-top: 3px;
-    margin-left: 8%;
+    margin-bottom: 2%;
 
 
 }
@@ -158,7 +148,7 @@ h3 {
 
 #publicadas{
 
-    margin-left: -2%;
+    margin-left: 3%;
 
 }
 
@@ -170,10 +160,12 @@ h3 {
 #bio{
 
     text-align: justify;
-    width: 400px;
-    height: 200px;
-    margin-left: -20%;
+    width: 430px;
+    height: 230px;
     font-size: 13px;
+    margin-left: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 
 .checked {
@@ -187,12 +179,6 @@ h3 {
     color: rgb(75, 75, 75);
 }
 
-#numero{
-
-    
-    margin-left: -95%;
-    margin-top: -11%;
-}
 
 #estrellas{
 
@@ -201,8 +187,16 @@ h3 {
 
 #puntos{
 
-    margin-top: -11%;
-    margin-left: -12%;
+ text-align: right;
+ margin-right: -5%;
+  /*  margin-top: -11%;
+    margin-left: -12%;*/
+}
+#numero{
+    text-align: left;
+ 
+   /* margin-left: -95%;
+    margin-top: -11%;*/
 }
 
 
@@ -212,4 +206,32 @@ h3 {
     font-family: 'Reckless';
     src: local('Reckless'),
     url('../../../assets/Reckless.otf')
+}
+
+#avatar{
+
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+
+}
+
+#boton2{
+
+    color: white;
+    font-weight: bold;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 3%;
+}
+#boton3{
+
+    color: white;
+    font-weight: bold;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+#noValoracion{
+    text-align: center;
+    margin-left: 3%;
 }

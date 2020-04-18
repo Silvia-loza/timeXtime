@@ -8,13 +8,21 @@
     /* color: white; */
     color: rgb(75, 75, 75);
 }
+#valo-puntos {
+
+    margin-top: 2%;
+    margin-left: -8%;
+}
+#puntos{
+    text-align: right;
+}
 
 #numero{
+    text-align: left;
+   
 
-    
-    margin-left: -70%;
 }
 
 #estrellas{
-    margin: 0,25%,0,auto;
+    margin: 0,auto;
 }

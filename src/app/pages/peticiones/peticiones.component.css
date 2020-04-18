@@ -2,10 +2,47 @@
   font-family: principal;
   src: url(../../../assets/Reckless.otf) format("opentype");
 }
+#perfil_izq {
+  text-align: center;
+  margin-right: 5%;
+  margin-left: -10%;
+}
+#id_perfil{
+
+  width: 245px;
+  height: 245px;
+  border-radius: 245px;
+}
+
+#nombre{
+
+  margin-top: 5%;
+}
+
 
 #id_tiempo{
   height: 45px;
   width: 45px;
+  margin-right: 25%;
+
+}
+
+#nueva_peticion{
+
+  width: 250px;
+  height: 80px;
+  color:#FFCC00;
+  font-weight: bold;
+  border-color: #FFCC00;
+  border-width: 2px;
+  background-color: transparent;
+  color: #FFCC00;
+  border: 2px solid #FFCC00;
+  border-radius: 50px;
+  font-size: 22.5px;
+
+  margin-top: 10%;
+
 }
 
 #nueva_peticion:hover {
@@ -56,31 +93,6 @@
   box-shadow: none;
 }
 
-#nueva_peticion{
-
-  width: 250px;
-  height: 80px;
-  color:#FFCC00;
-  font-weight: bold;
-  border-color: #FFCC00;
-  border-width: 2px;
-  background-color: transparent;
-  color: #FFCC00;
-  border: 2px solid #FFCC00;
-  border-radius: 50px;
-  font-size: 22.5px;
-
-  margin-top: 10%;
-
-}
-
-#id_perfil{
-
-  width: 245px;
-  height: 245px;
-  border-radius: 245px;
-}
-
 .estrella{
 
   width: 35px;
@@ -98,12 +110,6 @@
 body{
 
   min-height: 800px;
-}
-
-
-#nombre{
-
-  margin-top: 5%;
 }
 
 #estrellas{
