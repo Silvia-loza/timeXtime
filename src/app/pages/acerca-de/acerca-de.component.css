@@ -7,11 +7,28 @@ h1 {
     font-family:Reckless;
     font-size: 90px;
     size: 100px;
-    text-align: center;
+    text-align: left;
+    margin-left: 15%;
     background-color: rgb(255, 204, 0);
     height: 120px;
     
 }
+#arriba{
+    size: 100px;
+    text-align: center;
+    background-color: rgb(255, 204, 0);
+    height: 120px;
+}
+
+
+#logo{
+    height: 200px;
+    width: 280px;
+    margin-left:10%;
+    padding-bottom: 5%;
+}
+
+
 h2 {
     font-family: Reckless;
     font-size: 60px;
@@ -40,5 +57,19 @@ span {
     text-align: justify;
     margin-left: 3%;
     margin-right: 3%;
+}
+.yellow {
+    color: rgb(255, 204, 0);
+}
+
+.card{
+
+   box-shadow: 3px 3px #e9e8e8;
+   margin-top: 5%;
+   margin-bottom: 5%;
+   padding-top: 5%;
+   padding-bottom: 5%;
+    
+    
 }
 
