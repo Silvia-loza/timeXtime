@@ -59,7 +59,7 @@ h3 {
 
 #div3{
     padding-top: 30px;
-    margin-left: -3%;
+    margin-left: -5%;
     
 }
 
@@ -188,17 +188,17 @@ h3 {
 #puntos{
 
  text-align: right;
- margin-right: -5%;
+
   /*  margin-top: -11%;
     margin-left: -12%;*/
 }
 #numero{
     text-align: left;
+   margin-right: 15%;
  
    /* margin-left: -95%;
     margin-top: -11%;*/
 }
-
 
 
 @font-face{
