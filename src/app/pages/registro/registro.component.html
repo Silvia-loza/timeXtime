@@ -100,7 +100,7 @@
 
 
         <div class="form-group">
-          <button class="button" id="modalBoton"  class="btn btn-dark"  (click)="insertarUsuario(nombre.value, email.value, contrasena.value)" [disabled]="!registerForm.valid">Tic Tac</button>
+          <button class="button" id="modalBoton"  class="btn btn-dark" (click)="insertarUsuario(nombre.value, email.value, contrasena.value); registerForm.reset()" [disabled]="!registerForm.valid">Tic Tac</button>
         </div>
         
       </form>
