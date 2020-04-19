@@ -19,6 +19,7 @@ import { ChatComponent } from './pages/chat/chat.component';
 import { ChatPipe } from './pipes/chat.pipe'
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { MessageServiceService } from "./shared/message-service.service";
+import { MensajeContactoService } from "./shared/mensaje-contacto.service";
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { CookiesComponent } from './pages/cookies/cookies.component';
 import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
@@ -58,7 +59,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule
 
   ],
-  providers: [MessageServiceService],
-  bootstrap: [AppComponent]
+  providers: [ MessageServiceService, MensajeContactoService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
