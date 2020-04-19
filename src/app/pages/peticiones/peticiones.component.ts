@@ -7,6 +7,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Peticiones } from 'src/app/models/peticiones';
 import { Usuarios } from 'src/app/models/usuarios';
 import * as jQuery from 'jquery';
+import { HeaderService } from 'src/app/shared/header.service';
 
 
 @Component({
@@ -33,7 +34,10 @@ export class PeticionesComponent implements OnInit {
 
   modalRef: BsModalRef
 
-  constructor(private apiService:LoginService, private apiService2:PeticionesService, private apiService1:MuroService, private router: Router, private modalService: BsModalService) { 
+  public boton1: boolean = false
+  public boton2: boolean = false
+
+  constructor(private apiService:LoginService, private apiService2:PeticionesService, private apiService1:MuroService, private router: Router, private modalService: BsModalService, private apiService4:HeaderService) { 
 
     this.user = this.apiService.usuarioLogin
 
@@ -42,9 +46,44 @@ export class PeticionesComponent implements OnInit {
     this.peticionError = new Peticiones()
 
     this.peticionError = this.apiService2.peticionError
+
+    this.boton1 = true
+
+    this.boton2 = false
+  }
+
+  mostrarPeticion2(indice){
+
+    this.elID = this.peticiones[indice].id_peticion
+
+    this.apiService1.getPeticion(this.elID).subscribe((data) =>
+    {
+
+      this.apiService1.peticion = data
+
+      this.apiService1.getUsuario(this.elID).subscribe((data2) =>
+      {
+        this.apiService1.usuario = data2
+
+        this.router.navigate(['/', 'oferta'])
+ 
+      })
+    })
+
+    this.apiService4.getChats(this.user[0].id_usuario).subscribe((data) =>{
+
+      this.apiService4.chats = data
+    })
+
   }
 
   mostrarPeticionesPub(){
+
+    this.boton1 = true
+    this.boton2 = false
+
+    console.log(this.boton1)
+    console.log(this.boton2)
 
     this.apiService2.getPeticionesPub(this.user[0].id_usuario).subscribe((data) =>
     {
@@ -58,7 +97,11 @@ export class PeticionesComponent implements OnInit {
   mostrarPeticionesSol(){
 
     
-    
+    this.boton2 = true
+    this.boton1 = false
+
+    console.log(this.boton1)
+    console.log(this.boton2)
 
     this.apiService2.getPeticionesSol(this.user[0].id_usuario).subscribe((data) =>
     {
@@ -205,15 +248,6 @@ export class PeticionesComponent implements OnInit {
     this.apiService2.putCambiosPeticionSol(peticion).subscribe((data) =>{})
   }
 
-  classApplied = false;
-
-  toggleClass() {
-    this.classApplied = !this.classApplied;
-  }
-  classApplied1 = false;
-  toggleClass1() {
-    this.classApplied1 = !this.classApplied1;
-  }
 
   ngOnInit(): void {
   }

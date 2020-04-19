@@ -15,11 +15,14 @@
 
 
       <div class="col-lg-8">
-        <div [class.active]="classApplied">
-        <button class="button" id="tareas_realizadas"  (click) = "mostrarPeticionesPub(); toggleClass()">Peticiones publicadas</button>
+        
+        <button class="button" id="tareas_realizadas"  (click) = "mostrarPeticionesPub()" [ngClass]="boton1 === true ? 'selected' : 'noSelected'">Peticiones publicadas</button>
+
+          
+          
   
-        <button class="button" id="tareas_publicadas" (click) = "mostrarPeticionesSol(); toggleClass()">Peticiones solicitadas</button>
-      </div>
+        <button class="button" id="tareas_publicadas" (click) = "mostrarPeticionesSol()" [ngClass]="boton2 === true ? 'selected' : 'noSelected'">Peticiones solicitadas</button>
+      
 
         <div class="container" id="container2">
 
@@ -72,14 +75,14 @@
                   <div *ngFor="let peticion of peticiones; let i = index">
                     
                     <div class="card " id="card1">
-                      <img class="card-img-top" src="{{peticion.foto}}" alt="Card image cap">
+                      <img class="card-img-top" src="{{peticion.foto}}" alt="Card image cap" (click)="mostrarPeticion2(i)">
                       
                       <div class="card-body">
                         <h6 class="zona">{{peticion.localizacion}}</h6>
                         <h6 class="fecha">{{peticion.fecha_finalizacion | date:'dd/MM/yyyy'}}</h6>
                         <br>
                         <br>
-                        <h5 class="card-title">{{peticion.titulo}}</h5>
+                        <h5 class="card-title" (click)="mostrarPeticion2(i)">{{peticion.titulo}}</h5>
                         <p class="card-text">{{peticion.descripcion}} </p>
                         
                         <img class="reloj" src="..\..\..\assets\reloj-de-arena.png" alt="">
